@@ -11,7 +11,7 @@ import reducers from './reducers';
 import routes from './routes';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-flatly.min.css';
+//import 'bootstrap/dist/css/bootstrap-flatly.min.css';
 import './index.css';
 
 //
