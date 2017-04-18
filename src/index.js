@@ -14,20 +14,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.min.css';
 import './index.css';
 
-//
-// Grab the state from a global variable injected into the server-generated HTML
+
+// // Grab the state from a global variable injected into the server-generated HTML
 // const preloadedState = window.__PRELOADED_STATE__;
 //
 // // Allow the passed state to be garbage-collected
 // delete window.__PRELOADED_STATE__;
+debugger;
 
 const rootReducer = combineReducers({
   ...reducers,
   routing: routerReducer
 });
-//const createStoreWithMiddleware = applyMiddleware()(createStore);
-//const store = createStoreWithMiddleware(rootReducer, preloadedState);
-// const store = createStore(rootReducer, preloadedState, applyMiddleware());
+console.log(`index.js, rootReducer: ${JSON.stringify(rootReducer)}`);
 
 const store = createStore(rootReducer, applyMiddleware());
 const history = syncHistoryWithStore(browserHistory, store);
