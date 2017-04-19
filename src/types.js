@@ -3,7 +3,8 @@
 'use strict';
 
 export type Product = {
-  id: string,
+  id: string, // also a route
   title: string,
-  thumbText: string
+  thumbText: string,
+  fileName: string,
 };

@@ -7,31 +7,36 @@ const initialState = {
       id: '0',
       title: 'Antiox',
       thumbText: 'Aha.. Antioxas gerai!',
-      htmlText: '<p><script>alert("XSS attack MUHAHA!");</script> Valio Antiox! </p>'
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg'
     },
     '1': {
       id: '1',
       title: 'Detox',
       thumbText: 'Laba diena su vistiena',
-      htmlText: '<p> Valio Detox! </p>'
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg'
     },
     '2': {
       id: '2',
       title: 'Pax Forte',
       thumbText: 'Liurbis Antanas',
-      htmlText: '<p> Valio Pax! </p>'
+      articleFile: 'PaxForte.js',
+      imgFile: 'paxForte.jpg'
     },
     '3': {
       id: '3',
       title: 'HeparD',
       thumbText: 'Gera diena...',
-      htmlText: '<p> Valio HeparD! </p>'
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg'
     },
     '4': {
       id: '4',
       title: 'Cardio Drive',
       thumbText: 'Cardio vairavims... kon to?',
-      htmlText: '<p> Valio Cardio! </p>'
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg'
     }
   }
 };
