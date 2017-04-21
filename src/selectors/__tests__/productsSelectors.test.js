@@ -8,7 +8,8 @@ import {
   getAllProductsIds,
   getProductsById,
   getOrderedProducts,
-  getProduct
+  getProduct,
+  getNextProductId
 } from '../productsSelectors';
 
 it('tests getProductsById', () => {
@@ -39,6 +40,17 @@ it('tests getProduct', () => {
   deepFreeze(state);
 
   expect(getProduct(state, 'foo')).toBe('bar');
+});
+
+it('tests getNextProductId', () => {
+  const allIds = ['1', '3', '2'];
+  const state = {
+    allIds
+  };
+  deepFreeze(state);
+
+  expect(getNextProductId(state, '1')).toBe('3');
+  expect(getNextProductId(state, '2')).toBe('');
 });
 
 it('tests getOrderedProducts', () => {

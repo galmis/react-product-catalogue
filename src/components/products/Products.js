@@ -11,7 +11,7 @@ import type { Product } from '../../types';
 export default class Products extends Component {
 
   render() {
-
+    debugger;
     // NOTE: might want to have several rows...
     return (
       <section>
@@ -23,6 +23,7 @@ export default class Products extends Component {
   }
 
   _renderProduct(product: Product) {
+    debugger;
     return (
       <Col xs={12} sm={6} md={4} key={product.id}>
         <ProductThumbnail product={product} />
@@ -31,7 +32,7 @@ export default class Products extends Component {
   }
 
   _renderProducts(products: Array<Product>) {
-
+    debugger;
     const prodsToRender = [];
 
     products.forEach(product => {

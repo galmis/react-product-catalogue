@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 
 import reducers from './reducers';
 import routes from './routes';
@@ -19,7 +19,8 @@ const rootReducer = combineReducers({
   routing: routerReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware());
+const routingMiddleware = routerMiddleware(browserHistory);
+const store = createStore(rootReducer, applyMiddleware(routingMiddleware));
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(

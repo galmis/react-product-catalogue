@@ -18,6 +18,13 @@ function getProduct(state: Object, id: string) {
   return getProductsById(state)[id];
 }
 
+function getNextProductId(state: Object, currId: string) {
+  const allIds = getAllProductsIds(state);
+  const index = allIds.indexOf(currId);
+
+  return (index + 1) < allIds.length ? allIds[index + 1] : '';
+}
+
 // NOTE: A selector is not recomputed unless one of its arguments change.
 const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<Object> => {
 
@@ -34,5 +41,6 @@ export {
   getAllProductsIds,
   getProductsById,
   getProduct,
-  getOrderedProducts
+  getOrderedProducts,
+  getNextProductId
 }
