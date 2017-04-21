@@ -10,7 +10,7 @@ import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-rou
 import reducers from './reducers';
 import routes from './routes';
 
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap-theme.min.css';
 import './index.css';
 
