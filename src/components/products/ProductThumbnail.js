@@ -16,7 +16,6 @@ export default class ProductThumbnail extends Component {
       <Link to={href}>
         <Thumbnail src={require('./images/' + imgFile)}>
           <div className="caption">
-            <h4 className="pull-right">$24.99</h4>
             <h4>{ title }</h4>
             <p>
               { thumbText }

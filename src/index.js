@@ -11,8 +11,9 @@ import reducers from './reducers';
 import routes from './routes';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap-theme.min.css';
-import './index.css';
+// custom bootstrap theme
+import './styles/bootstrap/css/bootstrap-yeti.min.css';
+import './styles/index.css';
 
 const rootReducer = combineReducers({
   ...reducers,
