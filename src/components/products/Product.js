@@ -1,16 +1,24 @@
 // @flow
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import { PageHeader, Media, Image, Grid, Row, Col, Pager } from 'react-bootstrap';
+import {
+  PageHeader,
+  Media,
+  Image,
+  Grid,
+  Row,
+  Col,
+  Button
+} from 'react-bootstrap';
 
-import { goBack, push } from 'react-router-redux';
+import {goBack, push} from 'react-router-redux';
 
-//import { sanitize } from 'dompurify';
+import ProductHeader from './ProductHeader';
 
-const Product = (props: Object) => {
+const Product = (props : Object) => {
 
   const { title, articleFile, imgFile } = props.product;
   const href = `/produktai/${props.nextId}`;
@@ -18,6 +26,7 @@ const Product = (props: Object) => {
   // TODO: replace hard coded path to path from redux store
   // NOTE: import/export doesn't work with dynamic paths
   const ProductArticle = require('./articles/' + articleFile);
+  const productImg = require('./images/' + imgFile);
 
   const _onPrevClick = () => {
     props.dispatch(goBack());
@@ -31,34 +40,38 @@ const Product = (props: Object) => {
   debugger;
   return (
     <div>
-      <section>
-        <PageHeader> { title } </PageHeader>
-        <Row>
-          <Col xs={9}>
-            <ProductArticle />
-          </Col>
-          <Col xs={3}>
-            <Image responsive={true} className={'pull-right'} src={require('./images/' + imgFile)} alt="Image"/>
-          </Col>
-        </Row>
-      </section>
-      <div>
-        <Pager>
-          <Pager.Item previous onSelect={_onPrevClick}>&larr; Atgal</Pager.Item>
-          <Pager.Item next disabled={!props.nextId} onSelect={_onNextClick}>Sekantis &rarr;</Pager.Item>
-        </Pager>
-      </div>
+      <ProductHeader product={props.product}/>
+
+        <div className="container">
+          {/* blog content + sidebar */}
+          <section id="blog">
+            <Row>
+              <Col sm={2} xs={4}>
+                <Image thumbnail responsive src={productImg} alt={title} />
+              </Col>
+              <Col smOffset={1} sm={9} xs={8}>
+                <div className="post-content-area">
+                  <ProductArticle />
+                </div>
+              </Col>
+            </Row>
+
+            <div className="pagination">
+              <Button className="btn btn-default btn-rounded no-margin" onClick={_onPrevClick}>
+                <i className="fa fa-long-arrow-left"></i><span>Atgal</span>
+              </Button>
+               <Button className="btn btn-default btn-rounded no-margin pull-right"
+                 disabled={!props.nextId} onClick={_onNextClick}>
+                 <span>Sekantis</span><i className="fa fa-long-arrow-right"></i>
+               </Button>
+            </div>
+
+          </section>
+
+        </div>
+
     </div>
   );
-
-  // NOTE: could sanitize when submitting new data through admin and when
-  // fetching to redux store... This way, redux store would contain safe
-  // html, so I wouldn't need to sanitize every time I load a page...
-  // _createSafeHtml(htmlText: string) {
-  //   const safeHtml = sanitize(htmlText);
-  //
-  //   return { __html: safeHtml }
-  // }
 }
 
 Product.propTypes = {

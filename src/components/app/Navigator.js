@@ -8,7 +8,7 @@ const Navigator = () => {
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#">React-Bootstrap</a>
+          <a href="#">Sveikas-Zmogus</a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
