@@ -16,11 +16,12 @@ import {
 
 import {goBack, push} from 'react-router-redux';
 
-import ProductHeader from './ProductHeader';
+import FancyHeader from './FancyHeader';
+import Pager from './Pager';
 
 const Product = (props : Object) => {
 
-  const { title, articleFile, imgFile } = props.product;
+  const { title, articleFile, imgFile, thumbText } = props.product;
   const href = `/produktai/${props.nextId}`;
 
   // TODO: replace hard coded path to path from redux store
@@ -28,47 +29,34 @@ const Product = (props : Object) => {
   const ProductArticle = require('./articles/' + articleFile);
   const productImg = require('./images/' + imgFile);
 
-  const _onPrevClick = () => {
-    props.dispatch(goBack());
-  };
-
-  const _onNextClick = () => {
-    debugger;
-    props.dispatch(push(href));
-  };
-
   debugger;
   return (
     <div>
-      <ProductHeader product={props.product}/>
+      <FancyHeader title={title} subtitle={thumbText}/>
 
-        <div className="container">
-          {/* blog content + sidebar */}
-          <section id="blog">
-            <Row>
-              <Col sm={2} xs={4}>
-                <Image thumbnail responsive src={productImg} alt={title} />
-              </Col>
-              <Col smOffset={1} sm={9} xs={8}>
-                <div className="post-content-area">
-                  <ProductArticle />
-                </div>
-              </Col>
-            </Row>
+      <div className="container">
+        <section id="blog">
+          <Row>
+            <Col sm={2} smOffset={0} xsOffset={3} xs={6}>
+              <Image rounded responsive src={productImg} alt={title} />
+              <div className='space-50'></div>
+            </Col>
+            <Col sm={9} smOffset={1} xsOffset={0} xs={12}>
+              <div className="post-content-area">
+                <ProductArticle />
+              </div>
+            </Col>
+          </Row>
 
-            <div className="pagination">
-              <Button className="btn btn-default btn-rounded no-margin" onClick={_onPrevClick}>
-                <i className="fa fa-long-arrow-left"></i><span>Atgal</span>
-              </Button>
-               <Button className="btn btn-default btn-rounded no-margin pull-right"
-                 disabled={!props.nextId} onClick={_onNextClick}>
-                 <span>Sekantis</span><i className="fa fa-long-arrow-right"></i>
-               </Button>
-            </div>
+          <Row className="pagination">
+            <Col xs={12}>
+              <Pager nextId={props.nextId} href={href} dispatch={props.dispatch} />
+             </Col>
+          </Row>
 
-          </section>
+        </section>
 
-        </div>
+      </div>
 
     </div>
   );

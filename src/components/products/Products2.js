@@ -9,6 +9,10 @@ const Products2 = (props: Object) => {
   return (
     <section id="shop">
         <div className="container">
+          <div className="page-header text-center wsub">
+            <h2>Produktai</h2>
+          </div>
+
           <div className="row">
             <div className="col-sm-12 content-area">
               {/* product filter */}
