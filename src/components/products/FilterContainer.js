@@ -1,0 +1,32 @@
+// @flow
+
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as filterActions from '../../actions/filterActions';
+
+import Filter from './Filter';
+import {
+  getSelectedCategory,
+  getProductsCategories
+} from '../../selectors/productsSelectors';
+
+debugger;
+
+function mapStateToProps(state: Object) {
+  debugger;
+  return {
+    selectedCategory: getSelectedCategory(state),
+    categories: getProductsCategories(state)
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+
+  return {
+    actions: bindActionCreators(filterActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -1,6 +1,7 @@
 // @flow
 
 import { createSelector } from 'reselect';
+import type { Product } from '../types';
 
 function getProductsState(state: Object) {
   return state.productsReducer ? state.productsReducer : state;
@@ -14,8 +15,16 @@ function getProductsById(state: Object) {
   return getProductsState(state).byId;
 }
 
-function getProduct(state: Object, id: string) {
+function getSelectedCategory(state: Object) {
+  return getProductsState(state).selectedCategory;
+}
+
+function getProduct(state: Object, id: string): Product {
   return getProductsById(state)[id];
+}
+
+function getProductCategories(state: Object, id: string): Array<string> {
+  return getProduct(state, id).categories;
 }
 
 function getNextProductId(state: Object, currId: string) {
@@ -26,7 +35,7 @@ function getNextProductId(state: Object, currId: string) {
 }
 
 // NOTE: A selector is not recomputed unless one of its arguments change.
-const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<Object> => {
+const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<Product> => {
 
   const orderedProds = [];
   allIds.forEach(id => {
@@ -36,11 +45,42 @@ const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], 
   return orderedProds;
 });
 
+const getProductsCategories = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<string> => {
+
+  debugger;
+  let allCategories = [];
+  allIds.forEach(id => {
+    const prodCategories = productsById[id].categories || [];
+    allCategories = [...allCategories, ...prodCategories];
+  });
+
+  // flow complains, but this is ok...
+  return [...new Set(allCategories)];
+});
+
+const getFilteredProducts = createSelector([getOrderedProducts, getSelectedCategory], (products: Array<Product>, category: string): Array<Product> => {
+
+  debugger;
+  const filteredProds = [];
+  products.forEach(product => {
+    debugger;
+    if (product.categories.indexOf(category) >= 0) {
+      filteredProds.push(product);
+    }
+  });
+
+  return filteredProds;
+});
+
 export {
   getProductsState,
   getAllProductsIds,
+  getSelectedCategory,
   getProductsById,
   getProduct,
   getOrderedProducts,
-  getNextProductId
+  getNextProductId,
+  getProductCategories,
+  getProductsCategories,
+  getFilteredProducts
 }

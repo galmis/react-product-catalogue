@@ -9,7 +9,11 @@ import {
   getProductsById,
   getOrderedProducts,
   getProduct,
-  getNextProductId
+  getSelectedCategory,
+  getNextProductId,
+  getProductCategories,
+  getProductsCategories,
+  getFilteredProducts
 } from '../productsSelectors';
 
 it('tests getProductsById', () => {
@@ -32,6 +36,16 @@ it('tests getAllProductsIds', () => {
   expect(getAllProductsIds(state)).toBe(allIds);
 });
 
+it('tests getSelectedCategory', () => {
+  const selectedCategory = 'foo';
+  const state = {
+    selectedCategory
+  };
+  deepFreeze(state);
+
+  expect(getSelectedCategory(state)).toBe(selectedCategory);
+});
+
 it('tests getProduct', () => {
   const byId = { foo: 'bar' };
   const state = {
@@ -40,6 +54,40 @@ it('tests getProduct', () => {
   deepFreeze(state);
 
   expect(getProduct(state, 'foo')).toBe('bar');
+});
+
+it('tests getProductCategories', () => {
+  const categories = [ 'a', 'lol' ];
+  const byId = {
+    foo: {
+      categories
+    }
+  };
+  const state = {
+    byId
+  };
+  deepFreeze(state);
+
+  expect(getProductCategories(state, 'foo')).toBe(categories);
+});
+
+it('tests getProductsCategories', () => {
+  const allIds = ['0', '1', '2'];
+  const productsById = {
+    '0': {
+      categories: ['a', 'b']
+    },
+    '1': {
+      categories: []
+    },
+    '2': {
+      categories: ['a', 'c']
+    }
+  };
+
+  const expectedCategories = [ 'a', 'b', 'c' ];
+
+  expect(getProductsCategories.resultFunc(allIds, productsById)).toEqual(expectedCategories);
 });
 
 it('tests getNextProductId', () => {
@@ -74,4 +122,25 @@ it('tests getOrderedProducts', () => {
   };
 
   expect(getOrderedProducts.resultFunc(allIds, productsById)).toEqual([productsById['0'], productsById['2']]);
+});
+
+it('tests getFilteredProducts', () => {
+  const category = 'foo';
+  const prod1 = {
+    categories: ['foo', 'bar']
+  };
+  const prod2 = {
+    categories: ['lol', 'bar']
+  };
+  const prod3 = {
+    categories: ['meh', 'foo']
+  };
+
+  const orderedProducts = [
+    prod1, prod2, prod3
+  ];
+
+  const expectedProds = [prod1, prod3];
+
+  expect(getFilteredProducts.resultFunc(orderedProducts, category)).toEqual(expectedProds);
 });

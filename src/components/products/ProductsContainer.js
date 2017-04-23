@@ -7,11 +7,12 @@ import { connect } from 'react-redux';
 import Products from './Products';
 import Products2 from './Products2';
 
-import { getOrderedProducts } from '../../selectors/productsSelectors';
+import { getFilteredProducts } from '../../selectors/productsSelectors';
 
 function mapStateToProps(state: Object) {
+  debugger;
   return {
-    products: getOrderedProducts(state)
+    products: getFilteredProducts(state)
   }
 }
 

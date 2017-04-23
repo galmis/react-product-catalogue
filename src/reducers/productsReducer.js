@@ -1,6 +1,9 @@
 // @flow
 
+import ACTION_TYPE from '../constants/ACTION_TYPE';
+
 const initialState = {
+  selectedCategory: 'Visi',
   allIds: ['0', '1', '2', '3', '4'],
   byId: {
     '0': {
@@ -8,41 +11,62 @@ const initialState = {
       title: 'Antiox',
       thumbText: 'Aha.. Antioxas gerai!',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg'
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Klasikiniai']
     },
     '1': {
       id: '1',
       title: 'Detox',
       thumbText: 'Laba diena su vistiena',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg'
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Klasikiniai']
     },
     '2': {
       id: '2',
       title: 'Pax Forte',
       thumbText: 'Liurbis Antanas',
       articleFile: 'PaxForte.js',
-      imgFile: 'paxForte.jpg'
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Klasikiniai']
     },
     '3': {
       id: '3',
       title: 'HeparD',
       thumbText: 'Gera diena...',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg'
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Nauji']
     },
     '4': {
       id: '4',
       title: 'Cardio Drive',
       thumbText: 'Cardio vairavims... kon to?',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg'
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Nauji']
+    },
+    '5': {
+      id: '5',
+      title: 'Mistik',
+      thumbText: 'Padies ismeguote',
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Nuo streso']
     }
   }
 };
 
-// for now always returns initialState, but this might change
 export default function productsReducer(state: Object = initialState, action: Object) {
+  debugger;
+  switch(action.type) {
+    case ACTION_TYPE.FILTER: {
+      return {
+        ...state,
+        selectedCategory: action.payload.category
+      }
+    }
+  }
 
   return state;
 }

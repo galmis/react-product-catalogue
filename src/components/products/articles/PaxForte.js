@@ -17,7 +17,7 @@ const PaxForte = () => {
       <p>&nbsp;</p>
       <p>
         <strong>Vienos kapsulės sudėtis:</strong>&nbsp;</p>
-      <table width="90%" cellSpacing={1} cellPadding={1}>
+      <table>
         <tbody>
           <tr>
             <td>Vaistinių melisų (Melissa officinalis)</td>

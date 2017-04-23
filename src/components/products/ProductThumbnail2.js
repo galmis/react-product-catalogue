@@ -1,7 +1,9 @@
 // @flow
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
+
 
 import TestImg from '../../styles/inCart/images/f-product.jpg';
 
@@ -20,6 +22,10 @@ const ProductThumbnail2 = (props: Object) => {
       </div>
     </div>
   );
+};
+
+ProductThumbnail2.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 export default ProductThumbnail2;
