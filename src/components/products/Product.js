@@ -34,10 +34,10 @@ const Product = (props : Object) => {
     <div>
       <FancyHeader title={title} subtitle={thumbText}/>
 
-      <div className="container">
+      <Grid>
         <section id="blog">
           <Row>
-            <Col sm={2} smOffset={0} xsOffset={3} xs={6}>
+            <Col sm={2} smOffset={0} xsOffset={4} xs={4}>
               <Image rounded responsive src={productImg} alt={title} />
               <div className='space-50'></div>
             </Col>
@@ -56,7 +56,7 @@ const Product = (props : Object) => {
 
         </section>
 
-      </div>
+      </Grid>
 
     </div>
   );
