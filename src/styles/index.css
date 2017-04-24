@@ -2,6 +2,26 @@
 a {
   cursor: pointer;
 }
-.active {
+a.active {
   text-decoration: underline;
+}
+
+.thumbnails-enter {
+  opacity: 0.01;
+  width: 10%;
+}
+
+.thumbnails-enter.thumbnails-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.thumbnails-leave {
+  opacity: 1;
+}
+
+.thumbnails-leave.thumbnails-leave-active {
+  opacity: 0.01;
+  width: 10%;
+  transition: opacity 500ms ease-out;
 }

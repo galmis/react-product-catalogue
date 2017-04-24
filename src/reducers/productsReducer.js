@@ -53,6 +53,54 @@ const initialState = {
       articleFile: 'Detox.js',
       imgFile: 'paxForte.jpg',
       categories: ['Visi', 'Nuo streso']
+    },
+    '6': {
+      id: '6',
+      title: 'Kuperis',
+      thumbText: 'Aha.. Kuperis gerai!',
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Nauji']
+    },
+    '7': {
+      id: '7',
+      title: 'Detox',
+      thumbText: 'Laba diena su vistiena',
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '8': {
+      id: '8',
+      title: 'Pax Forte',
+      thumbText: 'Liurbis Antanas',
+      articleFile: 'PaxForte.js',
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '9': {
+      id: '9',
+      title: 'HeparD',
+      thumbText: 'Gera diena...',
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Nauji']
+    },
+    '10': {
+      id: '10',
+      title: 'Cardio Drive',
+      thumbText: 'Cardio vairavims... kon to?',
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Nauji']
+    },
+    '5': {
+      id: '5',
+      title: 'Mistik',
+      thumbText: 'Padies ismeguote',
+      articleFile: 'Detox.js',
+      imgFile: 'paxForte.jpg',
+      categories: ['Visi', 'Nuo streso']
     }
   }
 };
