@@ -23,6 +23,7 @@ const buildDir = `${__dirname}/../build`;
 app.use(express.static(buildDir));
 
 app.get('*', (req, res) => {
+  console.log('app.get');
   res.sendFile(path.resolve(buildDir, 'index.html'));
 });
 
