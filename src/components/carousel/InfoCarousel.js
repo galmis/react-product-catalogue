@@ -10,24 +10,34 @@ export default class InfoCarousel extends Component {
 
     return (
       <section>
-        <Carousel>
-          { this._renderItem() }
-          { this._renderItem() }
-          { this._renderItem() }
-        </Carousel>
+        <div id='header-sliders'>
+          <Carousel id='slider' indicators={false} prevIcon={this._renderArrowIcon('left')} nextIcon={this._renderArrowIcon('right')}>
+            { this._renderItem(`slide1`) }
+            { this._renderItem(`slide2`) }
+            { this._renderItem(`slide3`) }
+          </Carousel>
+        </div>
       </section>
+    );
+  }
+
+  _renderArrowIcon(direction: string) {
+    return (
+      <span className={'lnr lnr-chevron-' + direction} />
     );
   }
 
   // bugas, nes neina padaryt item component, turiu renderint toj pacioj
   // klasej
-  _renderItem() {
+  _renderItem(itemId: string) {
     return (
-      <Carousel.Item>
-        <Image width={9999999999} className='responsive' alt="900x500" src="https://react-bootstrap.github.io/assets/carousel.png"/>
+      <Carousel.Item id={itemId}>
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          <div className="slider-content">
+            <h3 className="slide-title fadeInDown animated first"><span className="text-primary">in</span>Cart - Fashion</h3>
+            <p className="slide-text flipInX animated second">Quisque vitae tempor libero. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+            <a href="#categories" className="page-scroll btn btn-lg btn-primary-filled btn-pill fadeInUp animated third"><i className="lnr lnr-cart" /> <span>Shop Now</span></a>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
     );

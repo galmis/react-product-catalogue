@@ -7,8 +7,6 @@ import { Link } from 'react-router';
 
 
 import TestImg from '../../styles/inCart/images/f-product.jpg';
-//const TestImg = require('../../styles/inCart/images/f-product.jpg');
-//const TestImg = require('./images/paxForte.jpg');
 
 const ProductThumbnail2 = (props: Object) => {
 

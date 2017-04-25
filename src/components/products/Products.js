@@ -1,49 +1,29 @@
 // @flow
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import {Grid, Col, Row} from 'react-bootstrap';
 
-import { Row, Col } from 'react-bootstrap';
+import ProductsThumbnails from './ProductsThumbnails';
+import FilterContainer from './FilterContainer';
 
-import ProductThumbnail from './ProductThumbnail';
-import type { Product } from '../../types';
+const Products = (props: Object) => {
+  debugger;
+  return (
+    <section id="shop">
+        <Grid>
+          <div className="page-header text-center wsub">
+            <h2>Produktai</h2>
+          </div>
 
-export default class Products extends Component {
-
-  render() {
-    debugger;
-    // NOTE: might want to have several rows...
-    return (
-      <section>
-        <Row>
-           {this._renderProducts(this.props.products)}
-        </Row>
-      </section>
-    );
-  }
-
-  _renderProduct(product: Product) {
-    debugger;
-    return (
-      <Col xs={12} sm={6} md={4} key={product.id}>
-        <ProductThumbnail product={product} />
-      </Col>
-    );
-  }
-
-  _renderProducts(products: Array<Product>) {
-    debugger;
-    const prodsToRender = [];
-
-    products.forEach(product => {
-      prodsToRender.push(this._renderProduct(product));
-    });
-
-    return prodsToRender;
-  }
-
-}
-
-Products.propTypes = {
-  products: PropTypes.array.isRequired
+          <Row>
+            <Col sm={12} className="content-area">
+              <FilterContainer />
+              <ProductsThumbnails products={props.products}/>
+            </Col>
+          </Row>
+        </Grid>
+    </section>
+  );
 };
+
+export default Products;
