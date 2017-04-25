@@ -12,8 +12,6 @@ import {
   getProductsCategories
 } from '../../selectors/productsSelectors';
 
-debugger;
-
 function mapStateToProps(state: Object) {
   debugger;
   return {

@@ -2,13 +2,14 @@
 
 import React from 'react';
 import { Navbar, NavItem, MenuItem, Nav, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 const Navigator = () => {
   return (
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#">Sveikas-Zmogus</a>
+          <Link to='/'>Sveikas-Zmogus</Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>

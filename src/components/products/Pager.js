@@ -11,8 +11,9 @@ const Pager = (props: Object) => {
   };
 
   const _onNextClick = () => {
-    debugger;
-    props.dispatch(push(props.href));
+    if (props.nextId) {
+      props.dispatch(push(props.href));
+    }
   };
 
   return(

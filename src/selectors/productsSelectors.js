@@ -36,6 +36,7 @@ function getNextProductId(state: Object, currId: string) {
 
 // NOTE: A selector is not recomputed unless one of its arguments change.
 const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<Product> => {
+  debugger;
 
   const orderedProds = [];
   allIds.forEach(id => {
