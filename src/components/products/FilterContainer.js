@@ -13,7 +13,7 @@ import {
 } from '../../selectors/productsSelectors';
 
 function mapStateToProps(state: Object) {
-  debugger;
+  
   return {
     selectedCategory: getSelectedCategory(state),
     categories: getProductsCategories(state)

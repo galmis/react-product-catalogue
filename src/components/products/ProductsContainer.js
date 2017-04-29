@@ -9,7 +9,7 @@ import Products from './Products';
 import { getFilteredProducts } from '../../selectors/productsSelectors';
 
 function mapStateToProps(state: Object) {
-  debugger;
+  
   return {
     products: getFilteredProducts(state)
   }

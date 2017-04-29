@@ -19,6 +19,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 const buildDir = `${__dirname}/../build`;
 
+console.log('server code is running...');
 // serve files in build directory
 app.use(express.static(buildDir));
 

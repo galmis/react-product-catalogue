@@ -106,7 +106,7 @@ const initialState = {
 };
 
 export default function productsReducer(state: Object = initialState, action: Object) {
-  debugger;
+
   switch(action.type) {
     case ACTION_TYPE.FILTER: {
       return {

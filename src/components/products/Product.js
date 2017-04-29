@@ -29,7 +29,7 @@ const Product = (props : Object) => {
   const ProductArticle = require('./articles/' + articleFile);
   const productImg = require('./images/' + imgFile);
 
-  debugger;
+
   return (
     <div>
       <FancyHeader title={title} subtitle={thumbText}/>

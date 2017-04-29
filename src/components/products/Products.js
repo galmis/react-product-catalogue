@@ -7,7 +7,7 @@ import ProductsThumbnails from './ProductsThumbnails';
 import FilterContainer from './FilterContainer';
 
 const Products = (props: Object) => {
-  debugger;
+  
   return (
     <section id="shop">
         <Grid>

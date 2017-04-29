@@ -36,7 +36,7 @@ function getNextProductId(state: Object, currId: string) {
 
 // NOTE: A selector is not recomputed unless one of its arguments change.
 const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<Product> => {
-  debugger;
+  
 
   const orderedProds = [];
   allIds.forEach(id => {
@@ -48,7 +48,7 @@ const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], 
 
 const getProductsCategories = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<string> => {
 
-  debugger;
+  
   let allCategories = [];
   allIds.forEach(id => {
     const prodCategories = productsById[id].categories || [];
@@ -61,10 +61,10 @@ const getProductsCategories = createSelector([getAllProductsIds, getProductsById
 
 const getFilteredProducts = createSelector([getOrderedProducts, getSelectedCategory], (products: Array<Product>, category: string): Array<Product> => {
 
-  debugger;
+  
   const filteredProds = [];
   products.forEach(product => {
-    debugger;
+    
     if (product.categories.indexOf(category) >= 0) {
       filteredProds.push(product);
     }

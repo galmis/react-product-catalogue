@@ -37,7 +37,7 @@ var shuffleme = (function( $ ) {
 
       $this.toggleClass('active');
 
-      debugger;
+      
       console.log('setupFilters > onCLick...');
       // Filter elements
       $grid.shuffle( 'shuffle', group );

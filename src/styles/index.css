@@ -15,3 +15,7 @@ a.active {
   background-repeat:   no-repeat;
   background-size:     cover;
 }*/
+
+.thumbnail-img {
+  padding: 0% 20%
+}

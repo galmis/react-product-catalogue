@@ -6,25 +6,25 @@ import FlipMove from 'react-flip-move';
 
 import { Row, Col } from 'react-bootstrap';
 
-import ProductThumbnail2 from './ProductThumbnail2';
+import ProductThumbnail from './ProductThumbnail';
 
 import type { Product } from '../../types';
 
 const ProductsThumbnails = (props: Object) => {
 
-  debugger;
+
 
   const _renderProduct = (product: Product) => {
-    debugger;
+
     return (
       <Col className='product' xs={6} md={3} key={product.id}>
-        <ProductThumbnail2 product={product} />
+        <ProductThumbnail product={product} />
       </Col>
     );
   }
 
   const _renderProducts = (products: Array<Product>) => {
-    debugger;
+
     const prodsToRender = [];
 
     products.forEach(product => {
