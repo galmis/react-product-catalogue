@@ -24,8 +24,9 @@ console.log('server code is running...');
 app.use(express.static(buildDir));
 
 app.get('*', (req, res) => {
+  debugger;
   console.log('app.get');
-  res.sendFile(path.resolve(buildDir, 'index.html'));
+  //res.sendFile(path.resolve(buildDir, 'index.html'));
 });
 
 
