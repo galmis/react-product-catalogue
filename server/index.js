@@ -21,7 +21,7 @@ const buildDir = `${__dirname}/../build`;
 
 console.log('server code is running...');
 // serve files in build directory
-app.use(express.static(buildDir));
+//app.use(express.static(buildDir));
 
 app.get('*', (req, res) => {
   debugger;
@@ -30,4 +30,4 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(port);
+//app.listen(port);
