@@ -8,42 +8,42 @@ const initialState = {
   byId: {
     '0': {
       id: '0',
-      title: 'Antiox',
+      title: 'Antiox+',
       thumbText: 'Aha.. Antioxas gerai!',
-      articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      articleFile: 'Antiox.js',
+      imgFile: 'antiox-crop.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '1': {
       id: '1',
-      title: 'Detox',
+      title: 'Detox+',
       thumbText: 'Laba diena su vistiena',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'detox-crop.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '2': {
       id: '2',
-      title: 'Pax Forte',
+      title: 'Pax+ forte',
       thumbText: 'Liurbis Antanas',
       articleFile: 'PaxForte.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'pax-forte-crop.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '3': {
       id: '3',
-      title: 'HeparD',
+      title: 'Sveltform+',
       thumbText: 'Gera diena...',
-      articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      articleFile: 'Sveltform.js',
+      imgFile: 'sveltform-crop.jpg',
       categories: ['Visi', 'Nauji']
     },
     '4': {
       id: '4',
-      title: 'Cardio Drive',
+      title: 'Chromevital+',
       thumbText: 'Cardio vairavims... kon to?',
-      articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      articleFile: 'Chromevital.js',
+      imgFile: 'chromevital-crop.jpg',
       categories: ['Visi', 'Nauji']
     },
     '5': {
@@ -51,7 +51,7 @@ const initialState = {
       title: 'Mistik',
       thumbText: 'Padies ismeguote',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'sveltform-crop.jpg',
       categories: ['Visi', 'Nuo streso']
     },
     '6': {
@@ -59,15 +59,15 @@ const initialState = {
       title: 'Kuperis',
       thumbText: 'Aha.. Kuperis gerai!',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'sveltform-crop.jpg',
       categories: ['Visi', 'Nauji']
     },
     '7': {
       id: '7',
-      title: 'Lifepack',
+      title: 'Lifepac',
       thumbText: 'Laba diena su vistiena',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'sveltform-crop.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '8': {
@@ -75,7 +75,7 @@ const initialState = {
       title: 'Nutrimax',
       thumbText: 'Liurbis Antanas',
       articleFile: 'PaxForte.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'sveltform-crop.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '9': {
@@ -83,7 +83,7 @@ const initialState = {
       title: 'Shetons',
       thumbText: 'Gera diena...',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'sveltform-crop.jpg',
       categories: ['Visi', 'Nauji']
     },
     '10': {
@@ -91,7 +91,7 @@ const initialState = {
       title: 'Venostrong',
       thumbText: 'Kon to?',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'pax-forte-crop.jpg',
       categories: ['Visi', 'Nauji']
     },
     '11': {
@@ -99,7 +99,7 @@ const initialState = {
       title: 'Passilat',
       thumbText: 'Irgi padies ismeguote',
       articleFile: 'Detox.js',
-      imgFile: 'paxForte.jpg',
+      imgFile: 'pax-forte-crop.jpg',
       categories: ['Visi', 'Nuo streso']
     }
   }

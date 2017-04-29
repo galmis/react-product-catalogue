@@ -36,7 +36,7 @@ const ProductsThumbnails = (props: Object) => {
 
   return (
     <Row>
-      <FlipMove duration={300} staggerDurationBy={50} easing="ease-out">
+      <FlipMove duration={150} staggerDurationBy={25} easing="ease-out">
         { _renderProducts(props.products)}
       </FlipMove>
     </Row>

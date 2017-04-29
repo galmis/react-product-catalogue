@@ -6,22 +6,12 @@ a.active {
   text-decoration: underline;
 }
 
-.thumbnails-enter {
-  opacity: 0.01;
-  width: 10%;
-}
-
-.thumbnails-enter.thumbnails-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.thumbnails-leave {
-  opacity: 1;
-}
-
-.thumbnails-leave.thumbnails-leave-active {
-  opacity: 0.01;
-  width: 10%;
-  transition: opacity 500ms ease-out;
-}
+/*.thumbnail-img {
+  position: relative;
+  float: left;
+  width:  144px;
+  height: 200px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+}*/

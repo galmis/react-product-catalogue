@@ -37,11 +37,11 @@ const Product = (props : Object) => {
       <Grid>
         <section id="blog">
           <Row>
-            <Col sm={2} smOffset={0} xsOffset={4} xs={4}>
+            <Col sm={3} smOffset={0} xsOffset={3} xs={6}>
               <Image rounded responsive src={productImg} alt={title} />
               <div className='space-50'></div>
             </Col>
-            <Col sm={9} smOffset={1} xsOffset={0} xs={12}>
+            <Col sm={9} smOffset={0} xsOffset={0} xs={12}>
               <div className="post-content-area">
                 <ProductArticle />
               </div>

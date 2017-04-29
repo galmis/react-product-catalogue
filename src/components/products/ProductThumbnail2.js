@@ -13,11 +13,12 @@ const ProductThumbnail2 = (props: Object) => {
   debugger;
   const { id, title, thumbText, imgFile } = props.product;
   const href = `produktai/${id}`;
+  const imgSrc = require('./images/' + imgFile);
 
   return (
     <div>
       <Link to={href} className="product-link" />
-      <Image src={TestImg} alt={title} />
+      <Image className='thumbnail-img' src={imgSrc} alt={title} />
       <div className="product-details">
         <h3 className="product-title">{ title }</h3>
       </div>
