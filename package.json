@@ -30,8 +30,9 @@
     "redux-devtools": "^3.3.2"
   },
   "scripts": {
+    "build-server": "babel server -d dist",
     "start-node-server": "nodemon server/index.js --exec ./node_modules/.bin/babel-node",
-    "start-dev-node-server": "nodemon server/index.js --exec ./node_modules/.bin/babel-node node-debug server/server.js",
+    "start-dev-node-server": "nodemon server/index.js --exec ./node_modules/.bin/babel-node node-debug server/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

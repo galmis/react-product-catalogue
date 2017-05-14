@@ -26,6 +26,9 @@ import './styles/inCart/css/linear-icons.css';
 
 import './styles/index.css';
 
+console.log('running index.js');
+debugger;
+
 const rootReducer = combineReducers({
   ...reducers,
   routing: routerReducer

@@ -12,10 +12,7 @@ import type { Product } from '../../types';
 
 const ProductsThumbnails = (props: Object) => {
 
-
-
   const _renderProduct = (product: Product) => {
-
     return (
       <Col className='product' xs={6} md={3} key={product.id}>
         <ProductThumbnail product={product} />
@@ -24,7 +21,6 @@ const ProductsThumbnails = (props: Object) => {
   }
 
   const _renderProducts = (products: Array<Product>) => {
-
     const prodsToRender = [];
 
     products.forEach(product => {
