@@ -5,16 +5,13 @@ import React from 'react';
 const Sveltform = () => {
   return (
     <div>
-        <div>
-          <h6>Kaip normalizuoti medžiagų apykaitą ir mažinti svorį?</h6>
-        </div>
         <p>Per didelis svoris – ne tik estetinė problema: tai rimtas pavojus sveikatai. Bet kaip šios problemos atsikratyti?</p>
         <p>Remiantis PSO statistika, antsvorį turintys žmonės dažniau kenčia nuo hipertoninės ligos, širdies ir galvos smegenų kraujagyslių aterosklerozės, cukrinio diabeto, jų stuburas ir sąnariai patiria papildomus krūvius.</p>
         <p>Sveltformas+ veikia pagrindinę viršsvorio priežastį - normalizuoja medžiagų apykaitą ląstelės lygmenyje. Mažina apetitą ir viršsvorį. Reguliuoja kasos veiklą, normalizuoja gliukozės-insulino balansą. Taikomas diabeto profilaktikai. Mažina apetitą ir alkio jausmą, normalizuoja medžiagų apykaitą, neleidžia kalorijoms virsti riebalais. Degina riebalus ir padeda atsikratyti viršsvorio, celiulito. Šalina cholesterolį. Šalina šlakus ir valo skrandį. Mažina cukraus ir cholesterolio kiekį kraujyje. Rekomenduojamas sergant cukriniu diabetu: reguliuoja endokrininės sistemos veiklą. O esant skydliaukės problemoms: nepriklausomai nuo jos stadijos - suaktyvina skydliaukės hormonų veiklą.</p>
         <p>&nbsp;</p>
         <p><strong>Subalansuota formulė svorio mažinimui</strong></p>
         <p>Savybės Maisto papildas — papildomas vitamino C, chromo, jodo ir hydroxycitic rūgšties šaltinis. &nbsp;</p>
-        <br /><h6>Sudėtis</h6> <p>2-jose kapsulėse yra: </p>
+        <br /><strong>Sudėtis</strong> <p>2-jose kapsulėse yra: </p>
         <table>
           <tbody>
             <tr>

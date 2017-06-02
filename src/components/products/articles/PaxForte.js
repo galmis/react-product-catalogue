@@ -5,19 +5,12 @@ import React from 'react';
 const PaxForte = () => {
   return (
     <div>
-      <div>
-        <h6>
-          <strong>Kasdieninė apsauga nuo streso</strong>
-        </h6>
-      </div>
       <p>Stresas išveda mūsų organizmą iš rikiuotės, bet ne visada pavyksta jo išvengti. Ką geriausia daryti tokiu atveju? Galingas antistresinis kompleksas Pax+ forte apsaugo kiekvieną organizmo ląstelę nuo ardančio streso poveikio. Pastiprintas „ramybės elementais“ – magniu ir vitaminu B6. Lengvai ramina ir teigiamai veikia nervų sistemą, normalizuoja nervinių impulsų perdavimą. Suteikia ramybės jausmą ir sugebėjimą sukoncentruoti dėmesį, ramina nemažindamas darbingumo ir neslopindamas reakcijos. Papildo vitaminų ir mikroelementų atsargas, kurios ypatingai greitai sudega streso metu.</p>
       <p>Normalizuoja miegą. Rekomenduojamas egzaminų metu, vairuotojams ir žmonėms, kurių veikla yra susijusi su padidinta atminties koncentracija bei dėmesingumu. Puikiai šalina spazmus, traukulius, šalina spengimą ausyse bei nėščiųjų toksikozę. Valo kvėpavimo takus (tinka esant bronchinei astmai). Švelnina ir mažina skausmus turint problemų su skrandžio-virškinimo traktu, artritu, artroze, osteochondroze. Rekomenduojamas esant žaizdoms, gastritui, pankreatitui, skaudant įvairiems vidaus organams, esant kvėpavimo takų infekcijai, bronchitui, sinusitui, padidintam kraujospūdžiui, galvos smegenų spazmams, insultų, infarktų profilaktikai. Mažina raumenų įtampą. Rezultatyviai gydo vaikų enurezę.</p>
-      <p>&nbsp;</p>
+      <br />
       <p>Maisto papildas&nbsp;<br/>Vitaminai, mikroelementai ir augalinės kilmės medžiagos&nbsp;<br/>60 želatininių kapsulių po 405 mg (viso 24,3 g)&nbsp;<br/>Vienos kapsulės energinė vertė 1,0 kcal/4,1 kj, baltymų 101 mg, riebalų 9 mg, angliavandenių 124 mg.&nbsp;</p>
       <p>&nbsp;</p>
-      <h6>
         <strong>Vienos kapsulės sudėtis:</strong>&nbsp;
-      </h6>
       <table>
         <tbody>
           <tr>

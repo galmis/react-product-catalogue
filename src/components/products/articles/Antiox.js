@@ -6,8 +6,8 @@ const Antiox = () => {
   return (
     <div>
         <p>Maisto papildas&nbsp;<br />Vitaminai, mikroelementai, augaliniai komponentai&nbsp;<br />30 želatininių kapsulių po 390 mg (viso 11,7 g)&nbsp;<br />Vienos kapsulės energinė vertė 1,1 kcal/ 4,7 kJ, baltymų 114 mg, riebalų 15 mg, angliavandenių 137 mg.&nbsp;<br /><br /><strong>&nbsp;</strong></p>
-        
-        <h6>Vienos kapsulės sudėtis:</h6>
+
+        <strong>Vienos kapsulės sudėtis:</strong>
         <table>
           <tbody>
             <tr>

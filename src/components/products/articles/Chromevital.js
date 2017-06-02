@@ -7,7 +7,6 @@ const Chromevital = () => {
     <div>
         <div id="top">
           <div id="header">
-            <h6>Energijos užtaisas kiekvienai ląstelei</h6>
             <p>XXI amžius diktuoja greitą gyvenimo tempą. Trūksta laiko, norisi viską suspėti, tačiau nėra pakankamai energijos. Kaip padidinti fizinį aktyvumą, dėmesio koncentraciją? Kaip nugalėti nuovargį ir padidinti darbingumą?</p>
             <p>Chromevital+ stimuliuoja energetinius procesus ląstelės lygyje. Bendrai stiprina organizmą, didina darbingumą. Kelia tonusą, stiprina raumenų ir nervų sistemas. Valo kraujotakos sistemą nuo cholesterolio.</p>
             <p>Chromevital+ sudedamoji dalis – juodasis eleuterokokas savo sudėtimi panašus į ženšenį, tačiau jis turi kitų naudingesnių savybių. Pavyzdžiui, jį galima vartoti kaip raminamąją priemonę, gydant nervų ligas. Šio augalo sudėtyje yra daug amino rūgščių ir kitų aktyvių medžiagų. Eleuterokokas, veikdamas organizmą, didina jo apsaugines ir atstatomąsias jėgas, todėl jį patartina vartoti fizinių ir intelektualinių stresų metu.</p>
@@ -18,7 +17,7 @@ const Chromevital = () => {
             <p><strong>Savybės</strong></p>
             <p>Biologiškai aktyvus maisto papildas, papildomas vitamino C, chromo ir eleuterozidų šaltinis.</p>
             <p>&nbsp;</p>
-            <h6>Sudėtis</h6>
+            <strong>Sudėtis</strong>
             <p>2-jose kapsulėse yra:</p>
             <table>
               <tbody>
