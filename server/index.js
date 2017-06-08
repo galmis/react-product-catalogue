@@ -1,32 +1,17 @@
-// @flow
-
-// NOTE: catch-all kind of approach, might want to make this more clever
-
-import path from 'path';
-import express from 'express';
-import React from 'react';
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
-import { Router, browserHistory } from 'react-router';
-
-import reducers from '../src/reducers';
-import App from '../src/components/app/App';
-import routes from '../src/routes';
+const express = require('express');
+const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 4000;
-const buildDir = `${__dirname}/../build`;
+const PORT = process.env.PORT || 5000;
 
-console.log('server code is running...');
-// serve files in build directory
-app.use(express.static(buildDir));
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
 
-app.get('*', (req, res) => {
-  console.log('app.get');
-  res.sendFile(path.resolve(buildDir, 'index.html'));
+// All remaining requests return the React app, so it can handle routing.
+app.get('*', function(request, response) {
+  response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 });
 
-
-app.listen(port);
+app.listen(PORT, function () {
+  console.log(`Listening on port ${PORT}`);
+});
