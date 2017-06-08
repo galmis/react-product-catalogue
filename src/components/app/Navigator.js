@@ -8,7 +8,6 @@ import { push } from 'react-router-redux';
 const Navigator = (props: Object) => {
 
   const _onClick = (to: string) => {
-    debugger;
     props.dispatch(push(to));
   };
 

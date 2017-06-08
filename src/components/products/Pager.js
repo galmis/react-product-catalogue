@@ -7,7 +7,6 @@ import {goBack, push} from 'react-router-redux';
 const Pager = (props: Object) => {
 
   const _onPrevClick = () => {
-    debugger;
     if (props.historyStack.length > 0) {
         props.dispatch(goBack());
     }
