@@ -16,7 +16,7 @@ import {
 
 import {goBack, push} from 'react-router-redux';
 
-import FancyHeader from './FancyHeader';
+import FancyHeader from '../shared/FancyHeader';
 import Pager from './Pager';
 
 const Product = (props : Object) => {
@@ -28,7 +28,6 @@ const Product = (props : Object) => {
   // NOTE: import/export doesn't work with dynamic paths
   const ProductArticle = require('./articles/' + articleFile);
   const productImg = require('./images/' + imgFile);
-
 
   return (
     <div>
@@ -50,7 +49,7 @@ const Product = (props : Object) => {
 
           <Row className="pagination">
             <Col xs={12}>
-              <Pager nextId={props.nextId} href={href} dispatch={props.dispatch} />
+              <Pager nextId={props.nextId} nextHref={href} dispatch={props.dispatch} historyStack={props.historyStack} />
              </Col>
           </Row>
 

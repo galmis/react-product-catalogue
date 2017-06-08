@@ -1,0 +1,9 @@
+exports[`historyReducer LOCATION_CHANGE - default 1`] = `Array []`;
+
+exports[`historyReducer LOCATION_CHANGE - pop 1`] = `Array []`;
+
+exports[`historyReducer LOCATION_CHANGE - push 1`] = `
+Array [
+  "some/path",
+]
+`;
