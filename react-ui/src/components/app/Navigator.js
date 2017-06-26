@@ -15,7 +15,7 @@ const Navigator = (props: Object) => {
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to='/'>sveikas-zmogus.lt</Link>
+          <Link to='/'>spygavaistinei.lt</Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
@@ -24,6 +24,7 @@ const Navigator = (props: Object) => {
         <Nav>
           <NavItem eventKey={1} href="/" onClick={() => _onClick('/')}>Produktai</NavItem>
           <NavItem eventKey={2} href="/apiemus" onClick={() => _onClick('/apiemus')}>Apie Mus</NavItem>
+          <NavItem eventKey={2} href="/blogas" onClick={() => _onClick('/blogas')}>Blogas</NavItem>
         </Nav>
       </Navbar.Collapse>
 
