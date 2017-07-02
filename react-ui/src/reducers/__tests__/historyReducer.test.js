@@ -5,7 +5,7 @@ jest.dontMock('../historyReducer.js');
 
 import { LOCATION_CHANGE } from 'react-router-redux'
 
-import historyReducer, { testObj } from '../historyReducer';
+import historyReducer from '../historyReducer';
 import deepFreeze from 'deep-freeze';
 
 describe('historyReducer', () => {

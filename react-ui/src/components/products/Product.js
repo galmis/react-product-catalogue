@@ -14,8 +14,6 @@ import {
   Button
 } from 'react-bootstrap';
 
-import {goBack, push} from 'react-router-redux';
-
 import FancyHeader from '../shared/FancyHeader';
 import Pager from './Pager';
 

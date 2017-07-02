@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
+import createSagaMiddleware from 'redux-saga';
 
+import rootSaga from './actions/sagas';
 import reducers from './reducers';
 import routes from './routes';
 
@@ -33,8 +35,11 @@ const rootReducer = combineReducers({
   routing: routerReducer
 });
 
+const sagaMiddleware = createSagaMiddleware();
 const routingMiddleware = routerMiddleware(browserHistory);
-const store = createStore(rootReducer, applyMiddleware(routingMiddleware));
+const storeEnhancer = applyMiddleware(sagaMiddleware, routingMiddleware);
+const store = createStore(rootReducer, storeEnhancer);
+sagaMiddleware.run(rootSaga);
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(

@@ -1,7 +1,8 @@
 // @flow
 
-const ACTION_TYPE: Object = Object.freeze({
-  FILTER: 'FILTER'
-});
-
-export default ACTION_TYPE;
+export const FILTER = 'FILTER';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+export const FETCH_COMMENTS = 'FETCH_COMMENTS';
+export const FETCH_COMMENTS_SUCCESS = 'FETCH_COMMENTS_SUCCESS';
+export const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR';

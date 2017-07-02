@@ -2,14 +2,15 @@
 
 import { LOCATION_CHANGE } from 'react-router-redux';
 
+import type { Action } from '../types';
+
 const initialState = [];
 
 export {
   initialState
 }
 
-export default function historyReducer(state: Object = initialState, action: Object) {
-  debugger;
+export default function historyReducer(state: Array<string> = initialState, action: Action) {
   switch(action.type) {
     case LOCATION_CHANGE: {
       const p = action.payload;

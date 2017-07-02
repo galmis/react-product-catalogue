@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "browser-request": "^0.3.3",
     "dompurify": "^0.8.5",
+    "normalizr": "^3.2.3",
     "react": "^15.5.3",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.3",
@@ -14,7 +16,8 @@
     "react-router-redux": "^4.0.8",
     "react-transition-group": "^1.1.2",
     "redux": "^3.6.0",
-    "reselect": "^3.0.0"
+    "redux-saga": "^0.15.4",
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

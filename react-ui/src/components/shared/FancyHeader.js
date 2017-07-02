@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid } from 'react-bootstrap';
 
 const FancyHeader = (props: Object) => {
@@ -25,5 +26,10 @@ const FancyHeader = (props: Object) => {
     </div>
   );
 };
+
+FancyHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string
+}
 
 export default FancyHeader;

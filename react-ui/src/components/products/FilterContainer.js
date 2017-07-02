@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as filterActions from '../../actions/filterActions';
+import * as filterActions from '../../actions/creators/filterActions';
 
 import Filter from './Filter';
 import {
@@ -13,7 +13,7 @@ import {
 } from '../../selectors/productsSelectors';
 
 function mapStateToProps(state: Object) {
-  
+
   return {
     selectedCategory: getSelectedCategory(state),
     categories: getProductsCategories(state)

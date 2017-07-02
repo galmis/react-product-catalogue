@@ -1,0 +1,14 @@
+exports[`postsSelectors getPost 1`] = `"bar"`;
+
+exports[`postsSelectors getPostsFromPage 1`] = `
+Array [
+  "bar",
+  "foo",
+]
+`;
+
+exports[`postsSelectors getSelectedPage 1`] = `2`;
+
+exports[`postsSelectors getTotalPosts 1`] = `14`;
+
+exports[`postsSelectors getTotalPostsPages 1`] = `2`;

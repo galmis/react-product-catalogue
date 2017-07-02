@@ -2,14 +2,14 @@
 
 'use strict';
 
-import ACTION_TYPE from '../constants/ACTION_TYPE';
+import { FILTER } from '../../constants/ACTION_TYPE';
 
-import type { Action } from '../types';
+import type { Action } from '../../types';
 
 function filter(category: string): Action {
 
   return {
-    type: ACTION_TYPE.FILTER,
+    type: FILTER,
     payload: {
       category
     }

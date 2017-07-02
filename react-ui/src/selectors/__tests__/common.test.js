@@ -5,9 +5,13 @@
 import deepFreeze from 'deep-freeze';
 
 import { getProductsState } from '../productsSelectors';
+import { getHistoryState } from '../historySelectors';
+import { getPostsState } from '../postsSelectors';
 
 const reducerNameToGetterMap = {
-  'productsReducer': getProductsState
+  'productsReducer': getProductsState,
+  'historyReducer': getHistoryState,
+  'postsReducer': getPostsState
 };
 
 it('tests getState', () => {
@@ -15,7 +19,7 @@ it('tests getState', () => {
   Object.keys(reducerNameToGetterMap).forEach(reducerName => {
     _testGetState(reducerNameToGetterMap[reducerName], reducerName);
   });
-  
+
 });
 
 function _testGetState(getStateFunc: ((state: Object) => Object), reducerName: ?string): void {

@@ -1,0 +1,37 @@
+exports[`postsReducer FETCH_POSTS_SUCCESS, existing state 1`] = `
+Object {
+  "fetchedPages": Object {
+    "1": Array [
+      "1",
+      "2",
+    ],
+    "2": Array [
+      "3",
+    ],
+  },
+  "postsById": Object {
+    "1": "foo",
+    "2": "xyz",
+    "3": "bar",
+  },
+  "selectedPage": 2,
+  "totalPages": 1,
+  "totalRecords": 8,
+}
+`;
+
+exports[`postsReducer FETCH_POSTS_SUCCESS, initialState 1`] = `
+Object {
+  "fetchedPages": Object {
+    "2": Array [
+      "1",
+    ],
+  },
+  "postsById": Object {
+    "1": "foo",
+  },
+  "selectedPage": 2,
+  "totalPages": 2,
+  "totalRecords": 12,
+}
+`;

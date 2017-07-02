@@ -24,7 +24,7 @@ const Navigator = (props: Object) => {
         <Nav>
           <NavItem eventKey={1} href="/" onClick={() => _onClick('/')}>Produktai</NavItem>
           <NavItem eventKey={2} href="/apiemus" onClick={() => _onClick('/apiemus')}>Apie Mus</NavItem>
-          <NavItem eventKey={2} href="/blogas" onClick={() => _onClick('/blogas')}>Blogas</NavItem>
+          <NavItem eventKey={2} href="/blogas/psl/1" onClick={() => _onClick('/blogas/psl/1')}>Blogas</NavItem>
         </Nav>
       </Navbar.Collapse>
 

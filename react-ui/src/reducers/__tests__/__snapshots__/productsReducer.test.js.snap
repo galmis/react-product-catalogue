@@ -1,0 +1,81 @@
+exports[`productsReducer FILTER, initialState 1`] = `
+Object {
+  "allIds": Array [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+  ],
+  "byId": Object {
+    "0": Object {
+      "articleFile": "Antiox.js",
+      "categories": Array [
+        "Visi",
+        "Klasikiniai",
+      ],
+      "id": "0",
+      "imgFile": "antiox-crop.jpg",
+      "thumbText": "",
+      "title": "Antiox+",
+    },
+    "1": Object {
+      "articleFile": "Detox.js",
+      "categories": Array [
+        "Visi",
+        "Klasikiniai",
+      ],
+      "id": "1",
+      "imgFile": "detox-crop.jpg",
+      "thumbText": "Imuniteto stiprinimui, organizmo išvalymui",
+      "title": "Detox+",
+    },
+    "2": Object {
+      "articleFile": "PaxForte.js",
+      "categories": Array [
+        "Visi",
+        "Klasikiniai",
+      ],
+      "id": "2",
+      "imgFile": "pax-forte-crop.jpg",
+      "thumbText": "Kasdieninė apsauga nuo streso",
+      "title": "Pax+ forte",
+    },
+    "3": Object {
+      "articleFile": "Sveltform.js",
+      "categories": Array [
+        "Visi",
+        "Klasikiniai",
+      ],
+      "id": "3",
+      "imgFile": "sveltform-crop.jpg",
+      "thumbText": "Kaip normalizuoti medžiagų apykaitą ir mažinti svorį?",
+      "title": "Sveltform+",
+    },
+    "4": Object {
+      "articleFile": "Chromevital.js",
+      "categories": Array [
+        "Visi",
+        "Klasikiniai",
+      ],
+      "id": "4",
+      "imgFile": "chromevital-crop.jpg",
+      "thumbText": "Energijos užtaisas kiekvienai ląstelei",
+      "title": "Chromevital+",
+    },
+    "5": Object {
+      "articleFile": "CardioDrive.js",
+      "categories": Array [
+        "Visi",
+        "Nauji",
+      ],
+      "id": "5",
+      "imgFile": "cardio-drive-crop.jpg",
+      "thumbText": "Visapusė širdies sveikata",
+      "title": "CardioDrive",
+    },
+  },
+  "selectedCategory": "foo",
+}
+`;

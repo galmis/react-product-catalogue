@@ -6,11 +6,12 @@ import ReactDOM from 'react-dom';
 import App from './app/App';
 import Home from './app/Home';
 import Footer from './app/Footer';
+import Navigator from './app/Navigator';
 import ProductThumbnail from './products/ProductThumbnail';
 import Products from './products/Products';
 import Product from './products/Product';
 
-const comps = [App, Home, ProductThumbnail, Products, Product, Footer];
+const comps = [App, Home, Footer, Navigator, ProductThumbnail, Products, Product];
 
 it('renders without crashing', () => {
   comps.forEach((comp) => {

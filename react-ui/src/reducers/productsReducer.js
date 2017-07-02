@@ -1,6 +1,6 @@
 // @flow
 
-import ACTION_TYPE from '../constants/ACTION_TYPE';
+import { FILTER } from '../constants/ACTION_TYPE';
 
 const initialState = {
   selectedCategory: 'Visi',
@@ -60,7 +60,7 @@ const initialState = {
 export default function productsReducer(state: Object = initialState, action: Object) {
 
   switch(action.type) {
-    case ACTION_TYPE.FILTER: {
+    case FILTER: {
       return {
         ...state,
         selectedCategory: action.payload.category

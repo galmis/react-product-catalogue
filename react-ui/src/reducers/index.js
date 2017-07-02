@@ -4,8 +4,12 @@
 
 import productsReducer from './productsReducer';
 import historyReducer from './historyReducer';
+import postsReducer from './postsReducer';
+import commentsReducer from './commentsReducer';
 
 export default {
   productsReducer,
-  historyReducer
+  historyReducer,
+  postsReducer,
+  commentsReducer
 }
