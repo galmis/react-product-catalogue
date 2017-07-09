@@ -9,7 +9,6 @@ import CommentsContainer from './CommentsContainer';
 
 const Post = (props: Object) => {
 
-
   const {post} = props;
 
   return (

@@ -5,33 +5,48 @@ import {
   FETCH_POSTS,
   FETCH_COMMENTS_SUCCESS,
   FETCH_POSTS_SUCCESS,
-  FETCH_DATA_ERROR
+  FETCH_DATA_ERROR,
+  THREAD_FETCHED
 } from '../../constants/ACTION_TYPE';
+import { COMMENTS, POSTS } from '../../constants/RESOURCE_REF';
 
-import type { Action, NormalizedData, ResourceRef } from '../../types';
+import type { Action, NormalizedData } from '../../types';
 
-function fetchPosts(resourceRef: ResourceRef, selectedPage: ?number, postId: ?string): Action {
+function fetchPosts(selectedPage: ?number, postId: ?string): Action {
   return {
     type: FETCH_POSTS,
     payload: {
-      resourceRef,
       selectedPage,
-      postId
+      postId,
+      httpMethod: 'GET',
+      resourceRef: POSTS
     }
   };
 }
 
-function fetchComments(resourceRef: ResourceRef, postId: string): Action {
+function fetchComments(postId: string, parentId: number = -1, offset: number = -1, httpMethod: string = 'GET'): Action {
   return {
     type: FETCH_COMMENTS,
     payload: {
-      resourceRef,
-      postId
+      postId,
+      parentId,
+      httpMethod,
+      offset,
+      resourceRef: COMMENTS
     }
   };
 }
 
-function fetchPostsSuccess(data: NormalizedData, totalRecords: number, totalPages: number, selectedPage: ?number){
+function threadFetched(childId: number) {
+  return {
+    type: THREAD_FETCHED,
+    payload: {
+      childId
+    }
+  }
+}
+
+function fetchPostsSuccess(data: ?NormalizedData, totalRecords: number, totalPages: number, selectedPage: ?number){
   return {
     type: FETCH_POSTS_SUCCESS,
     payload: {
@@ -43,14 +58,15 @@ function fetchPostsSuccess(data: NormalizedData, totalRecords: number, totalPage
   }
 }
 
-function fetchCommentsSuccess(data: NormalizedData, postId: string, totalRecords: number, totalPages: number){
+function fetchCommentsSuccess(data: ?NormalizedData, postId: string, totalRecords: number, totalPages: number, parentId: number){
   return {
     type: FETCH_COMMENTS_SUCCESS,
     payload: {
       data,
       postId,
       totalRecords,
-      totalPages
+      totalPages,
+      parentId
     }
   }
 }
@@ -67,6 +83,7 @@ function fetchDataError(errorMsg: string) {
 export {
   fetchPosts,
   fetchComments,
+  threadFetched,
   fetchPostsSuccess,
   fetchCommentsSuccess,
   fetchDataError

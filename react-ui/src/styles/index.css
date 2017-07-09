@@ -25,7 +25,7 @@ a.active {
   text-decoration: inherit; /* no underline */
 }
 
-/* continue reading link in wordpress */
+/* continue reading link in wordpress, not ideal - google crawler can see it? */
 .link-more {
   display: none;
 }

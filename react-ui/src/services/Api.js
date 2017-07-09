@@ -2,7 +2,7 @@
 
 import request from 'browser-request';
 
-function fetch(url: string) {
+function fetch(url: string, httpMethod: string = 'GET'): Promise<XMLHttpRequest> {
 
   // NOTE: wrapping this arround in a promise
   // because redux-saga doesn't work well callbacks
@@ -11,8 +11,8 @@ function fetch(url: string) {
   return new Promise((resolve, reject) => {
     request({
         url,
-        method: 'GET',
-        json: true
+        method: httpMethod,
+        json: httpMethod === 'GET'
       },
       (err, response, body) => {
         if (err) {

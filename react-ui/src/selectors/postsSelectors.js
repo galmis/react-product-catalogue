@@ -10,8 +10,8 @@ function getPostsState(state: Object): Object {
 }
 
 function getPostsFromPage(state: Object, selectedPage: number) {
-
-  const fetchedPagePosts: Array<string> = getFetchedPages(state)[selectedPage];
+  
+  const fetchedPagePosts: Array<string> = getFetchedPages(state)[selectedPage.toString()];
   const posts = [];
 
   if (fetchedPagePosts) {

@@ -20,7 +20,6 @@ export default function postsReducer(state: Object = initialState, action: Actio
 
   switch(action.type) {
     case FETCH_POSTS_SUCCESS: {
-
       const selectedPage = action.payload.selectedPage;
       const fetchedPages = { ...state.fetchedPages };
       fetchedPages[selectedPage] = action.payload.data.result;

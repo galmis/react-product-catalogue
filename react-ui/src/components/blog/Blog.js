@@ -15,6 +15,10 @@ class Blog extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.actions.fetchPosts(this.props.selectedPage);
+  }
+
   _renderPosts(posts: Array<Object>) {
 
     const itemsToRender = [];
@@ -29,15 +33,13 @@ class Blog extends React.Component {
 
   _onPageSelect(selectedPage: number) {
     this.props.actions.push(`/blogas/psl/${selectedPage}`);
+
+    if (Object.keys(this.props.fetchedPages).indexOf(selectedPage.toString()) === -1) {
+      this.props.actions.fetchPosts(selectedPage);
+    }
   }
 
   render() {
-    const { actions, selectedPage, fetchedPages } = this.props;
-    
-    if (Object.keys(fetchedPages).indexOf(selectedPage.toString()) === -1) {
-      this.props.actions.fetchPosts('posts', this.props.selectedPage);
-    }
-
     return (
       <div>
         <FancyHeader title='Blogas' />

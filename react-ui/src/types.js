@@ -15,16 +15,26 @@ export type Product = {
 
 export type NormalizedData = {
   entities: { dataById: Object },
-  result: Array<string>
+  result: Array<string | number>
 };
-
-export type ResourceRef = 'posts' | 'comments';
+// export type FetchCommentsParams = {
+//   httpMethod: string,
+//   postId: string,
+//   parentId: number,
+// };
+// export type FetchPostsParams = {
+//   httpMethod: string,
+//   selectedPage: ?number,
+//   postId: ?string
+// };
+// export type RequestParams = FetchCommentsParams | FetchPostsParams;
 
 // posts
 export type FetchPostsPayload = {
-  resourceRef: ResourceRef,
+  httpMethod: string,
+  resourceRef: string,
   selectedPage: ?number,
-  postId: ?string
+  postId: ?string,
 };
 export type FetchPostsAction = {
   type: 'FETCH_POSTS',
@@ -43,8 +53,11 @@ export type FetchPostsSuccessAction = {
 
 // comments
 export type FetchCommentsPayload = {
-  resourceRef: ResourceRef,
-  postId: string
+  resourceRef: string,
+  postId: string,
+  parentId: number,
+  httpMethod: string,
+  offset: number
 };
 export type FetchCommentsAction = {
   type: 'FETCH_COMMENTS',
@@ -55,10 +68,27 @@ export type FetchCommentsSuccessPayload = {
   totalRecords: number,
   totalPages: number,
   postId: string,
+  parentId: number
 };
 export type FetchCommentsSuccessAction = {
   type: 'FETCH_POSTS_SUCCESS',
   payload: FetchCommentsSuccessPayload
+};
+export type WPComment = {
+  id: number,
+  parent: number,
+  post: number,
+  author: number,
+  author_name: string,
+  status: string,
+  type: string,
+  content: Object,
+  date: string,
+  date_gmt: string
+};
+export type ThreadData = {
+  totalReplies: number,
+  fetchedReplies: Array<number>
 };
 
 // filter

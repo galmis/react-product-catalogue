@@ -1,13 +1,15 @@
 // @flow
 
-import { FETCH_COMMENTS_SUCCESS } from '../constants/ACTION_TYPE';
+import { FETCH_COMMENTS_SUCCESS, THREAD_FETCHED } from '../constants/ACTION_TYPE';
 import type { Action, NormalizedData } from '../types';
+import { getParentLevel } from '../selectors/commentsSelectors';
 
 const initialState: Object = {
   commentsById: {},
-  totalRecords: 0,
+  totalComments: 0,
   totalPages: 0,
-  fetchedPosts: {}
+  fetchedComments: {},
+  parentsThreadData: {}
 };
 
 export {
@@ -18,20 +20,45 @@ export default function commentsReducer(state: Object = initialState, action: Ac
 
   switch(action.type) {
     case FETCH_COMMENTS_SUCCESS: {
-      debugger;
       const postId = action.payload.postId;
-      const fetchedPosts = { ...state.fetchedPosts };
-      fetchedPosts[postId] = action.payload.data.result;
-      const newState =  {
-        fetchedPosts,
-        totalRecords: action.payload.totalRecords,
-        totalPages: action.payload.totalPages,
-        commentsById: {
+      const parent = action.payload.parentId;
+      const data = action.payload.data;
+      const parentsThreadData = { ...state.parentsThreadData };
+      const totalComments = parent >= 0 ? state.totalComments : action.payload.totalRecords;
+      const totalPages = parent >= 0 ? state.totalPages : action.payload.totalPages;
+
+      if (parent >= 0) {
+        const result = data ? data.result : [];
+        const threadId = parent === 0 ? '0:' + postId : parent.toString();
+        const threadData = parentsThreadData[threadId];
+        const fetchedReplies = threadData ? [...threadData.fetchedReplies, ...result] : [...result];
+        parentsThreadData[threadId] = {
+          fetchedReplies,
+          totalReplies: action.payload.totalRecords,
+        }
+      }
+      let commentsById;
+      if (data) {
+        commentsById = {
           ...state.commentsById,
           ...action.payload.data.entities.dataById
-        }
+        };
+      } else {
+        commentsById = { ...state.commentsById };
+      }
+
+      const newState =  {
+        postId,
+        parentsThreadData,
+        totalComments,
+        totalPages,
+        commentsById
       };
       return newState;
+    }
+    case THREAD_FETCHED: {
+
+
     }
   }
 

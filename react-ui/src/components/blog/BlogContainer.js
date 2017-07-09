@@ -31,13 +31,13 @@ function mapDispatchToProps(dispatch: Function) {
 }
 
 function mapStateToProps(state: Object, routerProps: Object) {
-  
+
   let page;
   if (routerProps.params.selectedPage) {
     page = parseInt(routerProps.params.selectedPage);
   }
   const selectedPage = page ? page : getSelectedPage(state);
-
+  
   return {
     selectedPage,
     posts: getPostsFromPage(state, selectedPage),

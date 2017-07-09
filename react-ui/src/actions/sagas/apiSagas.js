@@ -2,31 +2,41 @@
 
 import { put, call, fork } from 'redux-saga/effects';
 
-import type { Action, NormalizedData } from '../../types';
+import type {
+  Action,
+  FetchCommentsAction,
+  FetchPostsAction,
+  NormalizedData
+} from '../../types';
 import { FETCH_POSTS, FETCH_COMMENTS } from '../../constants/ACTION_TYPE';
-import { POSTS } from '../../constants/RESOURCE_REF';
-import { fetchPostsSuccess, fetchCommentsSuccess, fetchDataError } from '../creators/apiActions';
+import {
+  fetchPostsSuccess,
+  fetchCommentsSuccess,
+  threadFetched,
+  fetchDataError,
+  fetchComments
+} from '../creators/apiActions';
 import { fetch } from '../../services/Api';
 import { getNormalizedData } from '../../services/Normalizer';
+import { COMMENTS, POSTS } from '../../constants/RESOURCE_REF';
 
-function* fetchPosts(action: Action): Generator<*, *, *> {
+function* fetchData(action: Action): Generator<*, *, *> {
   console.log(`fetch data requested, action = ${JSON.stringify(action)}`);
 
   try {
     const url = _getFetchUrl(action);
-    const response: ?XMLHttpRequest = yield call(fetch, url);
+    const httpMethod = _getHttpMethod(action);
+    const response: ?XMLHttpRequest = yield call(fetch, url, httpMethod);
     if (response) {
       if (response.statusText === 'OK') {
         const totalRecords = response.getResponseHeader('X-WP-Total');
         const totalPages = response.getResponseHeader('X-WP-TotalPages');
-        const data = Array.isArray(response.body) ? response.body : [response.body];
-        const normalizedData = yield call(getNormalizedData, data);
-        if (normalizedData) {
-          yield fork(_fetchDataSuccess, action, normalizedData, parseInt(totalRecords), parseInt(totalPages));
-        } else {
-          console.log(`Error - no data`);
-          yield put(fetchDataError(`Error - no data`));
+        let normalizedData = null;
+        if (httpMethod === 'GET') {
+          const data = Array.isArray(response.body) ? response.body : [response.body];
+          normalizedData = yield call(getNormalizedData, data);
         }
+        yield fork(_fetchDataSuccess, action, normalizedData, parseInt(totalRecords), parseInt(totalPages));
 
       } else {
         console.log(`Error - ${response.status}`);
@@ -41,46 +51,100 @@ function* fetchPosts(action: Action): Generator<*, *, *> {
   }
 }
 
-function* _fetchDataSuccess(action: Action, data: NormalizedData, totalRecords: number, totalPages: number) {
+function* _fetchDataSuccess(action: Action, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
 
   if (action.type === FETCH_POSTS) {
-    const selectedPage = _getSelectedPage(action);
-    const postId = _getPostId(action);
-
-    yield put(fetchPostsSuccess(data, totalRecords, totalPages, selectedPage, postId));
+    yield fork(_fetchPostsSuccess, action, data, totalRecords, totalPages);
   } else if (action.type === FETCH_COMMENTS) {
-    let postId = _getPostId(action);
-    postId = postId ? postId : '';
-    yield put(fetchCommentsSuccess(data, postId, totalRecords, totalPages));
+    yield fork(_fetchCommentsSuccess, action, data, totalRecords, totalPages);
   }
 
 }
 
+function *_fetchPostsSuccess(action: FetchPostsAction, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
+  const {selectedPage, postId} = action.payload;
+  yield put(fetchPostsSuccess(data, totalRecords, totalPages, selectedPage, postId));
+}
+
+function *_fetchCommentsSuccess(action: FetchCommentsAction, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
+
+  let postId = _getPostId(action);
+  postId = postId ? postId : '';
+
+  yield put(fetchCommentsSuccess(data, postId, totalRecords, totalPages, action.payload.parentId));
+
+  if (data) {
+    for (let id of data.result) {
+      let comment = data.entities.dataById[id];
+      if (comment._links.children) {
+        yield put(fetchComments(postId, comment.id));
+      } else {
+        yield put(threadFetched(comment.id));
+      }
+    }
+  }
+}
+
+function _getHttpMethod(action: Action): ?string {
+  if (action.type === FETCH_COMMENTS || action.type === FETCH_POSTS) {
+    return action.payload.httpMethod;
+  }
+
+  return undefined;
+}
+
 function _getFetchUrl(action: Action) {
-  const apiURL = 'http://localhost:8888/blogas/wp-json/wp/v2/';
-  const resourceRef = _getResourceRef(action);
-  let url = apiURL;
-  if (resourceRef) {
-    url = `${url}${resourceRef}`;
-  }
-  const selectedPage = _getSelectedPage(action);
-  if (selectedPage) {
-    url = `${url}?page=${selectedPage}`;
-  }
-  const postId = _getPostId(action);
-  if (postId) {
-    url = `${url}?post=${postId}`;
+  let url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
+  const resourceRef = _getResourceRef(action)
+  url = `${url}${resourceRef}`;
+
+  if (action.type === FETCH_POSTS) {
+    return _getFetchPostsUrl(url, action);
+  } else if (action.type === FETCH_COMMENTS) {
+    return _getFetchCommentsUrl(url, action);
   }
 
   return url;
 }
 
-function _getResourceRef(action: Action) {
+function _getFetchPostsUrl(url: string, action: FetchPostsAction): string {
+  const postId = action.payload.postId;
+  if (postId) {
+    url = `${url}/${postId}`;
+  }
+  const selectedPage = _getSelectedPage(action);
+  if (selectedPage) {
+    url = `${url}?page=${selectedPage}`;
+  }
+
+  return url;
+}
+
+function _getFetchCommentsUrl(url: string, action: FetchCommentsAction): string {
+
+  const {postId, parentId, offset} = action.payload;
+
+  if (postId) {
+    url = `${url}?post=${postId}&per_page=5`;
+  }
+
+  if (parentId >= 0) {
+     url = `${url}&parent=${parentId}`;
+  }
+
+  if (offset >= 0) {
+    url = `${url}&offset=${offset}`;
+  }
+
+  return url;
+}
+
+function _getResourceRef(action: Action): string {
   if (action.type === FETCH_POSTS || action.type === FETCH_COMMENTS) {
     return action.payload.resourceRef;
   }
 
-  return 'posts';
+  return POSTS;
 }
 
 function _getSelectedPage(action: Action) {
@@ -96,5 +160,5 @@ function _getPostId(action: Action) {
 }
 
 export {
-  fetchPosts
+  fetchData
 }
