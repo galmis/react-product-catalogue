@@ -6,7 +6,8 @@ import {
   FETCH_COMMENTS_SUCCESS,
   FETCH_POSTS_SUCCESS,
   FETCH_DATA_ERROR,
-  THREAD_FETCHED
+  THREAD_FETCHED,
+  CREATE_COMMENT
 } from '../../constants/ACTION_TYPE';
 import { COMMENTS, POSTS } from '../../constants/RESOURCE_REF';
 
@@ -32,9 +33,23 @@ function fetchComments(postId: string, parentId: number = -1, offset: number = -
       parentId,
       httpMethod,
       offset,
-      resourceRef: COMMENTS
+      resourceRef: COMMENTS,
+      order: 'desc' // default in WP, but might change this
     }
   };
+}
+
+function createComment(postId: string, name: string, email: string, parentId: number = 0) {
+  return {
+    type: CREATE_COMMENT,
+    payload: {
+      postId,
+      name,
+      email,
+      parentId,
+      httpMethod: 'POST'
+    }
+  }
 }
 
 function threadFetched(childId: number) {
@@ -86,5 +101,6 @@ export {
   threadFetched,
   fetchPostsSuccess,
   fetchCommentsSuccess,
-  fetchDataError
+  fetchDataError,
+  createComment
 }

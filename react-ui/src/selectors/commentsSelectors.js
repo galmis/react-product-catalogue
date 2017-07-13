@@ -47,6 +47,10 @@ function getTopThreadId(state: Object): string {
   return '0:' + postId;
 }
 
+function getCommentToReplyId(state: Object): number {
+  return getCommentsState(state).commentToReplyId;
+}
+
 export {
   getCommentsState,
   getTotalComments,
@@ -56,4 +60,5 @@ export {
   getPostId,
   getParentsThreadsData,
   getTopThreadId,
+  getCommentToReplyId
 }

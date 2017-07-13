@@ -6,12 +6,14 @@ import PropTypes from 'prop-types';
 import type { WPComment, ThreadData } from '../../types';
 
 type Props = {
-  comment: WPComment
+  comment: WPComment,
+  replyComment: (commentToReplyId: number) => void,
+  threadData: ?ThreadData
 }
 
 const Comment = (props: Props) => {
 
-  const { comment } = props;
+  const { comment, replyComment } = props;
 
   return (
     <div>
@@ -21,14 +23,15 @@ const Comment = (props: Props) => {
       </div>
       <div className="comment">
         <div dangerouslySetInnerHTML={ { __html: comment.content.rendered } } />
-        <a className="comment-log-in">Atsakyti</a>
+        <a className="comment-log-in" onClick={ () => replyComment(comment.id) }>Atsakyti</a>
       </div>
     </div>
   );
 };
 
 Comment.propTypes = {
-  comment: PropTypes.object.isRequired
+  comment: PropTypes.object.isRequired,
+  replyComment: PropTypes.func.isRequired
 };
 
 export default Comment;

@@ -17,17 +17,6 @@ export type NormalizedData = {
   entities: { dataById: Object },
   result: Array<string | number>
 };
-// export type FetchCommentsParams = {
-//   httpMethod: string,
-//   postId: string,
-//   parentId: number,
-// };
-// export type FetchPostsParams = {
-//   httpMethod: string,
-//   selectedPage: ?number,
-//   postId: ?string
-// };
-// export type RequestParams = FetchCommentsParams | FetchPostsParams;
 
 // posts
 export type FetchPostsPayload = {
@@ -52,12 +41,32 @@ export type FetchPostsSuccessAction = {
 };
 
 // comments
+export type CreateCommentPayload = {
+  postId: string,
+  name: string,
+  email: string,
+  parentId: number,
+  httpMethod: 'POST'
+};
+export type CreateCommentAction = {
+  type: 'CREATE_COMMENT',
+  payload: CreateCommentPayload
+}
+export type ReplyCommentPayload = {
+  commentToReplyId: number,
+};
+export type ReplyCommentAction = {
+  type: 'REPLY_COMMENT',
+  payload: ReplyCommentPayload
+};
+
 export type FetchCommentsPayload = {
   resourceRef: string,
   postId: string,
   parentId: number,
   httpMethod: string,
-  offset: number
+  offset: number,
+  order: string
 };
 export type FetchCommentsAction = {
   type: 'FETCH_COMMENTS',
@@ -97,4 +106,4 @@ export type FilterAction = {
   payload: { category: string }
 };
 
-export type Action = FilterAction | FetchPostsAction | FetchCommentsAction | FetchPostsSuccessAction;
+export type Action = FilterAction | FetchPostsAction | FetchCommentsAction | FetchPostsSuccessAction | ReplyCommentAction;

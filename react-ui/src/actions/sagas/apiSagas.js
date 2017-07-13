@@ -122,18 +122,19 @@ function _getFetchPostsUrl(url: string, action: FetchPostsAction): string {
 
 function _getFetchCommentsUrl(url: string, action: FetchCommentsAction): string {
 
-  const {postId, parentId, offset} = action.payload;
+  const {postId, parentId, offset, order} = action.payload;
 
   if (postId) {
     url = `${url}?post=${postId}&per_page=5`;
   }
-
   if (parentId >= 0) {
      url = `${url}&parent=${parentId}`;
   }
-
   if (offset >= 0) {
     url = `${url}&offset=${offset}`;
+  }
+  if (order) {
+    url = `${url}&order=${order}`;
   }
 
   return url;

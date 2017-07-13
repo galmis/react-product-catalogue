@@ -1,15 +1,19 @@
 // @flow
 
-import { FETCH_COMMENTS_SUCCESS, THREAD_FETCHED } from '../constants/ACTION_TYPE';
+import {
+  FETCH_COMMENTS_SUCCESS,
+  THREAD_FETCHED,
+  REPLY_COMMENT
+} from '../constants/ACTION_TYPE';
 import type { Action, NormalizedData } from '../types';
-import { getParentLevel } from '../selectors/commentsSelectors';
 
 const initialState: Object = {
   commentsById: {},
   totalComments: 0,
   totalPages: 0,
   fetchedComments: {},
-  parentsThreadData: {}
+  parentsThreadData: {},
+  commentToReplyId: 0
 };
 
 export {
@@ -48,6 +52,7 @@ export default function commentsReducer(state: Object = initialState, action: Ac
       }
 
       const newState =  {
+        ...state,
         postId,
         parentsThreadData,
         totalComments,
@@ -56,8 +61,13 @@ export default function commentsReducer(state: Object = initialState, action: Ac
       };
       return newState;
     }
+    case REPLY_COMMENT: {
+      return {
+        ...state,
+        commentToReplyId: action.payload.commentToReplyId
+      }
+    }
     case THREAD_FETCHED: {
-
 
     }
   }

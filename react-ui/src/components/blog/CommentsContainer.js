@@ -9,15 +9,20 @@ import { COMMENTS } from '../../constants/RESOURCE_REF';
 import Comments from './Comments';
 import {
   fetchComments,
-  fetchCommentsSuccess,
-  fetchDataError
+  createComment
 } from '../../actions/creators/apiActions';
+
+import {
+  replyComment
+} from '../../actions/creators/commentsUIActions';
+
 import {
   getTotalComments,
   getPostId,
   getCommentsById,
   getParentsThreadsData,
-  getTopThreadId
+  getTopThreadId,
+  getCommentToReplyId
 } from '../../selectors/commentsSelectors';
 
 class CommentsContainer extends Component {
@@ -45,7 +50,9 @@ class CommentsContainer extends Component {
 function mapDispatchToProps(dispatch: Function) {
   return {
     actions: bindActionCreators({
-      fetchComments
+      fetchComments,
+      replyComment,
+      createComment
     }, dispatch)
   }
 }
@@ -57,7 +64,8 @@ function mapStateToProps(state: Object, routerProps: Object) {
       topThreadId: getTopThreadId(state),
       commentsById: getCommentsById(state),
       totalComments: getTotalComments(state),
-      threadsData: getParentsThreadsData(state)
+      threadsData: getParentsThreadsData(state),
+      commentToReplyId: getCommentToReplyId(state)
     }
   }
 }
