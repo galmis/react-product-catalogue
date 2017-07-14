@@ -33,7 +33,7 @@ class CommentsContainer extends Component {
 
   componentDidMount() {
     const {postId, actions} = this.props;
-    actions.fetchComments(postId, -1, -1, 'HEAD');
+    actions.fetchComments(postId, -1, -1, undefined, 'HEAD');
     actions.fetchComments(postId, 0);
   }
 

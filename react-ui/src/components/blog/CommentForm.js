@@ -2,28 +2,70 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { Form, Field, reduxForm } from 'redux-form';
 
-import {Row, Grid, Button, FormGroup, FormControl, Form} from 'react-bootstrap';
+import {Row, Grid, Button, FormGroup, FormControl } from 'react-bootstrap';
+
+import FormField from '../shared/FormField';
+
+import type { Action, CreateCommentActionCreator } from '../../types';
+
+import {
+  getFormValues
+} from 'redux-form'
 
 type Props = {
-  cancelReply: ?() => void,
-  createComment: Function, // TODO: create types for action creators
+  cancelReply: ?() => Action,
+  createComment: CreateCommentActionCreator, // TODO: create types for action creators
   commentToReplyId: number,
-  postId: string
+  postId: string,
+  handleSubmit: Function,
+  reset: Function,
+  change: Function
 };
 
-const _onSubmit = (values) => {
+type FormValues = {
+  name: string,
+  email: string,
+  comment: string
+}
+
+const _containsChar = (str: string) => {
+  return !!str && !!str.trim();
+}
+
+const _validate = (values: FormValues) => {
   debugger;
+  const errors = {}
+  if (!_containsChar(values.name)) {
+    errors.name = 'Tuščias laukelis';
+  }
+  if (!_containsChar(values.email)) {
+    errors.email = 'Tuščias laukelis';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Blogas e-pašto formatas';
+  }
+  if (!_containsChar(values.comment)) {
+    errors.comment = 'Tuščias laukelis';
+  }
+  return errors
+}
+
+const _onSubmit = (values: FormValues, dispatch: Function, props: Props) => {
+  debugger;
+  const { createComment, commentToReplyId, postId } = props;
+  const { name, email, comment } = values;
+
+  createComment(comment, postId, name, email, commentToReplyId);
 }
 
 let CommentForm = (props: Props) => {
 
-  const { cancelReply } = props;
+  const { cancelReply, reset } = props;
 
   return (
-    <div id="comment-form" className='space-100'>
-      <Form onSubmit={props.handleSubmit(_onSubmit)} data-toggle="validator">
+    <section id="comment-form">
+      <Form onSubmit={props.handleSubmit(_onSubmit)}>
         <Row>
           <div className="col-sm-6">
             <div>
@@ -36,27 +78,23 @@ let CommentForm = (props: Props) => {
                 }
               </h4>
             </div>
-            <FormGroup>
-                <Field name='name' component='input' className='form-control' placeholder="Vardas" />
-            </FormGroup>
-            <FormGroup>
-                <Field name='email' component='input' className='form-control' type="email" placeholder="Elektroninis paštas" />
-            </FormGroup>
-            <FormGroup>
-                <Field name='comment' component='textarea' className='form-control' rows="5" placeholder="Komentaras" />
-            </FormGroup>
+            <Field name='name' component={FormField} type='text' label='Vardas' componentClass='input' />
+            <Field name='email' component={FormField} type="email" label="Elektroninis paštas" componentClass='input' />
+            <Field name='comment' component={FormField} componentClass='textarea' rows="5" label="Komentaras" />
             <Button type="submit" id="form-submit" className="btn-primary-filled btn-form-submit btn-rounded">Komentuoti</Button>
           </div>
         </Row>
       </Form>
-    </div>
+    </section>
   );
 };
 
 CommentForm = reduxForm({
   // a unique name for the form
-  form: 'commentForm'
-})(CommentForm)
+  form: 'commentForm',
+  validate: _validate,
+  destroyOnUnmount: false
+})(CommentForm);
 
 CommentForm.propTypes = {
   cancelReply: PropTypes.func,

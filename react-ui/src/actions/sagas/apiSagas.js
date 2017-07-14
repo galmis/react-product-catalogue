@@ -6,9 +6,14 @@ import type {
   Action,
   FetchCommentsAction,
   FetchPostsAction,
+  CreateCommentAction,
   NormalizedData
 } from '../../types';
-import { FETCH_POSTS, FETCH_COMMENTS } from '../../constants/ACTION_TYPE';
+import {
+  FETCH_POSTS,
+  FETCH_COMMENTS,
+  CREATE_COMMENT
+} from '../../constants/ACTION_TYPE';
 import {
   fetchPostsSuccess,
   fetchCommentsSuccess,
@@ -77,8 +82,9 @@ function *_fetchCommentsSuccess(action: FetchCommentsAction, data: ?NormalizedDa
     for (let id of data.result) {
       let comment = data.entities.dataById[id];
       if (comment._links.children) {
-        yield put(fetchComments(postId, comment.id));
+        yield put(fetchComments(postId, comment.id, -1, 'desc')); // asc???!
       } else {
+        // NOTE: not used!
         yield put(threadFetched(comment.id));
       }
     }
@@ -86,11 +92,9 @@ function *_fetchCommentsSuccess(action: FetchCommentsAction, data: ?NormalizedDa
 }
 
 function _getHttpMethod(action: Action): ?string {
-  if (action.type === FETCH_COMMENTS || action.type === FETCH_POSTS) {
+  if (action.type === FETCH_COMMENTS || action.type === FETCH_POSTS || action.type === CREATE_COMMENT) {
     return action.payload.httpMethod;
   }
-
-  return undefined;
 }
 
 function _getFetchUrl(action: Action) {
@@ -102,6 +106,31 @@ function _getFetchUrl(action: Action) {
     return _getFetchPostsUrl(url, action);
   } else if (action.type === FETCH_COMMENTS) {
     return _getFetchCommentsUrl(url, action);
+  } else if (action.type === CREATE_COMMENT) {
+    return _getCreateCommentUrl(url, action);
+  }
+
+  return url;
+}
+
+function _getCreateCommentUrl(url: string, action: CreateCommentAction): string {
+
+  const {postId, parentId, content, name, email} = action.payload;
+
+  if (postId) {
+    url = `${url}?post=${postId}`;
+  }
+  if (parentId >= 0) {
+     url = `${url}&parent=${parentId}`;
+  }
+  if (content) {
+    url = `${url}&content=${content}`;
+  }
+  if (email) {
+    url = `${url}&author_email=${email}`;
+  }
+  if (name) {
+    url = `${url}&author_name=${name}`;
   }
 
   return url;
@@ -141,7 +170,7 @@ function _getFetchCommentsUrl(url: string, action: FetchCommentsAction): string 
 }
 
 function _getResourceRef(action: Action): string {
-  if (action.type === FETCH_POSTS || action.type === FETCH_COMMENTS) {
+  if (action.type === FETCH_POSTS || action.type === FETCH_COMMENTS || action.type === CREATE_COMMENT) {
     return action.payload.resourceRef;
   }
 
@@ -155,7 +184,7 @@ function _getSelectedPage(action: Action) {
 }
 
 function _getPostId(action: Action) {
-  if (action.type === FETCH_POSTS || action.type === FETCH_COMMENTS) {
+  if (action.type === FETCH_POSTS || action.type === FETCH_COMMENTS || action.type === CREATE_COMMENT) {
     return action.payload.postId;
   }
 }

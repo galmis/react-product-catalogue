@@ -43,9 +43,11 @@ export type FetchPostsSuccessAction = {
 // comments
 export type CreateCommentPayload = {
   postId: string,
+  content: string,
   name: string,
   email: string,
   parentId: number,
+  resourceRef: 'comments',
   httpMethod: 'POST'
 };
 export type CreateCommentAction = {
@@ -106,4 +108,8 @@ export type FilterAction = {
   payload: { category: string }
 };
 
-export type Action = FilterAction | FetchPostsAction | FetchCommentsAction | FetchPostsSuccessAction | ReplyCommentAction;
+export type Action = FilterAction | FetchPostsAction | FetchCommentsAction | FetchPostsSuccessAction | ReplyCommentAction | CreateCommentAction;
+
+export type CreateCommentActionCreator = (content: string, postId: string, name: string, email: string, parentId: ?number) => Action;
+export type ReplyCommentActionCreator = (commentToReplyId: number) => Action;
+export type FetchCommentsActionCreator = (postId: string, parentId: ?number, offset: ?number, order: ?string, httpMethod: ?string) => Action;

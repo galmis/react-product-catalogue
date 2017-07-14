@@ -83,8 +83,7 @@ function _renderComments(props: Props, threadId: string) {
               <Comment comment={comment} replyComment={replyComment} threadData={threadsData[id]}/>
               {
                 commentToReplyId === comment.id && createComment
-                ? <CommentForm cancelReply={replyComment.bind({}, 0)} createComment={createComment} commentToReplyId={commentToReplyId} postId={postId}  />
-                : ''
+                && <CommentForm cancelReply={replyComment.bind({}, 0)} createComment={createComment} commentToReplyId={commentToReplyId} postId={postId}  />
               }
               { _renderComments(props, id) }
               {
@@ -99,8 +98,8 @@ function _renderComments(props: Props, threadId: string) {
       compsToRender.push(
         <div className='space-50' key='showMoreBtn'>
           {
-            _shouldRenderShowMore(threadsData[topThreadId]) ?
-            _renderShowMoreComp(threadsData[topThreadId], fetchComments, postId, 0) : ''
+            _shouldRenderShowMore(threadsData[topThreadId]) &&
+            _renderShowMoreComp(threadsData[topThreadId], fetchComments, postId, 0)
           }
         </div>
       );
@@ -126,8 +125,7 @@ const Comments = (props: Props) => {
       </Media.List>
       {
         commentToReplyId === 0 && createComment
-        ? <CommentForm commentToReplyId={0} createComment={createComment} postId={postId} cancelReply={null} />
-        : ''
+        && <CommentForm commentToReplyId={0} createComment={createComment} postId={postId} cancelReply={null} />
       }
 
     </div>

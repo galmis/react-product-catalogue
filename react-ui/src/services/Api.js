@@ -12,9 +12,10 @@ function fetch(url: string, httpMethod: string = 'GET'): Promise<XMLHttpRequest>
     request({
         url,
         method: httpMethod,
-        json: httpMethod === 'GET'
+        json: httpMethod !== 'HEAD'
       },
       (err, response, body) => {
+        debugger;
         if (err) {
           reject(err);
         } else {

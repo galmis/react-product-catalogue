@@ -25,7 +25,7 @@ function fetchPosts(selectedPage: ?number, postId: ?string): Action {
   };
 }
 
-function fetchComments(postId: string, parentId: number = -1, offset: number = -1, httpMethod: string = 'GET'): Action {
+function fetchComments(postId: string, parentId: number = -1, offset: number = -1, order: string = 'desc', httpMethod: string = 'GET'): Action {
   return {
     type: FETCH_COMMENTS,
     payload: {
@@ -33,20 +33,22 @@ function fetchComments(postId: string, parentId: number = -1, offset: number = -
       parentId,
       httpMethod,
       offset,
+      order,
       resourceRef: COMMENTS,
-      order: 'desc' // default in WP, but might change this
     }
   };
 }
 
-function createComment(postId: string, name: string, email: string, parentId: number = 0) {
+function createComment(content: string, postId: string, name: string, email: string, parentId: number = 0) {
   return {
     type: CREATE_COMMENT,
     payload: {
       postId,
+      content,
       name,
       email,
       parentId,
+      resourceRef: COMMENTS,
       httpMethod: 'POST'
     }
   }
