@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Grid, Media, Button} from 'react-bootstrap';
+import {Grid, Media, Button, Badge} from 'react-bootstrap';
 
 import FancyHeader from '../shared/FancyHeader';
 import Comment from './Comment';
@@ -11,23 +11,29 @@ import {COMMENTS} from '../../constants/RESOURCE_REF';
 
 import './Comments.css';
 
-import type { ThreadData, WPComment, CreateCommentPayload } from '../../types';
+import type {
+  ThreadData,
+  WPComment,
+  CreateCommentPayload,
+  FetchCommentsActionCreator
+} from '../../types';
+
 type Props = {
   commentsById: Object,
   totalComments: number,
   topThreadId: string,
-  threadsData: Object,
+  fetchedThreads: Object,
   postId: string,
   commentToReplyId: number,
-  fetchComments: Function, // TODO: create types for action creators
+  fetchComments: FetchCommentsActionCreator, // TODO: create types for action creators
   createComment: Function,
   replyComment: (commentToReplyId: number) => void
 };
 
-const _shouldRenderShowMore = (threadData: ?ThreadData): boolean => {
-  if (threadData) {
-    const offset = threadData.fetchedReplies.length;
-    const count = threadData.totalReplies - offset;
+function _shouldRenderShowMore(fetchedThread: ?ThreadData): boolean {
+  if (fetchedThread) {
+    const offset = fetchedThread.replies.length;
+    const count = fetchedThread.totalReplies - offset;
 
     return count > 0;
   }
@@ -35,15 +41,14 @@ const _shouldRenderShowMore = (threadData: ?ThreadData): boolean => {
   return false;
 }
 
-const _showMore = (offset: number, fetchComments: Props.fetchComments, postId: string, parentId: number) => {
+function _showMore(offset: number, fetchComments: FetchCommentsActionCreator, postId: string, parentId: number) {
+  fetchComments(postId, parentId, offset, parentId > 0 ? 'asc' : 'desc');
+}
 
-  fetchComments(postId, parentId, offset);
-};
+function _renderShowMoreComp(fetchedThread: ThreadData, fetchComments: FetchCommentsActionCreator, postId: string, parentId: number) {
 
-const _renderShowMoreComp = (threadData: ThreadData, fetchComments: Props.fetchComments, postId: string, parentId: number) => {
-
-    const offset = threadData.fetchedReplies.length;
-    const count = threadData.totalReplies - offset;
+    const offset = fetchedThread.replies.length;
+    const count = fetchedThread.totalReplies - offset;
 
     if (parentId > 0) {
       return (
@@ -60,46 +65,62 @@ const _renderShowMoreComp = (threadData: ThreadData, fetchComments: Props.fetchC
     );
 }
 
+function _getReplies(isTopLevel, fetchedThread, createdThread) {
+  let replies = fetchedThread.replies;
+  if (createdThread) {
+    if (isTopLevel) {
+      replies = [...createdThread.replies, ...replies];
+    } else {
+      replies = [...replies, ...createdThread.replies];
+    }
+  }
+
+  return replies;
+}
+
 // NOTE:
 // Defining a function inside the function component should be avoided, as a new
 // function will be created every time the functional component is called.
 function _renderComments(props: Props, threadId: string) {
-  const { commentsById, threadsData, fetchComments, postId, replyComment, commentToReplyId, createComment } = props;
+  const { commentsById, fetchedThreads, fetchComments, postId, replyComment,
+    commentToReplyId, createComment, createdThreads } = props;
 
   const compsToRender = [];
-  const thread = threadsData[threadId];
-  if (thread) {
+  const fetchedThread = fetchedThreads[threadId];
+  const createdThread = createdThreads[threadId];
+  if (fetchedThread) {
     const topThreadId = `0:${postId}`;
     const isTopLevel = threadId === topThreadId;
-    const replies = thread.fetchedReplies;
+    const replies = _getReplies(isTopLevel, fetchedThread, createdThread);
     for (let i = 0; i < replies.length; i++) {
       let id = replies[i].toString();
       let comment = commentsById[id];
-      if (comment.status === 'approved') {
-        compsToRender.push(
-          <Media key={id}>
-            <Media.Left className={ isTopLevel ? '' : 'nested' }></Media.Left>
-            <Media.Body>
-              <Comment comment={comment} replyComment={replyComment} threadData={threadsData[id]}/>
-              {
-                commentToReplyId === comment.id && createComment
-                && <CommentForm cancelReply={replyComment.bind({}, 0)} createComment={createComment} commentToReplyId={commentToReplyId} postId={postId}  />
-              }
-              { _renderComments(props, id) }
-              {
-                _shouldRenderShowMore(threadsData[id]) ? _renderShowMoreComp(threadsData[id], fetchComments, postId, comment.id) : ''
-              }
-            </Media.Body>
-          </Media>
-        );
-      }
+      compsToRender.push(
+        <Media key={id}>
+          <Media.Left className={ isTopLevel ? '' : 'nested' }></Media.Left>
+          <Media.Body>
+            <Comment comment={comment} replyComment={replyComment}
+              fetchedThread={fetchedThreads[id]} createdThread={createdThread}/>
+            {
+              commentToReplyId === comment.id && createComment
+              && <CommentForm cancelReply={replyComment.bind({}, 0)} createComment={createComment} commentToReplyId={commentToReplyId} postId={postId}  />
+            }
+            { _renderComments(props, id) }
+            {
+              _shouldRenderShowMore(fetchedThreads[id])
+                && _renderShowMoreComp(fetchedThreads[id], fetchComments, postId, comment.id)
+
+            }
+          </Media.Body>
+        </Media>
+      );
     }
     if (isTopLevel) {
       compsToRender.push(
         <div className='space-50' key='showMoreBtn'>
           {
-            _shouldRenderShowMore(threadsData[topThreadId]) &&
-            _renderShowMoreComp(threadsData[topThreadId], fetchComments, postId, 0)
+          _shouldRenderShowMore(fetchedThreads[topThreadId])
+            && _renderShowMoreComp(fetchedThreads[topThreadId], fetchComments, postId, 0)
           }
         </div>
       );
@@ -134,7 +155,7 @@ const Comments = (props: Props) => {
 
 Comments.propTypes = {
   commentsById: PropTypes.object.isRequired,
-  threadsData: PropTypes.object.isRequired,
+  fetchedThreads: PropTypes.object.isRequired,
   postId: PropTypes.string.isRequired,
   commentToReplyId: PropTypes.number.isRequired,
   createComment: PropTypes.func.isRequired,

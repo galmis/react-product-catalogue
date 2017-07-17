@@ -2,7 +2,7 @@
 
 import {
   FETCH_COMMENTS_SUCCESS,
-  THREAD_FETCHED,
+  CREATE_COMMENT_SUCCESS,
   REPLY_COMMENT
 } from '../constants/ACTION_TYPE';
 import type { Action, NormalizedData } from '../types';
@@ -11,8 +11,8 @@ const initialState: Object = {
   commentsById: {},
   totalComments: 0,
   totalPages: 0,
-  fetchedComments: {},
-  parentsThreadData: {},
+  fetchedThreads: {},
+  createdThreads: {},
   commentToReplyId: 0
 };
 
@@ -24,22 +24,21 @@ export default function commentsReducer(state: Object = initialState, action: Ac
 
   switch(action.type) {
     case FETCH_COMMENTS_SUCCESS: {
-      const postId = action.payload.postId;
-      const parent = action.payload.parentId;
-      const data = action.payload.data;
-      const parentsThreadData = { ...state.parentsThreadData };
-      const totalComments = parent >= 0 ? state.totalComments : action.payload.totalRecords;
-      const totalPages = parent >= 0 ? state.totalPages : action.payload.totalPages;
+      debugger;
+      const {postId, parentId, data} = action.payload;
+      const fetchedThreads = { ...state.fetchedThreads };
+      const totalComments = parentId >= 0 ? state.totalComments : action.payload.totalRecords;
+      const totalPages = parentId >= 0 ? state.totalPages : action.payload.totalPages;
 
-      if (parent >= 0) {
+      if (parentId >= 0) {
         const result = data ? data.result : [];
-        const threadId = parent === 0 ? '0:' + postId : parent.toString();
-        const threadData = parentsThreadData[threadId];
-        const fetchedReplies = threadData ? [...threadData.fetchedReplies, ...result] : [...result];
-        parentsThreadData[threadId] = {
-          fetchedReplies,
+        const threadId = parentId === 0 ? '0:' + postId : parentId.toString();
+        const threadData = fetchedThreads[threadId];
+        const replies = threadData ? [...threadData.replies, ...result] : [...result];
+        fetchedThreads[threadId] = {
+          replies,
           totalReplies: action.payload.totalRecords,
-        }
+        };
       }
       let commentsById;
       if (data) {
@@ -54,7 +53,7 @@ export default function commentsReducer(state: Object = initialState, action: Ac
       const newState =  {
         ...state,
         postId,
-        parentsThreadData,
+        fetchedThreads,
         totalComments,
         totalPages,
         commentsById
@@ -67,8 +66,30 @@ export default function commentsReducer(state: Object = initialState, action: Ac
         commentToReplyId: action.payload.commentToReplyId
       }
     }
-    case THREAD_FETCHED: {
+    case CREATE_COMMENT_SUCCESS: {
+      debugger;
+      const {postId, parentId, data} = action.payload;
+      const result = data.result;
+      const threadId = parentId === 0 ? '0:' + postId : parentId.toString();
+      const createdThreads = { ...state.createdThreads };
+      const threadData = createdThreads[threadId];
+      const replies = threadData ? [...threadData.replies, ...result] : [...result];
 
+      createdThreads[threadId] = {
+        replies
+      }
+
+      const commentsById = {
+        ...state.commentsById,
+        ...data.entities.dataById
+      };
+
+      return {
+        ...state,
+        totalComments: state.totalComments + 1,
+        commentsById,
+        createdThreads
+      }
     }
   }
 

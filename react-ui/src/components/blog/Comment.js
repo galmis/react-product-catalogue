@@ -8,12 +8,13 @@ import type { WPComment, ThreadData } from '../../types';
 type Props = {
   comment: WPComment,
   replyComment: (commentToReplyId: number) => void,
-  threadData: ?ThreadData
+  fetchedThread: ?ThreadData,
 }
 
 const Comment = (props: Props) => {
 
-  const { comment, replyComment } = props;
+  const { comment, replyComment, createdThread } = props;
+  debugger;
 
   return (
     <div>
@@ -23,7 +24,13 @@ const Comment = (props: Props) => {
       </div>
       <div className="comment">
         <div dangerouslySetInnerHTML={ { __html: comment.content.rendered } } />
-        <a className="comment-log-in" onClick={ () => replyComment(comment.id) }>Atsakyti</a>
+        {
+          createdThread ? ''
+          : <a className="comment-log-in"
+              onClick={ () => replyComment(comment.id) }>
+              Atsakyti
+            </a>
+        }
       </div>
     </div>
   );

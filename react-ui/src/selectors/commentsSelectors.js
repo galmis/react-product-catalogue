@@ -34,11 +34,15 @@ function getPostId(state: Object): string {
 }
 
 function getParentThreadData(state: Object, parentId: number): ThreadData {
-  return getParentsThreadsData(state)[parentId.toString()];
+  return getFetchedThreads(state)[parentId.toString()];
 }
 
-function getParentsThreadsData(state: Object) {
-  return getCommentsState(state).parentsThreadData;
+function getFetchedThreads(state: Object) {
+  return getCommentsState(state).fetchedThreads;
+}
+
+function getCreatedThreads(state: Object) {
+  return getCommentsState(state).createdThreads;
 }
 
 function getTopThreadId(state: Object): string {
@@ -51,6 +55,16 @@ function getCommentToReplyId(state: Object): number {
   return getCommentsState(state).commentToReplyId;
 }
 
+function getCreatedThreadReplies(state: Object, parentId: number): Array<number> {
+  const threadId = parentId > 0 ? parentId.toString() : getTopThreadId(state);
+  const thread = getCreatedThreads(state)[threadId];
+  if (thread && thread.replies) {
+    return thread.replies;
+  }
+
+  return [];
+}
+
 export {
   getCommentsState,
   getTotalComments,
@@ -58,7 +72,9 @@ export {
   getCommentsById,
   getComment,
   getPostId,
-  getParentsThreadsData,
+  getFetchedThreads,
   getTopThreadId,
-  getCommentToReplyId
+  getCommentToReplyId,
+  getCreatedThreads,
+  getCreatedThreadReplies
 }

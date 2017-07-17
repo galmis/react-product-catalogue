@@ -35,7 +35,6 @@ const _containsChar = (str: string) => {
 }
 
 const _validate = (values: FormValues) => {
-  debugger;
   const errors = {}
   if (!_containsChar(values.name)) {
     errors.name = 'Tuščias laukelis';
@@ -52,11 +51,13 @@ const _validate = (values: FormValues) => {
 }
 
 const _onSubmit = (values: FormValues, dispatch: Function, props: Props) => {
-  debugger;
   const { createComment, commentToReplyId, postId } = props;
   const { name, email, comment } = values;
 
   createComment(comment, postId, name, email, commentToReplyId);
+
+  // TODO: clear field when comment successfully created
+  // dispatch(change('commentForm', 'comment', ''))
 }
 
 let CommentForm = (props: Props) => {

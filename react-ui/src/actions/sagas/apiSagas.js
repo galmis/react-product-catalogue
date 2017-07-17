@@ -17,6 +17,7 @@ import {
 import {
   fetchPostsSuccess,
   fetchCommentsSuccess,
+  createCommentSuccess,
   threadFetched,
   fetchDataError,
   fetchComments
@@ -33,18 +34,17 @@ function* fetchData(action: Action): Generator<*, *, *> {
     const httpMethod = _getHttpMethod(action);
     const response: ?XMLHttpRequest = yield call(fetch, url, httpMethod);
     if (response) {
-      if (response.statusText === 'OK') {
+      if (response.status >= 200 && response.status < 300) {
         const totalRecords = response.getResponseHeader('X-WP-Total');
         const totalPages = response.getResponseHeader('X-WP-TotalPages');
         let normalizedData = null;
-        if (httpMethod === 'GET') {
+        if (httpMethod !== 'HEAD') {
           const data = Array.isArray(response.body) ? response.body : [response.body];
           normalizedData = yield call(getNormalizedData, data);
         }
         yield fork(_fetchDataSuccess, action, normalizedData, parseInt(totalRecords), parseInt(totalPages));
-
       } else {
-        console.log(`Error - ${response.status}`);
+        console.log(`Error - ${response.status}, ${response.statusText}`);
         yield put(fetchDataError(`Error - ${response.status}`));
       }
     } else {
@@ -57,13 +57,20 @@ function* fetchData(action: Action): Generator<*, *, *> {
 }
 
 function* _fetchDataSuccess(action: Action, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
-
   if (action.type === FETCH_POSTS) {
     yield fork(_fetchPostsSuccess, action, data, totalRecords, totalPages);
   } else if (action.type === FETCH_COMMENTS) {
     yield fork(_fetchCommentsSuccess, action, data, totalRecords, totalPages);
+  } else if (action.type === CREATE_COMMENT) {
+    yield fork(_createCommentSuccess, action, data);
   }
+}
 
+function *_createCommentSuccess(action: Action, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
+  let postId = _getPostId(action);
+  postId = postId ? postId : '';
+
+  yield put(createCommentSuccess(data, postId, action.payload.parentId));
 }
 
 function *_fetchPostsSuccess(action: FetchPostsAction, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
@@ -82,10 +89,10 @@ function *_fetchCommentsSuccess(action: FetchCommentsAction, data: ?NormalizedDa
     for (let id of data.result) {
       let comment = data.entities.dataById[id];
       if (comment._links.children) {
-        yield put(fetchComments(postId, comment.id, -1, 'desc')); // asc???!
+        yield put(fetchComments(postId, comment.id, -1, 'asc')); // asc???!
       } else {
         // NOTE: not used!
-        yield put(threadFetched(comment.id));
+        //yield put(threadFetched(comment.id));
       }
     }
   }
@@ -98,7 +105,7 @@ function _getHttpMethod(action: Action): ?string {
 }
 
 function _getFetchUrl(action: Action) {
-  let url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
+  let url = 'http://localhost:8080/blogas/wp-json/wp/v2/';
   const resourceRef = _getResourceRef(action)
   url = `${url}${resourceRef}`;
 
@@ -151,6 +158,7 @@ function _getFetchPostsUrl(url: string, action: FetchPostsAction): string {
 
 function _getFetchCommentsUrl(url: string, action: FetchCommentsAction): string {
 
+  // TODO: get post id using selector
   const {postId, parentId, offset, order} = action.payload;
 
   if (postId) {

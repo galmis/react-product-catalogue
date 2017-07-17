@@ -20,7 +20,8 @@ import {
   getTotalComments,
   getPostId,
   getCommentsById,
-  getParentsThreadsData,
+  getFetchedThreads,
+  getCreatedThreads,
   getTopThreadId,
   getCommentToReplyId
 } from '../../selectors/commentsSelectors';
@@ -64,7 +65,8 @@ function mapStateToProps(state: Object, routerProps: Object) {
       topThreadId: getTopThreadId(state),
       commentsById: getCommentsById(state),
       totalComments: getTotalComments(state),
-      threadsData: getParentsThreadsData(state),
+      fetchedThreads: getFetchedThreads(state),
+      createdThreads: getCreatedThreads(state),
       commentToReplyId: getCommentToReplyId(state)
     }
   }

@@ -7,7 +7,8 @@ import {
   FETCH_POSTS_SUCCESS,
   FETCH_DATA_ERROR,
   THREAD_FETCHED,
-  CREATE_COMMENT
+  CREATE_COMMENT,
+  CREATE_COMMENT_SUCCESS
 } from '../../constants/ACTION_TYPE';
 import { COMMENTS, POSTS } from '../../constants/RESOURCE_REF';
 
@@ -88,11 +89,24 @@ function fetchCommentsSuccess(data: ?NormalizedData, postId: string, totalRecord
   }
 }
 
+function createCommentSuccess(data: ?NormalizedData, postId: string, parentId: number){
+  return {
+    type: CREATE_COMMENT_SUCCESS,
+    payload: {
+      data,
+      postId,
+      parentId
+    }
+  }
+}
+
 function fetchDataError(errorMsg: string) {
   return {
     type: FETCH_DATA_ERROR,
     payload: {
-      errorMsg
+      errorMsg,
+      errorType: 'TODO', // NOTE!!!
+      statusCode: 'TODO'
     }
   }
 }
@@ -104,5 +118,6 @@ export {
   fetchPostsSuccess,
   fetchCommentsSuccess,
   fetchDataError,
-  createComment
+  createComment,
+  createCommentSuccess
 }

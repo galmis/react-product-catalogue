@@ -99,7 +99,7 @@ export type WPComment = {
 };
 export type ThreadData = {
   totalReplies: number,
-  fetchedReplies: Array<number>
+  replies: Array<number>
 };
 
 // filter
