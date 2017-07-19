@@ -20,7 +20,8 @@ type Props = {
   commentToReplyId: number,
   postId: string,
   handleSubmit: Function,
-  statusCode: ?number
+  statusCode: ?number,
+  submitting: boolean
 };
 
 type FormValues = {
@@ -50,10 +51,12 @@ const _validate = (values: FormValues) => {
 }
 
 const _onSubmit = (values: FormValues, dispatch: Function, props: Props) => {
-  const { actions, commentToReplyId, postId } = props;
-  const { name, email, comment } = values;
+  if (!props.submitting) {
+    const { actions, commentToReplyId, postId } = props;
+    const { name, email, comment } = values;
 
-  actions.createComment(comment, postId, name, email, commentToReplyId);
+    actions.createComment(comment, postId, name, email, commentToReplyId);
+  }
 }
 
 function _renderFormStatus(statusCode: number, dismissStatus: Function) {
@@ -80,14 +83,14 @@ function _renderFormStatus(statusCode: number, dismissStatus: Function) {
 
 let CommentForm = (props: Props) => {
 
-  const { cancelReply, statusCode } = props;
+  const { cancelReply, statusCode, submitting } = props;
 
   return (
     <section id="comment-form">
       <Form onSubmit={props.handleSubmit(_onSubmit)}>
         <Row>
           <div className="col-sm-6">
-            { statusCode && _renderFormStatus(statusCode, props.actions.dismissStatus)}
+            { statusCode && _renderFormStatus(statusCode, props.actions.dismissStatus) }
             <h4>
               Palikite komentarą
               {
@@ -99,7 +102,7 @@ let CommentForm = (props: Props) => {
             <Field name='name' component={FormField} type='text' label='Vardas' componentClass='input' />
             <Field name='email' component={FormField} type="email" label="Elektroninis paštas" componentClass='input' />
             <Field name='comment' component={FormField} componentClass='textarea' rows="5" label="Komentaras" />
-            <Button type="submit" id="form-submit" className="btn-primary-filled btn-form-submit btn-rounded">Komentuoti</Button>
+            <Button type="submit" id="form-submit" className="btn-primary-filled btn-form-submit btn-rounded" disabled={submitting}>Komentuoti</Button>
           </div>
         </Row>
       </Form>

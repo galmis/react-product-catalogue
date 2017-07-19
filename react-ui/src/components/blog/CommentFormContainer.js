@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import {
+  isSubmitting,
+} from 'redux-form'
 
 import CommentForm from './CommentForm';
 import {createComment} from '../../actions/creators/apiActions';
@@ -29,7 +32,8 @@ function mapStateToProps(state: Object, routerProps: Object) {
   return {
     postId: getPostId(state),
     commentToReplyId: getCommentToReplyId(state),
-    statusCode: getCommentFormStatusCode(state)
+    statusCode: getCommentFormStatusCode(state),
+    submitting: isSubmitting(state, 'commentForm')
   }
 }
 

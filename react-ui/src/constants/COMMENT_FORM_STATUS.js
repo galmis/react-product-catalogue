@@ -3,15 +3,15 @@
 import { SUCCESS, WARNING, ERROR } from './COMMENT_FORM_STATUS_TYPE';
 
 const COMMENT_FORM_STATUS = Object.freeze({
-  ['200']: {
+  ['201']: {
     type: SUCCESS,
-    code: 200,
+    code: 201,
     message: 'Komentaras išsiųstas sėkmingai.',
   },
   ['400']: {
     type: ERROR,
     code: 400,
-    message: 'Komentaras neišsiųstas. Palaukite 30 sekundžių ir bandykite dar kartą.'
+    message: 'Komentaras neišsiųstas. Palaukite 15 sekundžių ir bandykite dar kartą.'
   },
   ['409']: {
     type: ERROR,
