@@ -1,7 +1,8 @@
 // @flow
 
 import {
-  REPLY_COMMENT
+  REPLY_COMMENT,
+  DISMISS_COMMENT_FORM_STATUS
 } from '../../constants/ACTION_TYPE';
 
 import type { Action } from '../../types';
@@ -15,6 +16,13 @@ function replyComment(commentToReplyId: number): Action {
   };
 }
 
+function dismissStatus(): Action {
+  return {
+    type: DISMISS_COMMENT_FORM_STATUS
+  }
+}
+
 export {
-  replyComment
+  replyComment,
+  dismissStatus
 }

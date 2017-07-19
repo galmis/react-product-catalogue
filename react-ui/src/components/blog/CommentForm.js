@@ -4,24 +4,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Field, reduxForm } from 'redux-form';
 
-import {Row, Grid, Button, FormGroup, FormControl } from 'react-bootstrap';
+import {Row, Button, FormGroup, FormControl, Alert } from 'react-bootstrap';
 
 import FormField from '../shared/FormField';
 
 import type { Action, CreateCommentActionCreator } from '../../types';
 
-import {
-  getFormValues
-} from 'redux-form'
+import COMMENT_FORM_STATUS from '../../constants/COMMENT_FORM_STATUS';
+import { SUCCESS, WARNING } from '../../constants/COMMENT_FORM_STATUS_TYPE';
 
 type Props = {
   cancelReply: ?() => Action,
-  createComment: CreateCommentActionCreator, // TODO: create types for action creators
+  //createComment: CreateCommentActionCreator, // TODO: create types for action creators
+  actions: Object,
   commentToReplyId: number,
   postId: string,
   handleSubmit: Function,
-  reset: Function,
-  change: Function
+  statusCode: ?number
 };
 
 type FormValues = {
@@ -51,31 +50,52 @@ const _validate = (values: FormValues) => {
 }
 
 const _onSubmit = (values: FormValues, dispatch: Function, props: Props) => {
-  const { createComment, commentToReplyId, postId } = props;
+  const { actions, commentToReplyId, postId } = props;
   const { name, email, comment } = values;
 
-  createComment(comment, postId, name, email, commentToReplyId);
+  actions.createComment(comment, postId, name, email, commentToReplyId);
+}
+
+function _renderFormStatus(statusCode: number, dismissStatus: Function) {
+  debugger;
+  const status = COMMENT_FORM_STATUS[''+statusCode];
+  let style = 'danger';
+  let statusMsg = 'Klaida - ' + statusCode;
+  if (status) {
+    if (status.type === SUCCESS) {
+      style = 'success';
+    } else if (status.type === WARNING) {
+      style = 'warning';
+    }
+
+    statusMsg = status.message ? status.message : statusMsg;
+  }
+
+  return (
+    <Alert bsStyle={style} onDismiss={dismissStatus}>
+      <strong>{statusMsg}</strong>
+    </Alert>
+  );
 }
 
 let CommentForm = (props: Props) => {
 
-  const { cancelReply, reset } = props;
+  const { cancelReply, statusCode } = props;
 
   return (
     <section id="comment-form">
       <Form onSubmit={props.handleSubmit(_onSubmit)}>
         <Row>
           <div className="col-sm-6">
-            <div>
-              <h4>
-                Palikite komentarą
-                {
-                  cancelReply
-                  ? <span className='pull-right'><a onClick={cancelReply}>Atšaukti <i className="fa fa-close"></i></a></span>
-                  : ''
-                }
-              </h4>
-            </div>
+            { statusCode && _renderFormStatus(statusCode, props.actions.dismissStatus)}
+            <h4>
+              Palikite komentarą
+              {
+                cancelReply
+                ? <span className='pull-right'><a onClick={cancelReply}>Atšaukti <i className="fa fa-close"></i></a></span>
+                : ''
+              }
+            </h4>
             <Field name='name' component={FormField} type='text' label='Vardas' componentClass='input' />
             <Field name='email' component={FormField} type="email" label="Elektroninis paštas" componentClass='input' />
             <Field name='comment' component={FormField} componentClass='textarea' rows="5" label="Komentaras" />
@@ -96,9 +116,10 @@ CommentForm = reduxForm({
 
 CommentForm.propTypes = {
   cancelReply: PropTypes.func,
-  createComment: PropTypes.func.isRequired,
+  statusCode: PropTypes.number,
+  actions: PropTypes.object.isRequired,
   commentToReplyId: PropTypes.number.isRequired,
-  postId: PropTypes.string.isRequired
+  postId: PropTypes.string.isRequired,
 };
 
 export default CommentForm;

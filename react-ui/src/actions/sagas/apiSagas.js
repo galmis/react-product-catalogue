@@ -46,7 +46,7 @@ function* fetchData(action: Action): Generator<*, *, *> {
           const data = Array.isArray(response.body) ? response.body : [response.body];
           normalizedData = yield call(getNormalizedData, data);
         }
-        yield fork(_fetchDataSuccess, action, normalizedData, parseInt(totalRecords), parseInt(totalPages));
+        yield fork(_fetchDataSuccess, action, normalizedData, parseInt(totalRecords), parseInt(totalPages), response.status);
       } else {
         console.log(`Error - ${response.status}, ${response.statusText}`);
         yield put(fetchDataError(action, response.status));
@@ -60,21 +60,21 @@ function* fetchData(action: Action): Generator<*, *, *> {
   }
 }
 
-function* _fetchDataSuccess(action: Action, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
+function* _fetchDataSuccess(action: Action, data: ?NormalizedData, totalRecords: number, totalPages: number, status: number): Generator<*, void, *> {
   if (action.type === FETCH_POSTS) {
     yield fork(_fetchPostsSuccess, action, data, totalRecords, totalPages);
   } else if (action.type === FETCH_COMMENTS) {
     yield fork(_fetchCommentsSuccess, action, data, totalRecords, totalPages);
   } else if (action.type === CREATE_COMMENT) {
-    yield fork(_createCommentSuccess, action, data);
+    yield fork(_createCommentSuccess, action, data, status);
   }
 }
 
-function *_createCommentSuccess(action: Action, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
+function *_createCommentSuccess(action: CreateCommentAction, data: ?NormalizedData, status: number): Generator<*, void, *> {
   let postId = _getPostId(action);
   postId = postId ? postId : '';
 
-  yield put(createCommentSuccess(data, postId, action.payload.parentId));
+  yield put(createCommentSuccess(data, postId, action.payload.parentId, status));
   yield put(change('commentForm', 'comment', null));
   yield put(untouch('commentForm', 'comment'));
 }
@@ -110,8 +110,8 @@ function _getHttpMethod(action: Action): ?string {
   }
 }
 
-function *_getFetchUrl(action: Action) {
-  let url = 'http://localhost:8080/blogas/wp-json/wp/v2/';
+function *_getFetchUrl(action: Action): Generator<*, string, *> {
+  let url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
   const resourceRef = _getResourceRef(action)
   url = `${url}${resourceRef}`;
   if (action.type === FETCH_POSTS) {
@@ -132,7 +132,7 @@ function *_getFetchUrl(action: Action) {
   return url;
 }
 
-function *_getCreateCommentUrl(url: string, action: CreateCommentAction): string {
+function *_getCreateCommentUrl(url: string, action: CreateCommentAction): Generator<*, string, *> {
 
   const {postId, parentId, content, name, email} = action.payload;
 
@@ -168,7 +168,7 @@ function _getFetchPostsUrl(url: string, action: FetchPostsAction): string {
   return url;
 }
 
-function *_getFetchCommentsUrl(url: string, action: FetchCommentsAction): string {
+function *_getFetchCommentsUrl(url: string, action: FetchCommentsAction): Generator<*, string, *>{
 
   // TODO: get post id using selector
   const {postId, parentId, offset, order} = action.payload;

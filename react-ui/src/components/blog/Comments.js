@@ -6,7 +6,7 @@ import {Grid, Media, Button, Badge} from 'react-bootstrap';
 
 import FancyHeader from '../shared/FancyHeader';
 import Comment from './Comment';
-import CommentForm from './CommentForm';
+import CommentFormContainer from './CommentFormContainer';
 import {COMMENTS} from '../../constants/RESOURCE_REF';
 
 import './Comments.css';
@@ -105,8 +105,7 @@ function _renderComments(props: Props, threadId: string) {
               fetchedThread={fetchedThreads[id]}/>
             {
               commentToReplyId === comment.id && createComment
-              && <CommentForm cancelReply={replyComment.bind({}, 0)}
-                createComment={createComment} commentToReplyId={commentToReplyId} postId={postId} />
+              && <CommentFormContainer cancelReply={replyComment.bind({}, 0)} />
             }
             { _renderComments(props, id) }
             {
@@ -142,7 +141,7 @@ const Comments = (props: Props) => {
       <h3>Komentarai ({totalComments})</h3>
       {
         commentToReplyId === 0 && createComment
-        && <CommentForm commentToReplyId={0} createComment={createComment} postId={postId} cancelReply={null} />
+        && <CommentFormContainer />
       }
       <Media.List>
         { _renderComments(props, topThreadId) }

@@ -26,6 +26,6 @@ a.active {
 }
 
 /* continue reading link in wordpress, not ideal - google crawler can see it? */
-.link-more {
+.more-link {
   display: none;
 }
