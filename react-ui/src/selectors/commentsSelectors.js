@@ -56,6 +56,7 @@ function getCommentToReplyId(state: Object): number {
 }
 
 function getCreatedThreadReplies(state: Object, parentId: number): Array<number> {
+
   const threadId = parentId > 0 ? parentId.toString() : getTopThreadId(state);
   const thread = getCreatedThreads(state)[threadId];
   if (thread && thread.replies) {

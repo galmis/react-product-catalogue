@@ -1,6 +1,6 @@
 // @flow
 
-import { put, call, fork } from 'redux-saga/effects';
+import { put, call, fork, select } from 'redux-saga/effects';
 
 import type {
   Action,
@@ -22,6 +22,10 @@ import {
   fetchDataError,
   fetchComments
 } from '../creators/apiActions';
+import {change, untouch} from 'redux-form';
+import {
+  getCreatedThreadReplies
+} from '../../selectors/commentsSelectors';
 import { fetch } from '../../services/Api';
 import { getNormalizedData } from '../../services/Normalizer';
 import { COMMENTS, POSTS } from '../../constants/RESOURCE_REF';
@@ -30,7 +34,7 @@ function* fetchData(action: Action): Generator<*, *, *> {
   console.log(`fetch data requested, action = ${JSON.stringify(action)}`);
 
   try {
-    const url = _getFetchUrl(action);
+    const url = yield call(_getFetchUrl, action);
     const httpMethod = _getHttpMethod(action);
     const response: ?XMLHttpRequest = yield call(fetch, url, httpMethod);
     if (response) {
@@ -45,14 +49,14 @@ function* fetchData(action: Action): Generator<*, *, *> {
         yield fork(_fetchDataSuccess, action, normalizedData, parseInt(totalRecords), parseInt(totalPages));
       } else {
         console.log(`Error - ${response.status}, ${response.statusText}`);
-        yield put(fetchDataError(`Error - ${response.status}`));
+        yield put(fetchDataError(action, response.status));
       }
     } else {
       console.log('Error - no response');
-      yield put(fetchDataError(`Error - no response`));
+      yield put(fetchDataError(action, -1, 'Error - no response'));
     }
   } catch(error) {
-    yield put(fetchDataError(error.message));
+    yield put(fetchDataError(action, -1, error.message));
   }
 }
 
@@ -71,6 +75,8 @@ function *_createCommentSuccess(action: Action, data: ?NormalizedData, totalReco
   postId = postId ? postId : '';
 
   yield put(createCommentSuccess(data, postId, action.payload.parentId));
+  yield put(change('commentForm', 'comment', null));
+  yield put(untouch('commentForm', 'comment'));
 }
 
 function *_fetchPostsSuccess(action: FetchPostsAction, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
@@ -104,23 +110,29 @@ function _getHttpMethod(action: Action): ?string {
   }
 }
 
-function _getFetchUrl(action: Action) {
+function *_getFetchUrl(action: Action) {
   let url = 'http://localhost:8080/blogas/wp-json/wp/v2/';
   const resourceRef = _getResourceRef(action)
   url = `${url}${resourceRef}`;
-
   if (action.type === FETCH_POSTS) {
     return _getFetchPostsUrl(url, action);
   } else if (action.type === FETCH_COMMENTS) {
-    return _getFetchCommentsUrl(url, action);
+    const actionUrl = yield call(_getFetchCommentsUrl, url, action);
+    if (actionUrl) {
+      return actionUrl;
+    }
   } else if (action.type === CREATE_COMMENT) {
-    return _getCreateCommentUrl(url, action);
+    //return _getCreateCommentUrl(url, action);
+    const actionUrl = yield call(_getCreateCommentUrl, url, action);
+    if (actionUrl) {
+      return actionUrl;
+    }
   }
 
   return url;
 }
 
-function _getCreateCommentUrl(url: string, action: CreateCommentAction): string {
+function *_getCreateCommentUrl(url: string, action: CreateCommentAction): string {
 
   const {postId, parentId, content, name, email} = action.payload;
 
@@ -156,13 +168,17 @@ function _getFetchPostsUrl(url: string, action: FetchPostsAction): string {
   return url;
 }
 
-function _getFetchCommentsUrl(url: string, action: FetchCommentsAction): string {
+function *_getFetchCommentsUrl(url: string, action: FetchCommentsAction): string {
 
   // TODO: get post id using selector
   const {postId, parentId, offset, order} = action.payload;
+  const excludeIds = yield select(getCreatedThreadReplies, parentId);
 
   if (postId) {
     url = `${url}?post=${postId}&per_page=5`;
+  }
+  if (excludeIds && excludeIds.length > 0) {
+    url = `${url}&exclude=${excludeIds.toString()}`;
   }
   if (parentId >= 0) {
      url = `${url}&parent=${parentId}`;

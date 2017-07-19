@@ -5,9 +5,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
+import {
+  syncHistoryWithStore,
+  routerReducer,
+  routerMiddleware
+} from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import { reducer as formReducer } from 'redux-form';
+import commentFormReducer from './reducers/commentFormReducer';
 
 import rootSaga from './actions/sagas';
 import reducers from './reducers';
@@ -33,7 +38,9 @@ console.log('running index.js');
 
 const rootReducer = combineReducers({
   ...reducers,
-  form: formReducer,
+  form: formReducer.plugin({
+    commentForm: commentFormReducer
+  }),
   routing: routerReducer
 });
 

@@ -24,7 +24,7 @@ export default function commentsReducer(state: Object = initialState, action: Ac
 
   switch(action.type) {
     case FETCH_COMMENTS_SUCCESS: {
-      debugger;
+
       const {postId, parentId, data} = action.payload;
       const fetchedThreads = { ...state.fetchedThreads };
       const totalComments = parentId >= 0 ? state.totalComments : action.payload.totalRecords;
@@ -67,13 +67,15 @@ export default function commentsReducer(state: Object = initialState, action: Ac
       }
     }
     case CREATE_COMMENT_SUCCESS: {
-      debugger;
       const {postId, parentId, data} = action.payload;
+      debugger;
       const result = data.result;
       const threadId = parentId === 0 ? '0:' + postId : parentId.toString();
       const createdThreads = { ...state.createdThreads };
       const threadData = createdThreads[threadId];
-      const replies = threadData ? [...threadData.replies, ...result] : [...result];
+      const currReplies = threadData ? threadData.replies : [];
+      const replies = parentId === 0 ? [...result, ...currReplies]
+        : [...currReplies, ...result];
 
       createdThreads[threadId] = {
         replies

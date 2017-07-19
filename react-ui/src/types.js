@@ -18,6 +18,16 @@ export type NormalizedData = {
   result: Array<string | number>
 };
 
+// error
+export type FetchDataErrorPayload = {
+  status: number,
+  prevAction: Action
+}
+export type FetchDataErrorAction = {
+  type: 'FETCH_DATA_ERROR',
+  payload: FetchDataErrorPayload
+};
+
 // posts
 export type FetchPostsPayload = {
   httpMethod: string,
@@ -47,6 +57,7 @@ export type CreateCommentPayload = {
   name: string,
   email: string,
   parentId: number,
+  excludeIds: Array<number>,
   resourceRef: 'comments',
   httpMethod: 'POST'
 };
@@ -108,8 +119,10 @@ export type FilterAction = {
   payload: { category: string }
 };
 
-export type Action = FilterAction | FetchPostsAction | FetchCommentsAction | FetchPostsSuccessAction | ReplyCommentAction | CreateCommentAction;
+export type Action = FilterAction | FetchPostsAction | FetchCommentsAction
+| FetchPostsSuccessAction | ReplyCommentAction | CreateCommentAction
+| FetchDataErrorAction;
 
-export type CreateCommentActionCreator = (content: string, postId: string, name: string, email: string, parentId: ?number) => Action;
+export type CreateCommentActionCreator = (content: string, postId: string, name: string, email: string, parentId: ?number, excludeIds: ?Array<number>) => Action;
 export type ReplyCommentActionCreator = (commentToReplyId: number) => Action;
 export type FetchCommentsActionCreator = (postId: string, parentId: ?number, offset: ?number, order: ?string, httpMethod: ?string) => Action;

@@ -40,7 +40,8 @@ function fetchComments(postId: string, parentId: number = -1, offset: number = -
   };
 }
 
-function createComment(content: string, postId: string, name: string, email: string, parentId: number = 0) {
+function createComment(content: string, postId: string, name: string,
+  email: string, parentId: number = 0) {
   return {
     type: CREATE_COMMENT,
     payload: {
@@ -100,13 +101,13 @@ function createCommentSuccess(data: ?NormalizedData, postId: string, parentId: n
   }
 }
 
-function fetchDataError(errorMsg: string) {
+function fetchDataError(action: Action, status: number, errorMsg: ?string) {
   return {
     type: FETCH_DATA_ERROR,
     payload: {
+      status,
       errorMsg,
-      errorType: 'TODO', // NOTE!!!
-      statusCode: 'TODO'
+      prevAction: action
     }
   }
 }

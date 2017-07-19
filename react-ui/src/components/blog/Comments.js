@@ -66,8 +66,9 @@ function _renderShowMoreComp(fetchedThread: ThreadData, fetchComments: FetchComm
 }
 
 function _getReplies(isTopLevel, fetchedThread, createdThread) {
-  let replies = fetchedThread.replies;
-  if (createdThread) {
+  let replies = fetchedThread && fetchedThread.replies
+    ? fetchedThread.replies : [];
+  if (createdThread && createdThread.replies) {
     if (isTopLevel) {
       replies = [...createdThread.replies, ...replies];
     } else {
@@ -88,7 +89,8 @@ function _renderComments(props: Props, threadId: string) {
   const compsToRender = [];
   const fetchedThread = fetchedThreads[threadId];
   const createdThread = createdThreads[threadId];
-  if (fetchedThread) {
+
+  if (fetchedThread || createdThread) {
     const topThreadId = `0:${postId}`;
     const isTopLevel = threadId === topThreadId;
     const replies = _getReplies(isTopLevel, fetchedThread, createdThread);
@@ -100,10 +102,11 @@ function _renderComments(props: Props, threadId: string) {
           <Media.Left className={ isTopLevel ? '' : 'nested' }></Media.Left>
           <Media.Body>
             <Comment comment={comment} replyComment={replyComment}
-              fetchedThread={fetchedThreads[id]} createdThread={createdThread}/>
+              fetchedThread={fetchedThreads[id]}/>
             {
               commentToReplyId === comment.id && createComment
-              && <CommentForm cancelReply={replyComment.bind({}, 0)} createComment={createComment} commentToReplyId={commentToReplyId} postId={postId}  />
+              && <CommentForm cancelReply={replyComment.bind({}, 0)}
+                createComment={createComment} commentToReplyId={commentToReplyId} postId={postId} />
             }
             { _renderComments(props, id) }
             {
@@ -130,10 +133,6 @@ function _renderComments(props: Props, threadId: string) {
   return compsToRender;
 }
 
-const _onSubmit = (values, stuff, things) => {
-  debugger;
-};
-
 const Comments = (props: Props) => {
 
   const { totalComments, topThreadId, commentToReplyId, createComment, postId } = props;
@@ -141,13 +140,13 @@ const Comments = (props: Props) => {
   return (
     <div>
       <h3>Komentarai ({totalComments})</h3>
-      <Media.List>
-        { _renderComments(props, topThreadId) }
-      </Media.List>
       {
         commentToReplyId === 0 && createComment
         && <CommentForm commentToReplyId={0} createComment={createComment} postId={postId} cancelReply={null} />
       }
+      <Media.List>
+        { _renderComments(props, topThreadId) }
+      </Media.List>
 
     </div>
   );

@@ -55,9 +55,6 @@ const _onSubmit = (values: FormValues, dispatch: Function, props: Props) => {
   const { name, email, comment } = values;
 
   createComment(comment, postId, name, email, commentToReplyId);
-
-  // TODO: clear field when comment successfully created
-  // dispatch(change('commentForm', 'comment', ''))
 }
 
 let CommentForm = (props: Props) => {

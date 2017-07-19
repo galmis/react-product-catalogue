@@ -13,8 +13,7 @@ type Props = {
 
 const Comment = (props: Props) => {
 
-  const { comment, replyComment, createdThread } = props;
-  debugger;
+  const { comment, replyComment } = props;
 
   return (
     <div>
@@ -25,11 +24,10 @@ const Comment = (props: Props) => {
       <div className="comment">
         <div dangerouslySetInnerHTML={ { __html: comment.content.rendered } } />
         {
-          createdThread ? ''
-          : <a className="comment-log-in"
-              onClick={ () => replyComment(comment.id) }>
-              Atsakyti
-            </a>
+          <a className="comment-log-in"
+            onClick={ () => replyComment(comment.id) }>
+            Atsakyti
+          </a>
         }
       </div>
     </div>
