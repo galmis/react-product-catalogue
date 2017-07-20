@@ -1,4 +1,20 @@
-exports[`postsReducer FETCH_POSTS_SUCCESS, existing state 1`] = `
+exports[`postsReducer FETCH_POSTS_SUCCESS, initialState 1`] = `
+Object {
+  "fetchedPages": Object {
+    "2": Array [
+      "1",
+    ],
+  },
+  "postsById": Object {
+    "1": "foo",
+  },
+  "selectedPage": 2,
+  "totalPages": 2,
+  "totalRecords": 12,
+}
+`;
+
+exports[`postsReducer FETCH_POSTS_SUCCESS, new page 1`] = `
 Object {
   "fetchedPages": Object {
     "1": Array [
@@ -15,23 +31,26 @@ Object {
     "3": "bar",
   },
   "selectedPage": 2,
-  "totalPages": 1,
+  "totalPages": 2,
   "totalRecords": 8,
 }
 `;
 
-exports[`postsReducer FETCH_POSTS_SUCCESS, initialState 1`] = `
+exports[`postsReducer FETCH_POSTS_SUCCESS, overwrite existing page 1`] = `
 Object {
   "fetchedPages": Object {
-    "2": Array [
-      "1",
+    "1": Array [
+      "2",
+      "3",
     ],
   },
   "postsById": Object {
     "1": "foo",
+    "2": "alio",
+    "3": "bar",
   },
-  "selectedPage": 2,
-  "totalPages": 2,
-  "totalRecords": 12,
+  "selectedPage": 1,
+  "totalPages": 1,
+  "totalRecords": 8,
 }
 `;

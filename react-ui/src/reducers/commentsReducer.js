@@ -13,6 +13,7 @@ const initialState: Object = {
   totalPages: 0,
   fetchedThreads: {},
   createdThreads: {},
+  fetchedPosts: {},
   commentToReplyId: 0,
   postId: ''
 };
@@ -32,23 +33,22 @@ export default function commentsReducer(state: Object = initialState, action: Ac
       const totalPages = parentId >= 0 ? state.totalPages : action.payload.totalPages;
 
       if (parentId >= 0) {
-        const result = data ? data.result : [];
         const threadId = parentId === 0 ? '0:' + postId : parentId.toString();
-        const threadData = fetchedThreads[threadId];
-        const replies = threadData ? [...threadData.replies, ...result] : [...result];
+        const threadData = { ...fetchedThreads[threadId] };
+        const currReplies = threadData.replies ? threadData.replies : [];
+        const result = data ? data.result.filter(id => currReplies.indexOf(id) === -1) : [];
+
         fetchedThreads[threadId] = {
-          replies,
+          replies: [...currReplies, ...result],
           totalReplies: action.payload.totalRecords,
         };
       }
-      let commentsById;
+      let commentsById = state.commentsById;
       if (data) {
         commentsById = {
-          ...state.commentsById,
+          ...commentsById,
           ...action.payload.data.entities.dataById
         };
-      } else {
-        commentsById = { ...state.commentsById };
       }
 
       const newState =  {
@@ -59,6 +59,7 @@ export default function commentsReducer(state: Object = initialState, action: Ac
         totalPages,
         commentsById
       };
+
       return newState;
     }
     case REPLY_COMMENT: {
@@ -69,7 +70,7 @@ export default function commentsReducer(state: Object = initialState, action: Ac
     }
     case CREATE_COMMENT_SUCCESS: {
       const {postId, parentId, data} = action.payload;
-      debugger;
+
       const result = data.result;
       const threadId = parentId === 0 ? '0:' + postId : parentId.toString();
       const createdThreads = { ...state.createdThreads };

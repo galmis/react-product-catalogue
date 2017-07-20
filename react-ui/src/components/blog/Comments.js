@@ -23,6 +23,7 @@ type Props = {
   totalComments: number,
   topThreadId: string,
   fetchedThreads: Object,
+  createdThreads: Object,
   postId: string,
   commentToReplyId: number,
   fetchComments: FetchCommentsActionCreator, // TODO: create types for action creators

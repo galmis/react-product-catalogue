@@ -60,7 +60,7 @@ const _onSubmit = (values: FormValues, dispatch: Function, props: Props) => {
 }
 
 function _renderFormStatus(statusCode: number, dismissStatus: Function) {
-  debugger;
+
   const status = COMMENT_FORM_STATUS[''+statusCode];
   let style = 'danger';
   let statusMsg = 'Klaida - ' + statusCode;

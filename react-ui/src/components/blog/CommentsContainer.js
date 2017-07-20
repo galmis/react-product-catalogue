@@ -35,11 +35,11 @@ class CommentsContainer extends Component {
   componentDidMount() {
     const {postId, actions, selectedState} = this.props;
     const {fetchedThreads, topThreadId} = selectedState;
-    debugger;
-    if (!fetchedThreads[topThreadId]) {
+
+    //if (!fetchedThreads[topThreadId]) {
       actions.fetchComments(postId, -1, -1, undefined, 'HEAD');
       actions.fetchComments(postId, 0);
-    }
+    //}
   }
 
   render() {
@@ -64,7 +64,7 @@ function mapDispatchToProps(dispatch: Function) {
 
 function mapStateToProps(state: Object, routerProps: Object) {
 
-  debugger;
+
 
   return {
     selectedState: {

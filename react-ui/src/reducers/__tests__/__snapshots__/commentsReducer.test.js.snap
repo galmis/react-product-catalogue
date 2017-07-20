@@ -1,0 +1,129 @@
+exports[`commentsReducer CREATE_COMMENT_SUCCESS 1`] = `
+Object {
+  "commentToReplyId": 0,
+  "commentsById": Object {
+    "1": Object {
+      "content": Object {
+        "rendered": "<p>existing</p>",
+      },
+      "id": 1,
+      "parent": 0,
+      "post": 2,
+    },
+    "2": Object {
+      "content": Object {
+        "rendered": "<p>new</p>",
+      },
+      "id": 2,
+      "parent": 0,
+      "post": 2,
+    },
+  },
+  "createdThreads": Object {
+    "0:2": Object {
+      "replies": Array [
+        "2",
+      ],
+    },
+  },
+  "fetchedPosts": Object {},
+  "fetchedThreads": Object {
+    "0:2": Object {
+      "replies": Array [
+        "1",
+      ],
+      "totalReplies": 1,
+    },
+  },
+  "postId": "2",
+  "totalComments": 2,
+  "totalPages": 1,
+}
+`;
+
+exports[`commentsReducer FETCH_COMMENTS_SUCCESS, initialState 1`] = `
+Object {
+  "commentToReplyId": 0,
+  "commentsById": Object {
+    "1": Object {
+      "content": Object {
+        "rendered": "<p>test</p>",
+      },
+      "id": 1,
+      "parent": 0,
+      "post": 2,
+    },
+  },
+  "createdThreads": Object {},
+  "fetchedPosts": Object {},
+  "fetchedThreads": Object {
+    "0:2": Object {
+      "replies": Array [
+        "1",
+      ],
+      "totalReplies": 1,
+    },
+  },
+  "postId": "2",
+  "totalComments": 0,
+  "totalPages": 0,
+}
+`;
+
+exports[`commentsReducer FETCH_COMMENTS_SUCCESS, rewrite existing comment 1`] = `
+Object {
+  "commentToReplyId": 0,
+  "commentsById": Object {
+    "1": Object {
+      "content": Object {
+        "rendered": "<p>new</p>",
+      },
+      "id": 1,
+      "parent": 0,
+      "post": 2,
+    },
+  },
+  "createdThreads": Object {},
+  "fetchedPosts": Object {},
+  "fetchedThreads": Object {
+    "0:2": Object {
+      "replies": Array [
+        "1",
+      ],
+      "totalReplies": 1,
+    },
+  },
+  "postId": "2",
+  "totalComments": 1,
+  "totalPages": 1,
+}
+`;
+
+exports[`commentsReducer REPLY_COMMENT 1`] = `
+Object {
+  "commentToReplyId": 1,
+  "commentsById": Object {
+    "1": Object {
+      "content": Object {
+        "rendered": "<p>existing</p>",
+      },
+      "id": 1,
+      "parent": 0,
+      "post": 2,
+    },
+  },
+  "createdThreads": Object {},
+  "fetchedPosts": Object {},
+  "fetchedThreads": Object {
+    "0:2": Object {
+      "replies": Array [
+        "1",
+      ],
+      "totalReplies": 1,
+    },
+  },
+  "postId": "2",
+  "totalComments": 1,
+  "totalPages": 1,
+}
+`;

@@ -16,8 +16,10 @@ class Blog extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
-    this.props.actions.fetchPosts(this.props.selectedPage);
+    const { fetchedPages, selectedPage } = this.props;
+    if (this._shouldFetchPosts(fetchedPages, selectedPage)) {
+      this.props.actions.fetchPosts(selectedPage);
+    }
   }
 
   _renderPosts(posts: Array<Object>) {
@@ -32,10 +34,14 @@ class Blog extends React.Component {
     return itemsToRender;
   }
 
+  _shouldFetchPosts(fetchedPages: Object, selectedPage: number): boolean {
+    return Object.keys(fetchedPages).indexOf(selectedPage.toString()) === -1;
+  }
+
   _onPageSelect(selectedPage: number) {
     this.props.actions.push(`/blogas/psl/${selectedPage}`);
 
-    if (Object.keys(this.props.fetchedPages).indexOf(selectedPage.toString()) === -1) {
+    if (this._shouldFetchPosts(this.props.fetchedPages, selectedPage)) {
       this.props.actions.fetchPosts(selectedPage);
     }
   }

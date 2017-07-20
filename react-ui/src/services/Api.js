@@ -15,7 +15,6 @@ function fetch(url: string, httpMethod: string = 'GET'): Promise<XMLHttpRequest>
         json: httpMethod !== 'HEAD'
       },
       (err, response, body) => {
-        debugger;
         if (err) {
           reject(err);
         } else {

@@ -33,6 +33,7 @@ export default function postsReducer(state: Object = initialState, action: Actio
           ...action.payload.data.entities.dataById
         }
       };
+
       return newState;
     }
   }
