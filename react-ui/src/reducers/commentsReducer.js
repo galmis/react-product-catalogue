@@ -13,7 +13,8 @@ const initialState: Object = {
   totalPages: 0,
   fetchedThreads: {},
   createdThreads: {},
-  commentToReplyId: 0
+  commentToReplyId: 0,
+  postId: ''
 };
 
 export {

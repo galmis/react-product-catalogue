@@ -45,10 +45,12 @@ function getCreatedThreads(state: Object) {
   return getCommentsState(state).createdThreads;
 }
 
-function getTopThreadId(state: Object): string {
-  const postId = getPostId(state);
-
-  return '0:' + postId;
+function getTopThreadId(state: Object, postId: ?string): string {
+  if (postId) {
+    return '0:' + postId;
+  }
+  const selectedPostId = getPostId(state);
+  return '0:' + selectedPostId;
 }
 
 function getCommentToReplyId(state: Object): number {

@@ -16,6 +16,7 @@ class Blog extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.actions.fetchPosts(this.props.selectedPage);
   }
 
