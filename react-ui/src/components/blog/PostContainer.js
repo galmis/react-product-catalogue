@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import Post from './Post';
 import * as apiActions from '../../actions/creators/apiActions';
-import { getPost } from '../../selectors/postsSelectors';
+import { getPost, getIsLoading } from '../../selectors/postsSelectors';
 
 import { POSTS } from '../../constants/RESOURCE_REF';
 
@@ -40,7 +40,8 @@ class PostContainer extends Component {
 function mapStateToProps(state: Object, routerProps: Object) {
 
   return {
-    post: getPost(state, routerProps.params.id)
+    post: getPost(state, routerProps.params.id),
+    isLoading: getIsLoading(state)
   }
 }
 

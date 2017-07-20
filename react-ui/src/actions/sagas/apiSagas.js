@@ -42,7 +42,7 @@ function* fetchData(action: Action): Generator<*, *, *> {
         const totalRecords = response.getResponseHeader('X-WP-Total');
         const totalPages = response.getResponseHeader('X-WP-TotalPages');
         let normalizedData = null;
-        if (httpMethod !== 'HEAD') {
+        if (response.body) {
           const data = Array.isArray(response.body) ? response.body : [response.body];
           normalizedData = yield call(getNormalizedData, data);
         }
@@ -66,11 +66,15 @@ function* _fetchDataSuccess(action: Action, data: ?NormalizedData, totalRecords:
   } else if (action.type === FETCH_COMMENTS) {
     yield fork(_fetchCommentsSuccess, action, data, totalRecords, totalPages);
   } else if (action.type === CREATE_COMMENT) {
-    yield fork(_createCommentSuccess, action, data, status);
+    const defaultData: NormalizedData = {
+      entities: {},
+      result: []
+    }
+    yield fork(_createCommentSuccess, action, data ? data : defaultData, status);
   }
 }
 
-function *_createCommentSuccess(action: CreateCommentAction, data: ?NormalizedData, status: number): Generator<*, void, *> {
+function *_createCommentSuccess(action: CreateCommentAction, data: NormalizedData, status: number): Generator<*, void, *> {
   let postId = _getPostId(action);
   postId = postId ? postId : '';
 

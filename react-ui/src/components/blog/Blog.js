@@ -4,10 +4,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Grid} from 'react-bootstrap';
 import {goBack, push} from 'react-router-redux';
+import ReactLoading from 'react-loading';
 
 import FancyHeader from '../shared/FancyHeader';
 import PostExcerpt from './PostExcerpt';
 import Paginator from '../shared/Paginator';
+import Spinner from '../shared/Spinner';
 
 class Blog extends React.Component {
 
@@ -47,14 +49,21 @@ class Blog extends React.Component {
   }
 
   render() {
+
+    const {posts, totalPages, selectedPage, isLoading} = this.props;
+
     return (
       <div>
         <FancyHeader title='Blogas' />
 
         <section>
           <Grid>
-            { this._renderPosts(this.props.posts) }
-            <Paginator totalPages={this.props.totalPages} activePage={this.props.selectedPage} onSelect={this._onPageSelect.bind(this)}/>
+            {
+              isLoading
+              ? <Spinner />
+              : this._renderPosts(posts)
+            }
+            <Paginator totalPages={totalPages} activePage={selectedPage} onSelect={this._onPageSelect.bind(this)}/>
           </Grid>
         </section>
       </div>

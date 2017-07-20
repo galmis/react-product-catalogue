@@ -5,11 +5,22 @@ import PropTypes from 'prop-types';
 import {Grid} from 'react-bootstrap';
 
 import FancyHeader from '../shared/FancyHeader';
+import Spinner from '../shared/Spinner';
 import CommentsContainer from './CommentsContainer';
+
+function _renderPost(rendered: string, id: number) {
+  return (
+    <div>
+      <div dangerouslySetInnerHTML={ { __html: rendered } } />
+      <div className="space-50">&nbsp;</div>
+      <CommentsContainer postId={id.toString()}/>
+    </div>
+  );
+}
 
 const Post = (props: Object) => {
 
-  const {post} = props;
+  const {post, isLoading} = props;
 
   return (
     <div>
@@ -17,9 +28,11 @@ const Post = (props: Object) => {
 
       <section>
         <Grid>
-          <div dangerouslySetInnerHTML={ { __html: post.content.rendered } } />
-          <div className="space-50">&nbsp;</div>
-          <CommentsContainer postId={post.id.toString()}/>
+          {
+            isLoading
+            ? <Spinner />
+            : _renderPost(post.content.rendered, post.id)
+          }
         </Grid>
       </section>
     </div>

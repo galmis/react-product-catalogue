@@ -16,7 +16,8 @@ import {
   getPostsFromPage,
   getTotalPostsPages,
   getSelectedPage,
-  getFetchedPages
+  getFetchedPages,
+  getIsLoading
 } from '../../selectors/postsSelectors';
 
 function mapDispatchToProps(dispatch: Function) {
@@ -37,12 +38,13 @@ function mapStateToProps(state: Object, routerProps: Object) {
     page = parseInt(routerProps.params.selectedPage);
   }
   const selectedPage = page ? page : getSelectedPage(state);
-  
+
   return {
     selectedPage,
     posts: getPostsFromPage(state, selectedPage),
     totalPages: getTotalPostsPages(state),
-    fetchedPages: getFetchedPages(state)
+    fetchedPages: getFetchedPages(state),
+    isLoading: getIsLoading(state)
   }
 }
 

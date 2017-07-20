@@ -10,7 +10,7 @@ function getPostsState(state: Object): Object {
 }
 
 function getPostsFromPage(state: Object, selectedPage: number) {
-  
+
   const fetchedPagePosts: Array<string> = getFetchedPages(state)[selectedPage.toString()];
   const posts = [];
 
@@ -53,6 +53,10 @@ function getFetchedPages(state: Object): Object {
   return getPostsState(state).fetchedPages;
 }
 
+function getIsLoading(state: Object): boolean {
+  return getPostsState(state).isLoading
+}
+
 export {
   getPostsState,
   getPost,
@@ -60,5 +64,6 @@ export {
   getTotalPostsPages,
   getSelectedPage,
   getFetchedPages,
-  getPostsFromPage
+  getPostsFromPage,
+  getIsLoading
 }

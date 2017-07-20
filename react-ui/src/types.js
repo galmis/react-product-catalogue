@@ -95,11 +95,8 @@ export type FetchCommentsSuccessAction = {
   type: 'FETCH_COMMENTS_SUCCESS',
   payload: FetchCommentsSuccessPayload
 };
-export type DismissCommentFormStatusAction = {
-  type: 'DISMISS_COMMENT_FORM_STATUS'
-};
 export type CreateCommentSuccessPayload = {
-  data: ?NormalizedData,
+  data: NormalizedData,
   postId: string,
   parentId: number,
   status: number
@@ -107,7 +104,12 @@ export type CreateCommentSuccessPayload = {
 export type CreateCommentSuccessAction = {
   type: 'CREATE_COMMENT_SUCCESS',
   payload: CreateCommentSuccessPayload
-}
+};
+
+export type DismissCommentFormStatusAction = {
+  type: 'DISMISS_COMMENT_FORM_STATUS',
+  payload: null
+};
 
 export type WPComment = {
   id: number,
@@ -134,8 +136,8 @@ export type FilterAction = {
 
 export type Action = FilterAction | FetchPostsAction | FetchCommentsAction
 | FetchPostsSuccessAction | ReplyCommentAction | CreateCommentAction
-| FetchDataErrorAction | FetchCommentsSuccessAction | CreateCommentSuccessAction;
-//| DismissCommentFormStatusAction;
+| FetchDataErrorAction | FetchCommentsSuccessAction | CreateCommentSuccessAction
+| DismissCommentFormStatusAction;
 
 export type CreateCommentActionCreator = (content: string, postId: string, name: string, email: string, parentId: ?number, excludeIds: ?Array<number>) => CreateCommentAction;
 export type ReplyCommentActionCreator = (commentToReplyId: number) => ReplyCommentAction;

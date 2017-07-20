@@ -1,6 +1,9 @@
 // @flow
 
-import { FETCH_POSTS_SUCCESS } from '../constants/ACTION_TYPE';
+import {
+  FETCH_POSTS_SUCCESS,
+  FETCH_POSTS
+} from '../constants/ACTION_TYPE';
 import { POSTS } from '../constants/RESOURCE_REF';
 import type { Action, NormalizedData } from '../types';
 
@@ -9,7 +12,8 @@ const initialState: Object = {
   totalRecords: 0,
   totalPages: 0,
   selectedPage: 1,
-  fetchedPages: {}
+  fetchedPages: {},
+  isLoading: false
 };
 
 export {
@@ -26,6 +30,7 @@ export default function postsReducer(state: Object = initialState, action: Actio
       const newState =  {
         fetchedPages,
         selectedPage,
+        isLoading: false,
         totalRecords: action.payload.totalRecords,
         totalPages: action.payload.totalPages,
         postsById: {
@@ -35,6 +40,12 @@ export default function postsReducer(state: Object = initialState, action: Actio
       };
 
       return newState;
+    }
+    case FETCH_POSTS: {
+      return {
+        ...state,
+        isLoading: true
+      }
     }
   }
 

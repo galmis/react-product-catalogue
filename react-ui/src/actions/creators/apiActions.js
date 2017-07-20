@@ -90,7 +90,7 @@ function fetchCommentsSuccess(data: ?NormalizedData, postId: string, totalRecord
   }
 }
 
-function createCommentSuccess(data: ?NormalizedData, postId: string, parentId: number, status: number){
+function createCommentSuccess(data: NormalizedData, postId: string, parentId: number, status: number){
   return {
     type: CREATE_COMMENT_SUCCESS,
     payload: {
