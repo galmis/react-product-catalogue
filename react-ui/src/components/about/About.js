@@ -12,7 +12,7 @@ const About = (props: Object) => {
       <FancyHeader title={'Apie mus'} />
 
       <Grid>
-        <section id='about'>
+        <section className='animated fadeIn' id='about'>
           <Row>
             <p className='large-p'>&bdquo;Vision International People&ldquo; yra viena pirmaujančių pasaulinio tinklo bendruomenių, siekiančių skleisti gerovę pasaulyje. Kartu su mūsų unikalia virtualia DEM4 laboratorija ir prestiži&scaron;kiausiomis pasaulio įmonėmis tiekiame platų auk&scaron;tos kokybės, itin efektyvių ir natūralių sveikatos produktų asortimentą.</p>
             <p className='large-p'>DEM4 laboratorija, pasitelkdama savo technologijomis ir patirtimi, sujungė geriausius natūralios ir Ajurvedos medicinos elementus, todėl dabar gali pasiūlyti visapusės sveikatos apsaugos ir ligų prevencijos produktus.</p>

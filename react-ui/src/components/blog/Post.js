@@ -10,11 +10,13 @@ import CommentsContainer from './CommentsContainer';
 
 function _renderPost(rendered: string, id: number) {
   return (
-    <div>
-      <div dangerouslySetInnerHTML={ { __html: rendered } } />
-      <div className="space-50">&nbsp;</div>
-      <CommentsContainer postId={id.toString()}/>
-    </div>
+    <section className='animated fadeIn'>
+      <Grid>
+        <div dangerouslySetInnerHTML={ { __html: rendered } } />
+        <div className="space-50">&nbsp;</div>
+        <CommentsContainer postId={id.toString()}/>
+      </Grid>
+    </section>
   );
 }
 
@@ -25,16 +27,11 @@ const Post = (props: Object) => {
   return (
     <div>
       <FancyHeader title={post.title.rendered} />
-
-      <section>
-        <Grid>
-          {
-            isLoading
-            ? <Spinner />
-            : _renderPost(post.content.rendered, post.id)
-          }
-        </Grid>
-      </section>
+      {
+        isLoading
+        ? <Spinner />
+        : _renderPost(post.content.rendered, post.id)
+      }
     </div>
   );
 };

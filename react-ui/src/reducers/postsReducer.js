@@ -2,7 +2,8 @@
 
 import {
   FETCH_POSTS_SUCCESS,
-  FETCH_POSTS
+  FETCH_POSTS,
+  FETCH_DATA_ERROR
 } from '../constants/ACTION_TYPE';
 import { POSTS } from '../constants/RESOURCE_REF';
 import type { Action, NormalizedData } from '../types';
@@ -24,6 +25,7 @@ export default function postsReducer(state: Object = initialState, action: Actio
 
   switch(action.type) {
     case FETCH_POSTS_SUCCESS: {
+      debugger;
       const selectedPage = action.payload.selectedPage;
       const fetchedPages = { ...state.fetchedPages };
       fetchedPages[selectedPage] = action.payload.data.result;
@@ -45,6 +47,14 @@ export default function postsReducer(state: Object = initialState, action: Actio
       return {
         ...state,
         isLoading: true
+      }
+    }
+    case FETCH_DATA_ERROR: {
+      if (action.payload.prevAction.type === FETCH_POSTS) {
+        return {
+          ...state,
+          isLoading: false
+        }
       }
     }
   }

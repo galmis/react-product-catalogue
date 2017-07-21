@@ -1,6 +1,7 @@
 // @flow
 
 import {
+  FETCH_COMMENTS,
   FETCH_COMMENTS_SUCCESS,
   CREATE_COMMENT_SUCCESS,
   REPLY_COMMENT
@@ -13,6 +14,7 @@ const initialState: Object = {
   totalPages: 0,
   fetchedThreads: {},
   createdThreads: {},
+  loadingThreadsIds: [],
   fetchedPosts: {},
   commentToReplyId: 0,
   postId: ''
@@ -25,15 +27,30 @@ export {
 export default function commentsReducer(state: Object = initialState, action: Action) {
 
   switch(action.type) {
+    case FETCH_COMMENTS: {
+      const { parentId, postId } = action.payload;
+      let ids = state.loadingThreadsIds;
+      if (parentId >= 0) {
+        const threadId = parentId === 0 ? '0:'+postId : parentId.toString();
+        ids = ids.indexOf(threadId) === -1 ? [...ids, threadId] : ids
+      }
+
+      return {
+        ...state,
+        loadingThreadsIds: ids
+      }
+    }
     case FETCH_COMMENTS_SUCCESS: {
 
       const {postId, parentId, data} = action.payload;
       const fetchedThreads = { ...state.fetchedThreads };
       const totalComments = parentId >= 0 ? state.totalComments : action.payload.totalRecords;
       const totalPages = parentId >= 0 ? state.totalPages : action.payload.totalPages;
+      let ids = state.loadingThreadsIds;
 
       if (parentId >= 0) {
         const threadId = parentId === 0 ? '0:' + postId : parentId.toString();
+        ids = ids.filter(id => id !== threadId);
         const threadData = { ...fetchedThreads[threadId] };
         const currReplies = threadData.replies ? threadData.replies : [];
         const result = data ? data.result.filter(id => currReplies.indexOf(id) === -1) : [];
@@ -57,7 +74,8 @@ export default function commentsReducer(state: Object = initialState, action: Ac
         fetchedThreads,
         totalComments,
         totalPages,
-        commentsById
+        commentsById,
+        loadingThreadsIds: ids
       };
 
       return newState;

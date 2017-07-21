@@ -85,7 +85,7 @@ function *_createCommentSuccess(action: CreateCommentAction, data: NormalizedDat
 
 function *_fetchPostsSuccess(action: FetchPostsAction, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
   const {selectedPage, postId} = action.payload;
-  yield put(fetchPostsSuccess(data, totalRecords, totalPages, selectedPage, postId));
+  yield put(fetchPostsSuccess(data, totalRecords, totalPages, selectedPage));
 }
 
 function *_fetchCommentsSuccess(action: FetchCommentsAction, data: ?NormalizedData, totalRecords: number, totalPages: number): Generator<*, void, *> {
@@ -99,7 +99,7 @@ function *_fetchCommentsSuccess(action: FetchCommentsAction, data: ?NormalizedDa
     for (let id of data.result) {
       let comment = data.entities.dataById[id];
       if (comment._links.children) {
-        yield put(fetchComments(postId, comment.id, -1, 'asc')); // asc???!
+        yield put(fetchComments(postId, comment.id, -1, 'asc'));
       } else {
         // NOTE: not used!
         //yield put(threadFetched(comment.id));
@@ -115,7 +115,7 @@ function _getHttpMethod(action: Action): ?string {
 }
 
 function *_getFetchUrl(action: Action): Generator<*, string, *> {
-  let url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
+  let url = 'http://localhost:8080/blogas/wp-json/wp/v2/';
   const resourceRef = _getResourceRef(action)
   url = `${url}${resourceRef}`;
   if (action.type === FETCH_POSTS) {

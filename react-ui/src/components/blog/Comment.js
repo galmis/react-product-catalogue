@@ -16,7 +16,7 @@ const Comment = (props: Props) => {
   const { comment, replyComment } = props;
 
   return (
-    <div>
+    <div className='animated fadeIn'>
       <div className="comment-info">
         <div className="comment-date">{comment.date.replace('T', ' ')}</div>
         <div className="comment-author"><b>{comment.author_name}</b></div>

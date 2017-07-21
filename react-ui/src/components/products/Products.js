@@ -9,7 +9,7 @@ import FilterContainer from './FilterContainer';
 const Products = (props: Object) => {
 
   return (
-    <section id="shop">
+    <section id="shop" className='animated fadeIn'>
       <Grid>
         <div className="page-header text-center wsub">
           <h2>Produktai</h2>

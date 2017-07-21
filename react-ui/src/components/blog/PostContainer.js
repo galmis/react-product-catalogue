@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import Spinner from '../shared/Spinner';
 import Post from './Post';
-import * as apiActions from '../../actions/creators/apiActions';
+import {fetchPosts} from '../../actions/creators/apiActions';
 import { getPost, getIsLoading } from '../../selectors/postsSelectors';
 
 import { POSTS } from '../../constants/RESOURCE_REF';
@@ -17,31 +18,32 @@ class PostContainer extends Component {
   }
 
   componentDidMount() {
-
-    if (!this.props.post) {
-      this.props.dispatch(apiActions.fetchPosts(undefined, this.props.params.id));
+    if (!this.props.selectedState.post) {
+      this.props.dispatch(fetchPosts(undefined, this.props.params.id));
     }
   }
 
   render() {
-    if (this.props.post) {
+    if (this.props.selectedState.post) {
       return (
-        <Post post={this.props.post}/>
+        <Post {...this.props.selectedState}/>
       );
     }
     // could show spinner
     return(
-      <div> </div>
+      <Spinner />
     );
   }
 
 }
 
 function mapStateToProps(state: Object, routerProps: Object) {
-
+  debugger;
   return {
-    post: getPost(state, routerProps.params.id),
-    isLoading: getIsLoading(state)
+    selectedState: {
+      post: getPost(state, routerProps.params.id),
+      isLoading: getIsLoading(state)
+    }
   }
 }
 

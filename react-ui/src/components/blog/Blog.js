@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Grid} from 'react-bootstrap';
 import {goBack, push} from 'react-router-redux';
-import ReactLoading from 'react-loading';
 
 import FancyHeader from '../shared/FancyHeader';
 import PostExcerpt from './PostExcerpt';
@@ -48,24 +47,32 @@ class Blog extends React.Component {
     }
   }
 
+  _renderBlog() {
+
+    const {posts, totalPages, selectedPage } = this.props;
+
+    return (
+      <section className='animated fadeIn'>
+        <Grid>
+          { this._renderPosts(posts) }
+          <Paginator totalPages={totalPages} activePage={selectedPage} onSelect={this._onPageSelect.bind(this)}/>
+        </Grid>
+      </section>
+    );
+  }
+
   render() {
 
-    const {posts, totalPages, selectedPage, isLoading} = this.props;
+    const {isLoading} = this.props;
 
     return (
       <div>
         <FancyHeader title='Blogas' />
-
-        <section>
-          <Grid>
-            {
-              isLoading
-              ? <Spinner />
-              : this._renderPosts(posts)
-            }
-            <Paginator totalPages={totalPages} activePage={selectedPage} onSelect={this._onPageSelect.bind(this)}/>
-          </Grid>
-        </section>
+        {
+          isLoading
+          ? <Spinner />
+          : this._renderBlog()
+        }
       </div>
     );
   }

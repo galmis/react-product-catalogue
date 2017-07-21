@@ -32,7 +32,7 @@ const Product = (props : Object) => {
       <FancyHeader title={title} subtitle={thumbText}/>
 
       <Grid>
-        <section id="blog">
+        <section id="blog" className='animated fadeIn'>
           <Row>
             <Col sm={3} smOffset={0} xsOffset={3} xs={6}>
               <Image rounded responsive src={productImg} alt={title} />
