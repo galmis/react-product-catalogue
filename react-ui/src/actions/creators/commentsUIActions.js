@@ -18,7 +18,8 @@ function replyComment(commentToReplyId: number): Action {
 
 function dismissStatus(): Action {
   return {
-    type: DISMISS_COMMENT_FORM_STATUS
+    type: DISMISS_COMMENT_FORM_STATUS,
+    payload: null
   }
 }
 

@@ -56,12 +56,10 @@ function createComment(content: string, postId: string, name: string,
   }
 }
 
-function threadFetched(childId: number) {
+function threadFetched() {
   return {
     type: THREAD_FETCHED,
-    payload: {
-      childId
-    }
+    payload: null
   }
 }
 

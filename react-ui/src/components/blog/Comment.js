@@ -7,7 +7,7 @@ import type { WPComment, ThreadData } from '../../types';
 
 type Props = {
   comment: WPComment,
-  replyComment: (commentToReplyId: number) => void,
+  replyComment: ?(commentToReplyId: number) => void,
   fetchedThread: ?ThreadData,
 }
 
@@ -16,7 +16,7 @@ const Comment = (props: Props) => {
   const { comment, replyComment } = props;
 
   return (
-    <div className='animated fadeIn'>
+    <div className='animated fadeInDown'>
       <div className="comment-info">
         <div className="comment-date">{comment.date.replace('T', ' ')}</div>
         <div className="comment-author"><b>{comment.author_name}</b></div>
@@ -24,6 +24,7 @@ const Comment = (props: Props) => {
       <div className="comment">
         <div dangerouslySetInnerHTML={ { __html: comment.content.rendered } } />
         {
+          replyComment &&
           <a className="comment-log-in"
             onClick={ () => replyComment(comment.id) }>
             Atsakyti
@@ -36,7 +37,7 @@ const Comment = (props: Props) => {
 
 Comment.propTypes = {
   comment: PropTypes.object.isRequired,
-  replyComment: PropTypes.func.isRequired
+  replyComment: PropTypes.func
 };
 
 export default Comment;

@@ -4,7 +4,8 @@ import {
   FETCH_COMMENTS,
   FETCH_COMMENTS_SUCCESS,
   CREATE_COMMENT_SUCCESS,
-  REPLY_COMMENT
+  REPLY_COMMENT,
+  THREAD_FETCHED
 } from '../constants/ACTION_TYPE';
 import type { Action, NormalizedData } from '../types';
 
@@ -17,7 +18,8 @@ const initialState: Object = {
   loadingThreadsIds: [],
   fetchedPosts: {},
   commentToReplyId: 0,
-  postId: ''
+  postId: '',
+  lastReplyId: -1
 };
 
 export {
@@ -30,14 +32,33 @@ export default function commentsReducer(state: Object = initialState, action: Ac
     case FETCH_COMMENTS: {
       const { parentId, postId } = action.payload;
       let ids = state.loadingThreadsIds;
+      let lastId = state.lastReplyId;
       if (parentId >= 0) {
         const threadId = parentId === 0 ? '0:'+postId : parentId.toString();
-        ids = ids.indexOf(threadId) === -1 ? [...ids, threadId] : ids
+        if (ids.length === 0) {
+          const thread = state.fetchedThreads[threadId];
+          if (thread && thread.replies && thread.replies.length > 0) {
+            lastId = thread.replies[thread.replies.length - 1];
+          } else if (state.lastReplyId === -1) {
+            lastId = 0;
+          }
+        }
+        ids = ids.indexOf(threadId) === -1 ? [...ids, threadId] : ids;
       }
 
       return {
         ...state,
-        loadingThreadsIds: ids
+        lastReplyId: lastId,
+        loadingThreadsIds: ids,
+      }
+    }
+    case THREAD_FETCHED: {
+      let ids = state.loadingThreadsIds;
+      const lastId = ids.length === 0 ? -1 : state.lastReplyId;
+
+      return {
+        ...state,
+        lastReplyId: lastId
       }
     }
     case FETCH_COMMENTS_SUCCESS: {

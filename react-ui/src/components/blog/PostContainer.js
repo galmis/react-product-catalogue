@@ -38,7 +38,7 @@ class PostContainer extends Component {
 }
 
 function mapStateToProps(state: Object, routerProps: Object) {
-  debugger;
+  
   return {
     selectedState: {
       post: getPost(state, routerProps.params.id),

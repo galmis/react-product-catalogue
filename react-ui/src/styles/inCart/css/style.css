@@ -1824,7 +1824,8 @@ a.btn-social {
 }
 
 .alert-success .close {
-  color: #679440;
+  /*color: #679440;*/
+  color: black;
 }
 
 .alert-info {
@@ -1834,7 +1835,8 @@ a.btn-social {
 }
 
 .alert-info .close {
-  color: #3379a9;
+  /*color: #3379a9;*/
+  color: black;
 }
 
 .alert-warning {
@@ -1844,7 +1846,8 @@ a.btn-social {
 }
 
 .alert-warning .close {
-  color: #e59618;
+  /*color: #e59618;*/
+  color: black;
 }
 
 .alert-danger {
@@ -1854,7 +1857,8 @@ a.btn-social {
 }
 
 .alert-danger .close {
-  color: #bb0707;
+  /*color: #bb0707;*/
+  color: black;
 }
 
 .alert-dismissible .close {

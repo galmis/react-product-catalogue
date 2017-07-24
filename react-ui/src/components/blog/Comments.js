@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import {Grid, Media, Button, Badge} from 'react-bootstrap';
 
 import FancyHeader from '../shared/FancyHeader';
+import Spinner from '../shared/Spinner';
 import Comment from './Comment';
 import CommentFormContainer from './CommentFormContainer';
 import {COMMENTS} from '../../constants/RESOURCE_REF';
+import {MAX_LEVEL} from '../../constants/COMMENTS_UI';
 
 import './Comments.css';
 
@@ -25,6 +27,7 @@ type Props = {
   fetchedThreads: Object,
   createdThreads: Object,
   postId: string,
+  lastReplyId: number,
   commentToReplyId: number,
   fetchComments: FetchCommentsActionCreator, // TODO: create types for action creators
   createComment: Function,
@@ -46,24 +49,39 @@ function _showMore(offset: number, fetchComments: FetchCommentsActionCreator, po
   fetchComments(postId, parentId, offset, parentId > 0 ? 'asc' : 'desc');
 }
 
-function _renderShowMoreComp(fetchedThread: ThreadData, fetchComments: FetchCommentsActionCreator, postId: string, parentId: number) {
+function _renderShowMoreComp(fetchedThread: ThreadData, fetchComments: FetchCommentsActionCreator, postId: string, parentId: number, lastReplyId: number) {
 
-    const offset = fetchedThread.replies.length;
-    const count = fetchedThread.totalReplies - offset;
+  const {replies, totalReplies} = fetchedThread;
+  const offset = replies.length;
+  const count = totalReplies - offset;
 
-    if (parentId > 0) {
-      return (
-       <Media>
-          <Media.Left className='nested'></Media.Left>
-          <Media.Body>
-            <a onClick={() => _showMore(offset, fetchComments, postId, parentId)}>Rodyti daugiau ({count})</a>
-          </Media.Body>
-        </Media>
-      );
-    }
+  if (parentId > 0) {
     return (
-      <a onClick={() => _showMore(offset, fetchComments, postId, parentId)}>Rodyti daugiau ({count})</a>
+     <Media>
+        <Media.Left className='nested'></Media.Left>
+        <Media.Body>
+          {
+            lastReplyId === replies[offset - 1]
+            ? <strong>Kraunama...</strong>
+            : <a onClick={() => _showMore(offset, fetchComments, postId, parentId)}>
+                Rodyti daugiau ({count})
+              </a>
+          }
+        </Media.Body>
+      </Media>
     );
+  }
+  return (
+    <div>
+      {
+        lastReplyId === replies[offset - 1]
+        ? <strong>Kraunama...</strong>
+        : <a onClick={() => _showMore(offset, fetchComments, postId, parentId)}>
+            Rodyti daugiau ({count})
+          </a>
+      }
+    </div>
+  );
 }
 
 function _getReplies(isTopLevel, fetchedThread, createdThread) {
@@ -83,15 +101,15 @@ function _getReplies(isTopLevel, fetchedThread, createdThread) {
 // NOTE:
 // Defining a function inside the function component should be avoided, as a new
 // function will be created every time the functional component is called.
-function _renderComments(props: Props, threadId: string) {
+function _renderComments(props: Props, threadId: string, level: number) {
   const { commentsById, fetchedThreads, fetchComments, postId, replyComment,
-    commentToReplyId, createComment, createdThreads } = props;
+    commentToReplyId, createComment, createdThreads, lastReplyId } = props;
 
   const compsToRender = [];
   const fetchedThread = fetchedThreads[threadId];
   const createdThread = createdThreads[threadId];
 
-  if (fetchedThread || createdThread) {
+  if ((fetchedThread || createdThread) && level <= MAX_LEVEL) {
     const topThreadId = `0:${postId}`;
     const isTopLevel = threadId === topThreadId;
     const replies = _getReplies(isTopLevel, fetchedThread, createdThread);
@@ -102,28 +120,32 @@ function _renderComments(props: Props, threadId: string) {
         <Media key={id}>
           <Media.Left className={ isTopLevel ? '' : 'nested' }></Media.Left>
           <Media.Body>
-            <Comment comment={comment} replyComment={replyComment}
+            <Comment comment={comment} replyComment={level < MAX_LEVEL ? replyComment : null}
               fetchedThread={fetchedThreads[id]}/>
             {
               commentToReplyId === comment.id && createComment
               && <CommentFormContainer cancelReply={replyComment.bind({}, 0)} />
             }
-            { _renderComments(props, id) }
+            { _renderComments(props, id, level + 1) }
             {
               _shouldRenderShowMore(fetchedThreads[id])
-                && _renderShowMoreComp(fetchedThreads[id], fetchComments, postId, comment.id)
+                && _renderShowMoreComp(fetchedThreads[id], fetchComments, postId, comment.id, lastReplyId)
 
             }
           </Media.Body>
         </Media>
       );
+
+      if (lastReplyId === replies[i]) {
+        break;
+      }
     }
     if (isTopLevel) {
       compsToRender.push(
         <div className='space-50' key='showMoreBtn'>
           {
           _shouldRenderShowMore(fetchedThreads[topThreadId])
-            && _renderShowMoreComp(fetchedThreads[topThreadId], fetchComments, postId, 0)
+            && _renderShowMoreComp(fetchedThreads[topThreadId], fetchComments, postId, 0, lastReplyId)
           }
         </div>
       );
@@ -135,7 +157,7 @@ function _renderComments(props: Props, threadId: string) {
 
 const Comments = (props: Props) => {
 
-  const { totalComments, topThreadId, commentToReplyId, createComment, postId } = props;
+  const { totalComments, topThreadId, commentToReplyId, createComment, postId, lastReplyId } = props;
 
   return (
     <div>
@@ -145,7 +167,11 @@ const Comments = (props: Props) => {
         && <CommentFormContainer />
       }
       <Media.List>
-        { _renderComments(props, topThreadId) }
+        {
+          lastReplyId
+          ? _renderComments(props, topThreadId, 0)
+          : <Spinner isTransparent={true}/>
+        }
       </Media.List>
 
     </div>

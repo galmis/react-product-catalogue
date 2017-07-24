@@ -93,19 +93,24 @@ function *_fetchCommentsSuccess(action: FetchCommentsAction, data: ?NormalizedDa
   let postId = _getPostId(action);
   postId = postId ? postId : '';
 
-  yield put(fetchCommentsSuccess(data, postId, totalRecords, totalPages, action.payload.parentId));
+  const { parentId } = action.payload;
 
+  yield put(fetchCommentsSuccess(data, postId, totalRecords, totalPages, parentId));
+
+  let counter = 0;
   if (data) {
     for (let id of data.result) {
       let comment = data.entities.dataById[id];
       if (comment._links.children) {
         yield put(fetchComments(postId, comment.id, -1, 'asc'));
-      } else {
-        // NOTE: not used!
-        //yield put(threadFetched(comment.id));
+        counter++;
       }
     }
+    if (!counter) {
+      yield put(threadFetched());
+    }
   }
+
 }
 
 function _getHttpMethod(action: Action): ?string {
@@ -115,7 +120,7 @@ function _getHttpMethod(action: Action): ?string {
 }
 
 function *_getFetchUrl(action: Action): Generator<*, string, *> {
-  let url = 'http://localhost:8080/blogas/wp-json/wp/v2/';
+  let url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
   const resourceRef = _getResourceRef(action)
   url = `${url}${resourceRef}`;
   if (action.type === FETCH_POSTS) {
@@ -126,7 +131,6 @@ function *_getFetchUrl(action: Action): Generator<*, string, *> {
       return actionUrl;
     }
   } else if (action.type === CREATE_COMMENT) {
-    //return _getCreateCommentUrl(url, action);
     const actionUrl = yield call(_getCreateCommentUrl, url, action);
     if (actionUrl) {
       return actionUrl;
@@ -174,7 +178,6 @@ function _getFetchPostsUrl(url: string, action: FetchPostsAction): string {
 
 function *_getFetchCommentsUrl(url: string, action: FetchCommentsAction): Generator<*, string, *>{
 
-  // TODO: get post id using selector
   const {postId, parentId, offset, order} = action.payload;
   const excludeIds = yield select(getCreatedThreadReplies, parentId);
 

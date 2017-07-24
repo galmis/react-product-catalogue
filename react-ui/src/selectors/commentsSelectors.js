@@ -68,6 +68,10 @@ function getCreatedThreadReplies(state: Object, parentId: number): Array<number>
   return [];
 }
 
+function getLastReplyId(state: Object) {
+  return getCommentsState(state).lastReplyId;
+}
+
 export {
   getCommentsState,
   getTotalComments,
@@ -79,5 +83,6 @@ export {
   getTopThreadId,
   getCommentToReplyId,
   getCreatedThreads,
-  getCreatedThreadReplies
+  getCreatedThreadReplies,
+  getLastReplyId
 }

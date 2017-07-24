@@ -13,6 +13,7 @@ import {
 import createSagaMiddleware from 'redux-saga';
 import { reducer as formReducer } from 'redux-form';
 import commentFormReducer from './reducers/commentFormReducer';
+import { createLogger } from 'redux-logger';
 
 import rootSaga from './actions/sagas';
 import reducers from './reducers';
@@ -44,9 +45,15 @@ const rootReducer = combineReducers({
   routing: routerReducer
 });
 
+const loggerOptions = {
+  duration: true,
+  collapsed: true,
+  diff: true
+};
+const loggerMiddleware = createLogger(loggerOptions);
 const sagaMiddleware = createSagaMiddleware();
 const routingMiddleware = routerMiddleware(browserHistory);
-const storeEnhancer = applyMiddleware(sagaMiddleware, routingMiddleware);
+const storeEnhancer = applyMiddleware(loggerMiddleware, sagaMiddleware, routingMiddleware);
 const store = createStore(rootReducer, storeEnhancer);
 sagaMiddleware.run(rootSaga);
 const history = syncHistoryWithStore(browserHistory, store);

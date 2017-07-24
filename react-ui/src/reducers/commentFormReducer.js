@@ -5,7 +5,8 @@ import {
   FETCH_DATA_ERROR,
   CREATE_COMMENT,
   CREATE_COMMENT_SUCCESS,
-  DISMISS_COMMENT_FORM_STATUS
+  DISMISS_COMMENT_FORM_STATUS,
+  REPLY_COMMENT
 } from '../constants/ACTION_TYPE';
 
 function commentFormReducer(state: Object, action: Action) {
@@ -33,7 +34,8 @@ function commentFormReducer(state: Object, action: Action) {
         submitting: false
       }
     }
-    case DISMISS_COMMENT_FORM_STATUS: {
+    case DISMISS_COMMENT_FORM_STATUS:
+    case REPLY_COMMENT: {
       return {
         ...state,
         status: null

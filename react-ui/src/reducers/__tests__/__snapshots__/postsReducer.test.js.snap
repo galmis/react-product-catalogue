@@ -5,6 +5,7 @@ Object {
       "1",
     ],
   },
+  "isLoading": false,
   "postsById": Object {
     "1": "foo",
   },
@@ -25,6 +26,7 @@ Object {
       "3",
     ],
   },
+  "isLoading": false,
   "postsById": Object {
     "1": "foo",
     "2": "xyz",
@@ -44,6 +46,7 @@ Object {
       "3",
     ],
   },
+  "isLoading": false,
   "postsById": Object {
     "1": "foo",
     "2": "alio",

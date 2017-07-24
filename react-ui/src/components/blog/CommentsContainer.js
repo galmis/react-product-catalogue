@@ -23,7 +23,8 @@ import {
   getFetchedThreads,
   getCreatedThreads,
   getTopThreadId,
-  getCommentToReplyId
+  getCommentToReplyId,
+  getLastReplyId
 } from '../../selectors/commentsSelectors';
 
 class CommentsContainer extends Component {
@@ -73,7 +74,8 @@ function mapStateToProps(state: Object, routerProps: Object) {
       totalComments: getTotalComments(state),
       fetchedThreads: getFetchedThreads(state),
       createdThreads: getCreatedThreads(state),
-      commentToReplyId: getCommentToReplyId(state)
+      commentToReplyId: getCommentToReplyId(state),
+      lastReplyId: getLastReplyId(state)
     }
   }
 }

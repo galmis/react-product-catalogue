@@ -41,6 +41,39 @@ Object {
 }
 `;
 
+exports[`commentsReducer FETCH_COMMENTS 1`] = `
+Object {
+  "commentToReplyId": 0,
+  "commentsById": Object {
+    "1": Object {
+      "content": Object {
+        "rendered": "<p>existing</p>",
+      },
+      "id": 1,
+      "parent": 0,
+      "post": 2,
+    },
+  },
+  "createdThreads": Object {},
+  "fetchedPosts": Object {},
+  "fetchedThreads": Object {
+    "0:2": Object {
+      "replies": Array [
+        "1",
+      ],
+      "totalReplies": 1,
+    },
+  },
+  "lastReplyId": -1,
+  "loadingThreadsIds": Array [
+    "2",
+  ],
+  "postId": "2",
+  "totalComments": 1,
+  "totalPages": 1,
+}
+`;
+
 exports[`commentsReducer FETCH_COMMENTS_SUCCESS, initialState 1`] = `
 Object {
   "commentToReplyId": 0,
@@ -64,13 +97,15 @@ Object {
       "totalReplies": 1,
     },
   },
+  "lastReplyId": -1,
+  "loadingThreadsIds": Array [],
   "postId": "2",
   "totalComments": 0,
   "totalPages": 0,
 }
 `;
 
-exports[`commentsReducer FETCH_COMMENTS_SUCCESS, rewrite existing comment 1`] = `
+exports[`commentsReducer FETCH_COMMENTS_SUCCESS, overwrite existing comment 1`] = `
 Object {
   "commentToReplyId": 0,
   "commentsById": Object {
@@ -93,6 +128,7 @@ Object {
       "totalReplies": 1,
     },
   },
+  "loadingThreadsIds": Array [],
   "postId": "2",
   "totalComments": 1,
   "totalPages": 1,
@@ -122,6 +158,37 @@ Object {
       "totalReplies": 1,
     },
   },
+  "postId": "2",
+  "totalComments": 1,
+  "totalPages": 1,
+}
+`;
+
+exports[`commentsReducer THREAD_FETCHED, stop loading 1`] = `
+Object {
+  "commentToReplyId": 0,
+  "commentsById": Object {
+    "1": Object {
+      "content": Object {
+        "rendered": "<p>existing</p>",
+      },
+      "id": 1,
+      "parent": 0,
+      "post": 2,
+    },
+  },
+  "createdThreads": Object {},
+  "fetchedPosts": Object {},
+  "fetchedThreads": Object {
+    "0:2": Object {
+      "replies": Array [
+        "1",
+      ],
+      "totalReplies": 1,
+    },
+  },
+  "lastReplyId": -1,
+  "loadingThreadsIds": Array [],
   "postId": "2",
   "totalComments": 1,
   "totalPages": 1,
