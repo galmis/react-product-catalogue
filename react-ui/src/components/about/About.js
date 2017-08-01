@@ -14,12 +14,16 @@ const About = (props: Object) => {
       <Grid>
         <section className='animated fadeIn' id='about'>
           <Row>
-            <p className='large-p'>&bdquo;Vision International People&ldquo; yra viena pirmaujančių pasaulinio tinklo bendruomenių, siekiančių skleisti gerovę pasaulyje. Kartu su mūsų unikalia virtualia DEM4 laboratorija ir prestiži&scaron;kiausiomis pasaulio įmonėmis tiekiame platų auk&scaron;tos kokybės, itin efektyvių ir natūralių sveikatos produktų asortimentą.</p>
-            <p className='large-p'>DEM4 laboratorija, pasitelkdama savo technologijomis ir patirtimi, sujungė geriausius natūralios ir Ajurvedos medicinos elementus, todėl dabar gali pasiūlyti visapusės sveikatos apsaugos ir ligų prevencijos produktus.</p>
-            <p className='large-p'>&Scaron;iandien Vision - tai daugiau nei 80 produktų vaikų, vyrų, moterų ir sportininkų sveikatai, grožiui bei ilgaamži&scaron;kumui.</p>
-            <p className='large-p'>Efektyvumas įrodytas daugiau nei 140 000 teigiamais vartotojų atsiliepimais.</p>
-            <p className='large-p'>Mūsų DEM4 laboratorija kartu su stambiausiais pasaulio universitetais ir mokslo centrais ie&scaron;ko naujų strategijų dėl produktų kokybės gerinimo. Pastoviai įsisaviname naujausias technologijas, priimame naujausius darbo metodus.</p>
-            <p className='large-p'>Atliekama i&scaron;sami sertifikacija. Ekspertai įvertina kiekvieno produkto kokybę, remiantis tarptautiniais standartais.</p>
+            <ul className='list-featured'>
+              <li>Puslapyje rašoma apie sveiką gyvenseną, populiarius sveikatos produktus.</li>
+              <li>Patariame kaip sveikai maitintis, kad būtume sveiki ir gražūs, kaip stiprinti imuninę sistemą natūraliomis priemonėmis.</li>
+              <li>Supažindiname su naujausiais mokslo išradimais.</li>
+              <li>Siūlome platų asortimentą aukščiausios kokybės, efektyvius, natūralius visapusės sveikatos apsaugos ir ligų prevencijos produktus.</li>
+              <li>Informuojame apie renginius, sveikatos diagnostiką.</li>
+              <li>Teikiame konsultacijas.</li>
+              <li>Dalinamės sveikatos rezultatais.</li>
+              <li>Ir svarbiausia, mokome žmones, kaip rūpintis savimi ir savo grožiu ir iš to gauti naudos sau! Kaip pradėti savo asmeninį verslą!</li>
+            </ul>
           </Row>
 
         </section>
