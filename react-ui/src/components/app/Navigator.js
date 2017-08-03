@@ -15,7 +15,7 @@ const Navigator = (props: Object) => {
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to='/'>buksveikas.lt</Link>
+          <Link to='/'>bukitesveiki.lt</Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>

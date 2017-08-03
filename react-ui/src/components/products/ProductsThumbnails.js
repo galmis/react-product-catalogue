@@ -14,7 +14,7 @@ const ProductsThumbnails = (props: Object) => {
 
   const _renderProduct = (product: Product) => {
     return (
-      <Col className='product' xs={6} md={3} key={product.id}>
+      <Col className='product' xs={6} sm={4} md={3} key={product.id}>
         <ProductThumbnail product={product} />
       </Col>
     );

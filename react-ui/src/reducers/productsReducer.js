@@ -11,7 +11,7 @@ const initialState = {
       title: 'Antiox+',
       thumbText: '',
       articleFile: 'Antiox.js',
-      imgFile: 'antiox-crop.jpg',
+      imgFile: 'antiox.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '1': {
@@ -19,7 +19,7 @@ const initialState = {
       title: 'Detox+',
       thumbText: 'Imuniteto stiprinimui, organizmo išvalymui',
       articleFile: 'Detox.js',
-      imgFile: 'detox-crop.jpg',
+      imgFile: 'detox.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '2': {
@@ -27,7 +27,7 @@ const initialState = {
       title: 'Pax+ forte',
       thumbText: 'Kasdieninė apsauga nuo streso',
       articleFile: 'PaxForte.js',
-      imgFile: 'pax-forte-crop.jpg',
+      imgFile: 'paxforte.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '3': {
@@ -35,7 +35,7 @@ const initialState = {
       title: 'Sveltform+',
       thumbText: 'Kaip normalizuoti medžiagų apykaitą ir mažinti svorį?',
       articleFile: 'Sveltform.js',
-      imgFile: 'sveltform-crop.jpg',
+      imgFile: 'sveltform.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '4': {
@@ -43,7 +43,7 @@ const initialState = {
       title: 'Chromevital+',
       thumbText: 'Energijos užtaisas kiekvienai ląstelei',
       articleFile: 'Chromevital.js',
-      imgFile: 'chromevital-crop.jpg',
+      imgFile: 'chromevital.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '5': {
@@ -51,7 +51,7 @@ const initialState = {
       title: 'CardioDrive',
       thumbText: 'Visapusė širdies sveikata',
       articleFile: 'CardioDrive.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'cardiodrive.jpg',
       categories: ['Visi', 'Nauji']
     },
     '6': {
@@ -59,7 +59,7 @@ const initialState = {
       title: 'Mistik',
       thumbText: 'Natūralūs ir nekenksmingi migdomieji',
       articleFile: 'Mistik.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'mistik.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '7': {
@@ -67,7 +67,7 @@ const initialState = {
       title: 'Artemida+',
       thumbText: 'Hormonų pusiausvyros normalizavimas, pagalba kritinėmis dienomis',
       articleFile: 'Artemida.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'artemida.jpg',
       categories: ['Visi', 'Moterims']
     },
     '8': {
@@ -75,7 +75,7 @@ const initialState = {
       title: 'Medisoya+',
       thumbText: 'Atitolina klimakso pradžią, palengvina jo simptomus',
       articleFile: 'Medisoya.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'medisoya.jpg',
       categories: ['Visi', 'Moterims']
     },
     '9': {
@@ -83,7 +83,7 @@ const initialState = {
       title: 'Stalon Neo',
       thumbText: 'Pagalba esant potencijos sutrikimams',
       articleFile: 'StalonNeo.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'stalonneo.jpg',
       categories: ['Visi', 'Vyrams']
     },
     '10': {
@@ -91,7 +91,7 @@ const initialState = {
       title: 'Lamin',
       thumbText: 'Vyrų energijos ir jėgų šaltinis',
       articleFile: 'Lamin.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'lamin.jpg',
       categories: ['Visi', 'Vyrams']
     },
     '11': {
@@ -99,7 +99,7 @@ const initialState = {
       title: 'Artum',
       thumbText: 'Prostatos sveikata',
       articleFile: 'Artum.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'artum.jpg',
       categories: ['Visi', 'Vyrams']
     },
     '12': {
@@ -107,7 +107,7 @@ const initialState = {
       title: 'Ursul',
       thumbText: 'Priešuždegiminė priemonė',
       articleFile: 'Ursul.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'ursul.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '13': {
@@ -115,7 +115,7 @@ const initialState = {
       title: 'Cupers Neo',
       thumbText: 'Kepenų ląstelių apsauga, toksinų šalinimas',
       articleFile: 'CupersNeo.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'cupersneo.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
     '14': {
@@ -123,7 +123,7 @@ const initialState = {
       title: 'Junior Neo+',
       thumbText: '',
       articleFile: 'JuniorNeo.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'juniorneo.jpg',
       categories: ['Visi', 'Vaikams']
     },
     '15': {
@@ -131,7 +131,7 @@ const initialState = {
       title: 'Junior Be Strong',
       thumbText: '',
       articleFile: 'JuniorBeStrong.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'juniorbestrong.jpg',
       categories: ['Visi', 'Vaikams']
     },
     '16': {
@@ -139,7 +139,7 @@ const initialState = {
       title: 'Junior Be Smart',
       thumbText: 'Intelektinių gebėjimų padidinimas',
       articleFile: 'JuniorBeSmart.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'juniorbesmart.jpg',
       categories: ['Visi', 'Vaikams']
     },
     '17': {
@@ -147,7 +147,7 @@ const initialState = {
       title: 'Junior Be Healthy',
       thumbText: '',
       articleFile: 'JuniorBeHealthy.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'juniorbehealthy.jpg',
       categories: ['Visi', 'Vaikams']
     },
     '18': {
@@ -155,7 +155,7 @@ const initialState = {
       title: 'Beesk',
       thumbText: 'Greitas organizmo atstatymas',
       articleFile: 'Beesk.js',
-      imgFile: 'cardio-drive-crop.jpg',
+      imgFile: 'beesk.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
   }
