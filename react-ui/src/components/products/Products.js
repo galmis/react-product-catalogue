@@ -16,10 +16,10 @@ const Products = (props: Object) => {
         </div>
 
         <Row>
-          <Col sm={12} className="content-area">
+          <div className="content-area">
             <FilterContainer />
             <ProductsThumbnails products={props.products}/>
-          </Col>
+          </div>
         </Row>
       </Grid>
     </section>
