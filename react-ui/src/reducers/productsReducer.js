@@ -4,7 +4,7 @@ import { FILTER } from '../constants/ACTION_TYPE';
 
 const initialState = {
   selectedCategory: 'Visi',
-  allIds: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+  allIds: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'],
   byId: {
     '0': {
       id: '0',
@@ -85,6 +85,78 @@ const initialState = {
       articleFile: 'StalonNeo.js',
       imgFile: 'cardio-drive-crop.jpg',
       categories: ['Visi', 'Vyrams']
+    },
+    '10': {
+      id: '10',
+      title: 'Lamin',
+      thumbText: 'Vyrų energijos ir jėgų šaltinis',
+      articleFile: 'Lamin.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Vyrams']
+    },
+    '11': {
+      id: '11',
+      title: 'Artum',
+      thumbText: 'Prostatos sveikata',
+      articleFile: 'Artum.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Vyrams']
+    },
+    '12': {
+      id: '12',
+      title: 'Ursul',
+      thumbText: 'Priešuždegiminė priemonė',
+      articleFile: 'Ursul.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '13': {
+      id: '13',
+      title: 'Cupers Neo',
+      thumbText: 'Kepenų ląstelių apsauga, toksinų šalinimas',
+      articleFile: 'CupersNeo.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '14': {
+      id: '14',
+      title: 'Junior Neo+',
+      thumbText: '',
+      articleFile: 'JuniorNeo.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Vaikams']
+    },
+    '15': {
+      id: '15',
+      title: 'Junior Be Strong',
+      thumbText: '',
+      articleFile: 'JuniorBeStrong.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Vaikams']
+    },
+    '16': {
+      id: '16',
+      title: 'Junior Be Smart',
+      thumbText: 'Intelektinių gebėjimų padidinimas',
+      articleFile: 'JuniorBeSmart.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Vaikams']
+    },
+    '17': {
+      id: '17',
+      title: 'Junior Be Healthy',
+      thumbText: '',
+      articleFile: 'JuniorBeHealthy.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Vaikams']
+    },
+    '18': {
+      id: '18',
+      title: 'Beesk',
+      thumbText: 'Greitas organizmo atstatymas',
+      articleFile: 'Beesk.js',
+      imgFile: 'cardio-drive-crop.jpg',
+      categories: ['Visi', 'Klasikiniai']
     },
   }
 };
