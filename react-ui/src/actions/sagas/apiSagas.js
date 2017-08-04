@@ -121,6 +121,9 @@ function _getHttpMethod(action: Action): ?string {
 
 function *_getFetchUrl(action: Action): Generator<*, string, *> {
   let url = 'http://wpblogas.x10host.com/wp-json/wp/v2/';
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
+  }
   const resourceRef = _getResourceRef(action)
   url = `${url}${resourceRef}`;
   if (action.type === FETCH_POSTS) {
