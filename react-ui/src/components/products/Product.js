@@ -20,7 +20,7 @@ import Pager from './Pager';
 const Product = (props : Object) => {
 
   const { title, articleFile, imgFile, thumbText } = props.product;
-  const href = `/produktai/${props.nextId}`;
+  const href = `/produktai/${props.nextSlug}/${props.nextId}`;
 
   // TODO: replace hard coded path to path from redux store
   // NOTE: import/export doesn't work with dynamic paths

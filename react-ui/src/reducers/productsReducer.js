@@ -9,6 +9,7 @@ const initialState = {
     '0': {
       id: '0',
       title: 'Antiox+',
+      slug: 'antiox',
       thumbText: '',
       articleFile: 'Antiox.js',
       imgFile: 'antiox.jpg',
@@ -17,6 +18,7 @@ const initialState = {
     '1': {
       id: '1',
       title: 'Detox+',
+      slug: 'detox',
       thumbText: 'Imuniteto stiprinimui, organizmo išvalymui',
       articleFile: 'Detox.js',
       imgFile: 'detox.jpg',
@@ -25,6 +27,7 @@ const initialState = {
     '2': {
       id: '2',
       title: 'Pax+ forte',
+      slug: 'pax-forte',
       thumbText: 'Kasdieninė apsauga nuo streso',
       articleFile: 'PaxForte.js',
       imgFile: 'paxforte.jpg',
@@ -33,6 +36,7 @@ const initialState = {
     '3': {
       id: '3',
       title: 'Sveltform+',
+      slug: 'sveltform',
       thumbText: 'Kaip normalizuoti medžiagų apykaitą ir mažinti svorį?',
       articleFile: 'Sveltform.js',
       imgFile: 'sveltform.jpg',
@@ -41,6 +45,7 @@ const initialState = {
     '4': {
       id: '4',
       title: 'Chromevital+',
+      slug: 'chromevital',
       thumbText: 'Energijos užtaisas kiekvienai ląstelei',
       articleFile: 'Chromevital.js',
       imgFile: 'chromevital.jpg',
@@ -49,6 +54,7 @@ const initialState = {
     '5': {
       id: '5',
       title: 'CardioDrive',
+      slug: 'cardio-drive',
       thumbText: 'Visapusė širdies sveikata',
       articleFile: 'CardioDrive.js',
       imgFile: 'cardiodrive.jpg',
@@ -57,6 +63,7 @@ const initialState = {
     '6': {
       id: '6',
       title: 'Mistik',
+      slug: 'mistik',
       thumbText: 'Natūralūs ir nekenksmingi migdomieji',
       articleFile: 'Mistik.js',
       imgFile: 'mistik.jpg',
@@ -65,6 +72,7 @@ const initialState = {
     '7': {
       id: '7',
       title: 'Artemida+',
+      slug: 'artemida',
       thumbText: 'Hormonų pusiausvyros normalizavimas, pagalba kritinėmis dienomis',
       articleFile: 'Artemida.js',
       imgFile: 'artemida.jpg',
@@ -73,6 +81,7 @@ const initialState = {
     '8': {
       id: '8',
       title: 'Medisoya+',
+      slug: 'medisoya',
       thumbText: 'Atitolina klimakso pradžią, palengvina jo simptomus',
       articleFile: 'Medisoya.js',
       imgFile: 'medisoya.jpg',
@@ -81,6 +90,7 @@ const initialState = {
     '9': {
       id: '9',
       title: 'Stalon Neo',
+      slug: 'stalon-neo',
       thumbText: 'Pagalba esant potencijos sutrikimams',
       articleFile: 'StalonNeo.js',
       imgFile: 'stalonneo.jpg',
@@ -89,6 +99,7 @@ const initialState = {
     '10': {
       id: '10',
       title: 'Lamin',
+      slug: 'lamin',
       thumbText: 'Vyrų energijos ir jėgų šaltinis',
       articleFile: 'Lamin.js',
       imgFile: 'lamin.jpg',
@@ -97,6 +108,7 @@ const initialState = {
     '11': {
       id: '11',
       title: 'Artum',
+      slug: 'artum',
       thumbText: 'Prostatos sveikata',
       articleFile: 'Artum.js',
       imgFile: 'artum.jpg',
@@ -105,6 +117,7 @@ const initialState = {
     '12': {
       id: '12',
       title: 'Ursul',
+      slug: 'ursul',
       thumbText: 'Priešuždegiminė priemonė',
       articleFile: 'Ursul.js',
       imgFile: 'ursul.jpg',
@@ -113,6 +126,7 @@ const initialState = {
     '13': {
       id: '13',
       title: 'Cupers Neo',
+      slug: 'cupers-neo',
       thumbText: 'Kepenų ląstelių apsauga, toksinų šalinimas',
       articleFile: 'CupersNeo.js',
       imgFile: 'cupersneo.jpg',
@@ -121,6 +135,7 @@ const initialState = {
     '14': {
       id: '14',
       title: 'Junior Neo+',
+      slug: 'junior-neo',
       thumbText: '',
       articleFile: 'JuniorNeo.js',
       imgFile: 'juniorneo.jpg',
@@ -129,6 +144,7 @@ const initialState = {
     '15': {
       id: '15',
       title: 'Junior Be Strong',
+      slug: 'junior-be-strong',
       thumbText: '',
       articleFile: 'JuniorBeStrong.js',
       imgFile: 'juniorbestrong.jpg',
@@ -137,6 +153,7 @@ const initialState = {
     '16': {
       id: '16',
       title: 'Junior Be Smart',
+      slug: 'junior-be-smart',
       thumbText: 'Intelektinių gebėjimų padidinimas',
       articleFile: 'JuniorBeSmart.js',
       imgFile: 'juniorbesmart.jpg',
@@ -145,6 +162,7 @@ const initialState = {
     '17': {
       id: '17',
       title: 'Junior Be Healthy',
+      slug: 'junior-be-healthy',
       thumbText: '',
       articleFile: 'JuniorBeHealthy.js',
       imgFile: 'juniorbehealthy.jpg',
@@ -153,6 +171,7 @@ const initialState = {
     '18': {
       id: '18',
       title: 'Beesk',
+      slug: 'beesk',
       thumbText: 'Greitas organizmo atstatymas',
       articleFile: 'Beesk.js',
       imgFile: 'beesk.jpg',

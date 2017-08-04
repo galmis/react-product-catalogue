@@ -11,8 +11,8 @@ import { Link } from 'react-router';
 const ProductThumbnail = (props: Object) => {
 
 
-  const { id, title, thumbText, imgFile } = props.product;
-  const href = `produktai/${id}`;
+  const { id, slug, title, thumbText, imgFile } = props.product;
+  const href = `produktai/${slug}/${id}`;
   const imgSrc = require('./images/' + imgFile);
 
   return (

@@ -27,6 +27,13 @@ function getProductCategories(state: Object, id: string): Array<string> {
   return getProduct(state, id).categories;
 }
 
+function getProductSlug(state: Object, id: string): string {
+  if (id && id !== '') {
+    return getProduct(state, id).slug;
+  }
+  return '';
+}
+
 function getNextProductId(state: Object, currId: string) {
   const allIds = getAllProductsIds(state);
   const index = allIds.indexOf(currId);
@@ -36,7 +43,7 @@ function getNextProductId(state: Object, currId: string) {
 
 // NOTE: A selector is not recomputed unless one of its arguments change.
 const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<Product> => {
-  
+
 
   const orderedProds = [];
   allIds.forEach(id => {
@@ -48,7 +55,7 @@ const getOrderedProducts = createSelector([getAllProductsIds, getProductsById], 
 
 const getProductsCategories = createSelector([getAllProductsIds, getProductsById], (allIds: Array<string>, productsById: Object): Array<string> => {
 
-  
+
   let allCategories = [];
   allIds.forEach(id => {
     const prodCategories = productsById[id].categories || [];
@@ -61,10 +68,9 @@ const getProductsCategories = createSelector([getAllProductsIds, getProductsById
 
 const getFilteredProducts = createSelector([getOrderedProducts, getSelectedCategory], (products: Array<Product>, category: string): Array<Product> => {
 
-  
   const filteredProds = [];
   products.forEach(product => {
-    
+
     if (product.categories.indexOf(category) >= 0) {
       filteredProds.push(product);
     }
@@ -83,5 +89,6 @@ export {
   getNextProductId,
   getProductCategories,
   getProductsCategories,
-  getFilteredProducts
+  getFilteredProducts,
+  getProductSlug
 }

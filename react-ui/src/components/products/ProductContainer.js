@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import Product from './Product';
 import {
   getProduct,
-  getNextProductId
+  getNextProductId,
+  getProductSlug
 } from '../../selectors/productsSelectors';
 import {
   getHistoryState
@@ -14,10 +15,12 @@ import {
 
 function mapStateToProps(state: Object, routerProps: Object) {
   const id = routerProps.params.id;
+  const nextId = getNextProductId(state, id);
 
   return {
+    nextId,
+    nextSlug: getProductSlug(state, nextId),
     product: getProduct(state, id),
-    nextId: getNextProductId(state, id),
     historyStack: getHistoryState(state)
   }
 }

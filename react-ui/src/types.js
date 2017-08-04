@@ -7,6 +7,7 @@ import {FILTER, FETCH_POSTS, FETCH_POSTS_SUCCESS} from './constants/ACTION_TYPE'
 export type Product = {
   id: string, // also a route
   title: string,
+  slug: string,
   thumbText: string,
   articleFile: string,
   imgFile: string,
