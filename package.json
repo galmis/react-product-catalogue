@@ -14,7 +14,8 @@
     "react-ui/node_modules"
   ],
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "helmet": "^3.8.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

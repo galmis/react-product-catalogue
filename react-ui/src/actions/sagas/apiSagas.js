@@ -31,7 +31,6 @@ import { getNormalizedData } from '../../services/Normalizer';
 import { COMMENTS, POSTS } from '../../constants/RESOURCE_REF';
 
 function* fetchData(action: Action): Generator<*, *, *> {
-  console.log(`fetch data requested, action = ${JSON.stringify(action)}`);
 
   try {
     const url = yield call(_getFetchUrl, action);
@@ -48,11 +47,9 @@ function* fetchData(action: Action): Generator<*, *, *> {
         }
         yield fork(_fetchDataSuccess, action, normalizedData, parseInt(totalRecords), parseInt(totalPages), response.status);
       } else {
-        console.log(`Error - ${response.status}, ${response.statusText}`);
         yield put(fetchDataError(action, response.status));
       }
     } else {
-      console.log('Error - no response');
       yield put(fetchDataError(action, -1, 'Error - no response'));
     }
   } catch(error) {

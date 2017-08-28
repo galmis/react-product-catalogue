@@ -4,7 +4,8 @@ import { FILTER } from '../constants/ACTION_TYPE';
 
 const initialState = {
   selectedCategory: 'Visi',
-  allIds: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'],
+  allIds: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'
+  ],
   byId: {
     '0': {
       id: '0',
@@ -170,11 +171,56 @@ const initialState = {
     },
     '18': {
       id: '18',
-      title: 'Beesk',
-      slug: 'beesk',
-      thumbText: 'Greitas organizmo atstatymas',
-      articleFile: 'Beesk.js',
-      imgFile: 'beesk.jpg',
+      title: 'Di Guard Nano',
+      slug: 'di-guard-nano',
+      thumbText: 'Organizmo detoksikacija',
+      articleFile: 'DiGuardNano.js',
+      imgFile: 'diguardnano.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '19': {
+      id: '19',
+      title: 'VenoStrong',
+      slug: 'veno-strong',
+      thumbText: 'Kova su lėtiniu venų nepakankamumu',
+      articleFile: 'VenoStrong.js',
+      imgFile: 'venostrong.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '20': {
+      id: '20',
+      title: 'EnjoyNT',
+      slug: 'enjoy-nt',
+      thumbText: 'Sąnarių apsauga',
+      articleFile: 'EnjoyNT.js',
+      imgFile: 'enjoynt.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '21': {
+      id: '21',
+      title: 'Lifepac Senior',
+      slug: 'lifepac-senior',
+      thumbText: 'Vitaminų ir mineralų kompleksas su probiotikais',
+      articleFile: 'LifepacSenior.js',
+      imgFile: 'lifepacsenior.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '22': {
+      id: '22',
+      title: 'OsteoSanum',
+      slug: 'osteosanum',
+      thumbText: 'Osteoporozės profilaktika',
+      articleFile: 'Osteosanum.js',
+      imgFile: 'osteosanum.jpg',
+      categories: ['Visi', 'Klasikiniai']
+    },
+    '23': {
+      id: '23',
+      title: 'Nutrimax+',
+      slug: 'nutrimax',
+      thumbText: 'Uždegimo medžiotojas',
+      articleFile: 'Nutrimax.js',
+      imgFile: 'nutrimax.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
   }
