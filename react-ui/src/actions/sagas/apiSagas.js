@@ -36,6 +36,7 @@ function* fetchData(action: Action): Generator<*, *, *> {
     const url = yield call(_getFetchUrl, action);
     const httpMethod = _getHttpMethod(action);
     const response: ?XMLHttpRequest = yield call(fetch, url, httpMethod);
+    
     if (response) {
       if (response.status >= 200 && response.status < 300) {
         const totalRecords = response.getResponseHeader('X-WP-Total');
