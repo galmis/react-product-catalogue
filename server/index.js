@@ -6,10 +6,13 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const helmet = require('helmet');
+const compression = require('compression')
 
 // for security
 app.use(helmet());
 app.disable('x-powered-by');
+
+app.use(compression());
 
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
