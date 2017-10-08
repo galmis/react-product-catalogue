@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {Grid, Col, Row} from 'react-bootstrap';
+import {Helmet} from "react-helmet";
 
 import FancyHeader from '../shared/FancyHeader';
 
@@ -9,8 +10,10 @@ const About = (props: Object) => {
 
   return (
     <div>
+      <Helmet>
+        <title>Sveika gyvensena ir populiarūs sveikatos produktai | bukitesveiki.lt</title>
+      </Helmet>
       <FancyHeader title={'Apie mus'} />
-
       <Grid>
         <section className='animated fadeIn' id='about'>
           <Row>

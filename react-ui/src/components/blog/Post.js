@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Grid} from 'react-bootstrap';
+import {Helmet} from "react-helmet";
 
 import FancyHeader from '../shared/FancyHeader';
 import Spinner from '../shared/Spinner';
@@ -27,6 +28,9 @@ const Post = (props: Object) => {
   return (
     <div>
       <FancyHeader title={post.title.rendered} />
+      <Helmet>
+        <title>{post.title.rendered + ' | bukitesveiki.lt'}</title>
+      </Helmet>
       {
         isLoading
         ? <Spinner />

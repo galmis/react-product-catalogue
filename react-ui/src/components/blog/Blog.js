@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Grid} from 'react-bootstrap';
 import {goBack, push} from 'react-router-redux';
+import {Helmet} from "react-helmet";
 
 import FancyHeader from '../shared/FancyHeader';
 import PostExcerpt from './PostExcerpt';
@@ -67,6 +68,10 @@ class Blog extends React.Component {
 
     return (
       <div>
+        <Helmet>
+          <title>Blogas | bukitesveiki.lt</title>
+        </Helmet>
+
         <FancyHeader title='Blogas' />
         {
           isLoading

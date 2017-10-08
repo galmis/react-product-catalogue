@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
+import {Helmet} from "react-helmet";
 
 import {
   PageHeader,
@@ -29,6 +30,9 @@ const Product = (props : Object) => {
 
   return (
     <div>
+      <Helmet>
+        <title>{title + ' | bukitesveiki.lt'}</title>
+      </Helmet>
       <FancyHeader title={title} subtitle={thumbText}/>
 
       <Grid>
