@@ -68,7 +68,7 @@ const initialState = {
       thumbText: 'Natūralūs ir nekenksmingi migdomieji',
       articleFile: 'Mistik.js',
       imgFile: 'mistik.jpg',
-      categories: ['Visi', 'Klasikiniai']
+      categories: ['Visi']
     },
     '7': {
       id: '7',
@@ -122,7 +122,7 @@ const initialState = {
       thumbText: 'Priešuždegiminė priemonė',
       articleFile: 'Ursul.js',
       imgFile: 'ursul.jpg',
-      categories: ['Visi', 'Klasikiniai']
+      categories: ['Visi', 'Vyrams']
     },
     '13': {
       id: '13',
@@ -131,7 +131,7 @@ const initialState = {
       thumbText: 'Kepenų ląstelių apsauga, toksinų šalinimas',
       articleFile: 'CupersNeo.js',
       imgFile: 'cupersneo.jpg',
-      categories: ['Visi', 'Klasikiniai']
+      categories: ['Visi']
     },
     '14': {
       id: '14',
@@ -176,7 +176,7 @@ const initialState = {
       thumbText: 'Organizmo detoksikacija',
       articleFile: 'DiGuardNano.js',
       imgFile: 'diguardnano.jpg',
-      categories: ['Visi', 'Klasikiniai']
+      categories: ['Visi']
     },
     '19': {
       id: '19',
@@ -185,7 +185,7 @@ const initialState = {
       thumbText: 'Kova su lėtiniu venų nepakankamumu',
       articleFile: 'VenoStrong.js',
       imgFile: 'venostrong.jpg',
-      categories: ['Visi', 'Klasikiniai']
+      categories: ['Visi']
     },
     '20': {
       id: '20',
@@ -194,7 +194,7 @@ const initialState = {
       thumbText: 'Sąnarių apsauga',
       articleFile: 'EnjoyNT.js',
       imgFile: 'enjoynt.jpg',
-      categories: ['Visi', 'Klasikiniai']
+      categories: ['Visi']
     },
     '21': {
       id: '21',
@@ -212,7 +212,7 @@ const initialState = {
       thumbText: 'Osteoporozės profilaktika',
       articleFile: 'Osteosanum.js',
       imgFile: 'osteosanum.jpg',
-      categories: ['Visi', 'Klasikiniai']
+      categories: ['Visi']
     },
     '23': {
       id: '23',

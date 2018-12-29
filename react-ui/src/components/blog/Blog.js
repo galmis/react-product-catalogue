@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {Grid} from 'react-bootstrap';
 import {goBack, push} from 'react-router-redux';
 import {Helmet} from "react-helmet";
+import LazyLoad from 'react-lazyload';
 
 import FancyHeader from '../shared/FancyHeader';
 import PostExcerpt from './PostExcerpt';
@@ -29,7 +30,9 @@ class Blog extends React.Component {
     const itemsToRender = [];
     for (let i = 0; i < posts.length; i++) {
       itemsToRender.push(
-        <PostExcerpt key={i} post={ posts[i] } />
+        <LazyLoad key={i}>
+          <PostExcerpt post={ posts[i] } />
+        </LazyLoad>
       );
     }
 

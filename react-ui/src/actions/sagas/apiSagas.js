@@ -36,7 +36,7 @@ function* fetchData(action: Action): Generator<*, *, *> {
     const url = yield call(_getFetchUrl, action);
     const httpMethod = _getHttpMethod(action);
     const response: ?XMLHttpRequest = yield call(fetch, url, httpMethod);
-    
+
     if (response) {
       if (response.status >= 200 && response.status < 300) {
         const totalRecords = response.getResponseHeader('X-WP-Total');
@@ -118,9 +118,11 @@ function _getHttpMethod(action: Action): ?string {
 }
 
 function *_getFetchUrl(action: Action): Generator<*, string, *> {
-  let url = 'http://wpblogas.x10host.com/wp-json/wp/v2/';
+  //let url = 'http://wpblogas.x10host.com/wp-json/wp/v2/';
+  let url = 'https://wpblogas.000webhostapp.com/wp-json/wp/v2/'
   if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-    url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
+    // TODO: uncomment if running wordpress server locally
+    // url = 'http://localhost:8888/blogas/wp-json/wp/v2/';
   }
   const resourceRef = _getResourceRef(action)
   url = `${url}${resourceRef}`;
