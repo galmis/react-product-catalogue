@@ -68,11 +68,11 @@ class Blog extends React.Component {
   render() {
 
     const {isLoading} = this.props;
-
     return (
       <div>
         <Helmet>
           <title>Blogas | bukitesveiki.lt</title>
+          <meta name='keywords' content='bukitesveiki.lt,blogas' />
         </Helmet>
 
         <FancyHeader title='Blogas' />

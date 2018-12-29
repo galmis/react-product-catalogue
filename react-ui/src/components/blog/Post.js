@@ -21,15 +21,24 @@ function _renderPost(rendered: string, id: number) {
   );
 }
 
+function stripHTMLTags(htmlStr: string) {
+  return htmlStr.replace(/<(?:.|\n)*?>/gm, '');
+}
+
 const Post = (props: Object) => {
 
   const {post, isLoading} = props;
+  const {excerpt} = post;
+  const description = excerpt && excerpt.rendered ? stripHTMLTags(excerpt.rendered) : '';
+  const title = post.title.rendered;
 
   return (
     <div>
-      <FancyHeader title={post.title.rendered} />
+      <FancyHeader title={title} />
       <Helmet>
-        <title>{post.title.rendered + ' | bukitesveiki.lt'}</title>
+        <title>{title + ' | bukitesveiki.lt'}</title>
+        <meta name='keywords' content={`bukitesveiki.lt,${title}`} />
+        description && <meta name='description' content={description} />
       </Helmet>
       {
         isLoading

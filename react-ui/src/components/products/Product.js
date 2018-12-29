@@ -32,6 +32,8 @@ const Product = (props : Object) => {
     <div>
       <Helmet>
         <title>{title + ' | bukitesveiki.lt'}</title>
+        thumbText && <meta name='description' content={`${title} - ${thumbText}`} />
+        <meta name='keywords' content={`bukitesveiki.lt,${title}`} />
       </Helmet>
       <FancyHeader title={title} subtitle={thumbText}/>
 
