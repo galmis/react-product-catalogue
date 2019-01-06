@@ -32,6 +32,39 @@ const Artemida = () => {
           <li>Moterys, kurioms yra skirta mastito, gimdos fibromos, endometriozės, gimdos gleivinės hiperplazijos profilaktika ir kompleksinė terapija.</li>
           <li>Moterys, kurios ilgiau nori išlaikyti reprodukcinį amžių.</li>
         </ul>
+
+        <div className='vertical-space'>
+          <strong>Sudėtis</strong>
+          <p>Vienoje kapsulėje (436 mg) yra:</p>
+          <table>
+            <tbody>
+              <tr>
+                <td>Šventagaršvė</td>
+                <td>190 mg</td>
+              </tr>
+              <tr>
+                <td>Miltinė meškauogė</td>
+                <td>50 mg</td>
+              </tr>
+              <tr>
+                <td>Paprastasis kietis</td>
+                <td>50 mg</td>
+              </tr>
+              <tr>
+                <td>Raudonieji dobilai</td>
+                <td>40 mg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas A (1000000 ME/g)</td>
+                <td>2 mg ( 1000 ME)</td>
+              </tr>
+              <tr>
+                <td>Vitaminas E</td>
+                <td>2.7 mg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

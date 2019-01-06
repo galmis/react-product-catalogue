@@ -36,6 +36,38 @@ const Artum = () => {
           <li>Vyrai, kurie rūpinasi savo sveikata ir siekia užkirsti kelią prostatos ligoms.</li>
         </ul>
       </div>
+      <div className='vertical-space'>
+        <strong>Sudėtis</strong>
+        <p>Vienoje kapsulėje (350 mg) yra:</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>Didžioji dilgėlė</td>
+              <td>175 mg</td>
+            </tr>
+            <tr>
+              <td>Gulsčioji seranoja</td>
+              <td>50 mg</td>
+            </tr>
+            <tr>
+              <td>Didysis moliūgas</td>
+              <td>50 mg</td>
+            </tr>
+            <tr>
+              <td>Cinkas</td>
+              <td>5 mg</td>
+            </tr>
+            <tr>
+              <td>Vitaminas E</td>
+              <td>4 mg</td>
+            </tr>
+            <tr>
+              <td>Beta karotenas</td>
+              <td>2,5 mg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

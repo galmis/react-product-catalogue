@@ -17,7 +17,7 @@ a.active {
 }*/
 
 .thumbnail-img {
-  padding: 0% 20%
+  padding: 0% 25%;
 }
 
 .nav-link {
@@ -28,4 +28,14 @@ a.active {
 /* continue reading link in wordpress, not ideal - google crawler can see it? */
 .more-link {
   display: none;
+}
+
+.vertical-space {
+  padding-top: 20px;
+}
+.vertical-space-2x {
+  padding-top: 40px;
+}
+.nutrition-cell-value {
+  width: 30%
 }

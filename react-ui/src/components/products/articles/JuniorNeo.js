@@ -32,6 +32,82 @@ const JuniorNeo = () => {
         <strong>Pranašumai:</strong> <p></p>
         <p>Į maisto papildo Junior Neo+ sudėtį įeina augančiam organizmui reikalingas „auksinis“ vitaminų ir makro- ir mikroelementų rinkinys.</p>
         <p>Paprasta vartoti — šokolado skonio kramtomąsias tabletes vaikai įvertina kaip skanius saldainius.</p>
+
+        <div className='vertical-space'>
+          <strong>Vienos kapsulės sudėtis:</strong>
+          <table>
+            <tbody>
+              <tr>
+                <td>Cinkas</td>
+                <td>1,15 mg</td>
+              </tr>
+              <tr>
+                <td>Geležis</td>
+                <td>1,5 mg</td>
+              </tr>
+              <tr>
+                <td>Manganas</td>
+                <td>0,3 mg</td>
+              </tr>
+              <tr>
+                <td>Varis</td>
+                <td>85 mkg</td>
+              </tr>
+              <tr>
+                <td>Chromas</td>
+                <td>10 mkg</td>
+              </tr>
+              <tr>
+                <td>Magnis</td>
+                <td>22,5 mg</td>
+              </tr>
+              <tr>
+                <td>Beta karotenas</td>
+                <td>0,75 mg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas B1</td>
+                <td>0,25 mg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas B6</td>
+                <td>0,3 mg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas B2</td>
+                <td>0,3 mg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas B9</td>
+                <td>50 mkg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas B12</td>
+                <td>0,25 mkg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas C</td>
+                <td>15 mg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas D3</td>
+                <td>0,75 mkg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas E</td>
+                <td>1,7 mg</td>
+              </tr>
+              <tr>
+                <td>Vitaminas B3</td>
+                <td>3 mg</td>
+              </tr>
+              <tr>
+                <td>Flavonoidai</td>
+                <td>5 mg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
   );
 };

@@ -4,14 +4,14 @@ import { FILTER } from '../constants/ACTION_TYPE';
 
 const initialState = {
   selectedCategory: 'Visi',
-  allIds: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'
+  allIds: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26'
   ],
   byId: {
     '0': {
       id: '0',
       title: 'Antiox+',
       slug: 'antiox',
-      thumbText: '',
+      thumbText: 'Apsaugo nuo laisvųjų radikalų, lėtina senėjimo procesus, teigiamai veikia širdies ir kraujagyslių sistemą, stiprina imunitetą',
       articleFile: 'Antiox.js',
       imgFile: 'antiox.jpg',
       categories: ['Visi', 'Klasikiniai']
@@ -20,7 +20,7 @@ const initialState = {
       id: '1',
       title: 'Detox+',
       slug: 'detox',
-      thumbText: 'Imuniteto stiprinimui, organizmo išvalymui',
+      thumbText: 'Organizmo valymas ląstelių lygmenyje, imuniteto stiprinimas, gamtinis antibiotikas',
       articleFile: 'Detox.js',
       imgFile: 'detox.jpg',
       categories: ['Visi', 'Klasikiniai']
@@ -29,7 +29,7 @@ const initialState = {
       id: '2',
       title: 'Pax+ forte',
       slug: 'pax-forte',
-      thumbText: 'Kasdieninė apsauga nuo streso',
+      thumbText: 'Kasdienė apsauga nuo streso, dirglumo, nervingumo mažinimas, širdies veiklos ir ritmo normalizavimas',
       articleFile: 'PaxForte.js',
       imgFile: 'paxforte.jpg',
       categories: ['Visi', 'Klasikiniai']
@@ -38,7 +38,7 @@ const initialState = {
       id: '3',
       title: 'Sveltform+',
       slug: 'sveltform',
-      thumbText: 'Kaip normalizuoti medžiagų apykaitą ir mažinti svorį?',
+      thumbText: 'Normalizuoja medžiagų apykaitą, degina riebalus, mažina svorį, teigiamai veikia skydliaukės ir kasos darbą, mažina cholesterolio kiekį kraujyje',
       articleFile: 'Sveltform.js',
       imgFile: 'sveltform.jpg',
       categories: ['Visi', 'Klasikiniai']
@@ -47,7 +47,7 @@ const initialState = {
       id: '4',
       title: 'Chromevital+',
       slug: 'chromevital',
-      thumbText: 'Energijos užtaisas kiekvienai ląstelei',
+      thumbText: 'Suteikia energijos kiekvienai ląstelei, mažina nuovargį, didina protinį ir fizinį darbingumą, saugo nervų sistemą, normalizuoja ir palaiko cukraus kiekį kraujyje',
       articleFile: 'Chromevital.js',
       imgFile: 'chromevital.jpg',
       categories: ['Visi', 'Klasikiniai']
@@ -65,7 +65,7 @@ const initialState = {
       id: '6',
       title: 'Mistik',
       slug: 'mistik',
-      thumbText: 'Natūralūs ir nekenksmingi migdomieji',
+      thumbText: 'Natūralūs ir nekenksmingi migdomieji, netolygaus miego ir naktinių košmarų šalinimas, miego kokybės gerinimas',
       articleFile: 'Mistik.js',
       imgFile: 'mistik.jpg',
       categories: ['Visi']
@@ -74,7 +74,7 @@ const initialState = {
       id: '7',
       title: 'Artemida+',
       slug: 'artemida',
-      thumbText: 'Hormonų pusiausvyros normalizavimas, pagalba kritinėmis dienomis',
+      thumbText: 'Hormonų pusiausvyros ir menstruacinio ciklo normalizavimas, pagalba kritinėmis dienomis, libido didinimas',
       articleFile: 'Artemida.js',
       imgFile: 'artemida.jpg',
       categories: ['Visi', 'Moterims']
@@ -83,7 +83,7 @@ const initialState = {
       id: '8',
       title: 'Medisoya+',
       slug: 'medisoya',
-      thumbText: 'Atitolina klimakso pradžią, palengvina jo simptomus',
+      thumbText: 'Atitolina klimakso pradžią, palengvina jo simptomus, atkuria hormonų pusiausvyrą, padidina libido, apsaugo odą nuo senėjimo, neleidžia atsirasti osteoporozei',
       articleFile: 'Medisoya.js',
       imgFile: 'medisoya.jpg',
       categories: ['Visi', 'Moterims']
@@ -110,7 +110,7 @@ const initialState = {
       id: '11',
       title: 'Artum',
       slug: 'artum',
-      thumbText: 'Prostatos sveikata',
+      thumbText: 'Prostatos sveikata, vyriškos jaunystės šaltinis, mažina impotencijos riziką, normalizuoja hormonų lygį, užkerta kelią prostatos adenomai',
       articleFile: 'Artum.js',
       imgFile: 'artum.jpg',
       categories: ['Visi', 'Vyrams']
@@ -119,7 +119,7 @@ const initialState = {
       id: '12',
       title: 'Ursul',
       slug: 'ursul',
-      thumbText: 'Priešuždegiminė priemonė',
+      thumbText: 'Priešuždegiminė priemonė vyrams ir moterims, neleidžia augti ir daugintis patogeninėms bakterijoms, virusams, grybeliams, mažina lytiniu keliu plintančių ligų riziką',
       articleFile: 'Ursul.js',
       imgFile: 'ursul.jpg',
       categories: ['Visi', 'Vyrams']
@@ -128,7 +128,7 @@ const initialState = {
       id: '13',
       title: 'Cupers Neo',
       slug: 'cupers-neo',
-      thumbText: 'Kepenų ląstelių apsauga, toksinų šalinimas',
+      thumbText: 'Kepenų ląstelių apsauga, valymas ir atkūrimas, kepenų ir tulžies latakų ligų rizikos mažinimas, virškinimo sistemos normalizavimas',
       articleFile: 'CupersNeo.js',
       imgFile: 'cupersneo.jpg',
       categories: ['Visi']
@@ -137,7 +137,7 @@ const initialState = {
       id: '14',
       title: 'Junior Neo+',
       slug: 'junior-neo',
-      thumbText: '',
+      thumbText: 'Geriausias vitaminų ir mineralų kompleksas vaikams, atitinka augančio, harmoningai besivystančio organizmo poreikius',
       articleFile: 'JuniorNeo.js',
       imgFile: 'juniorneo.jpg',
       categories: ['Visi', 'Vaikams']
@@ -173,7 +173,7 @@ const initialState = {
       id: '18',
       title: 'Di Guard Nano',
       slug: 'di-guard-nano',
-      thumbText: 'Organizmo detoksikacija',
+      thumbText: 'Šalina sunkiuosius metalus ir toksinus, padeda apsaugoti nuo buitinės radiacijos, atkuria kepenų ląsteles, padeda apsinuodijus, suriša ir šalina alergenus, padeda įveikti pagirias',
       articleFile: 'DiGuardNano.js',
       imgFile: 'diguardnano.jpg',
       categories: ['Visi']
@@ -191,7 +191,7 @@ const initialState = {
       id: '20',
       title: 'EnjoyNT',
       slug: 'enjoy-nt',
-      thumbText: 'Sąnarių apsauga',
+      thumbText: 'Kompleksinė sąnarių apsauga – grąžina sąnariams judrumą ir lankstumą, padeda atstatyti pažeistą kremzlinį audinį sąnariuose ir stubure',
       articleFile: 'EnjoyNT.js',
       imgFile: 'enjoynt.jpg',
       categories: ['Visi']
@@ -209,7 +209,7 @@ const initialState = {
       id: '22',
       title: 'OsteoSanum',
       slug: 'osteosanum',
-      thumbText: 'Osteoporozės profilaktika',
+      thumbText: 'Osteoporozės profilaktika, kaulų struktūros gerinimas, dantų, plaukų, nagų stiprinimas',
       articleFile: 'Osteosanum.js',
       imgFile: 'osteosanum.jpg',
       categories: ['Visi']
@@ -218,11 +218,38 @@ const initialState = {
       id: '23',
       title: 'Nutrimax+',
       slug: 'nutrimax',
-      thumbText: 'Uždegimo medžiotojas',
+      thumbText: 'Slopina uždegimus, palaiko ir normalizuoja inkstų, šlapimo pūslės ir lytinės sistemos veiklą, padeda pašalinti smėlį iš inkstų ir šlapimtakių, taip pat neleidžia jiems susidaryti',
       articleFile: 'Nutrimax.js',
       imgFile: 'nutrimax.jpg',
       categories: ['Visi', 'Klasikiniai']
     },
+    '24': {
+      id: '24',
+      title: 'Cheviton',
+      slug: 'cheviton',
+      thumbText: 'Išpuoselėti plaukai, stiprūs nagai, grožio vaistinėlė, vitaminų, amino rūgščių šaltinis',
+      articleFile: 'Cheviton.js',
+      imgFile: 'cheviton.jpg',
+      categories: ['Visi', 'Direct Hit']
+    },
+    '25': {
+      id: '25',
+      title: 'Junior Be Big',
+      slug: 'junior-be-big',
+      thumbText: 'Kalcio šaltinis vaiko kaulams ir dantims stiprinti aktyvaus augimo laikotarpiu',
+      articleFile: 'JuniorBeBig.js',
+      imgFile: 'junior-be-big.jpg',
+      categories: ['Visi', 'Vaikams']
+    },
+    '26': {
+      id: '26',
+      title: 'Nortia',
+      slug: 'nortia',
+      thumbText: 'Moters sveikatos harmonija, psichoemocinis stabilimas, skydliaukės funkcijos normalizavimas, širdies ritmo, vainikinių širdies arterijų kraujotakos gerinimas',
+      articleFile: 'Nortia.js',
+      imgFile: 'nortia.jpg',
+      categories: ['Visi', 'Moterims']
+    }
   }
 };
 
