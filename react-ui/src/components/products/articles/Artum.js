@@ -27,7 +27,7 @@ const Artum = () => {
           <li>Gali padėti normalizuoti hormonų lygį ir taip pratęsti vyrų jaunystę.</li>
         </ul>
 
-        <strong>Kas turėtų naudoti Artum?</strong> <p></p>
+        <strong>Kas turėtų naudoti Vision Artum papildą?</strong> <p></p>
         <ul className="list-featured">
           <li>Vyrai, kurie serga prostatos ligomis.</li>
           <li>Vyrai, kurių gyvenimo būdas yra sėdimas.</li>

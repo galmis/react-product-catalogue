@@ -21,11 +21,9 @@ const _renderClearFix = (size: string, key: string) => {
 
 const _renderProduct = (product: Product) => {
   return (
-    <LazyLoad key={product.id+'thumbnail'}>
-      <Col className='product' xs={6} sm={3}>
-        <ProductThumbnail product={product} />
-      </Col>
-    </LazyLoad>
+    <Col key={product.id+'thumbnail'} className='product' xs={6} sm={3}>
+      <ProductThumbnail product={product} />
+    </Col>
   );
 }
 

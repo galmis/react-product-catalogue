@@ -29,13 +29,13 @@ const Cheviton = () => {
       </div>
       <div className='vertical-space'>
         <strong>Pranašumai:</strong> <p></p>
-        <p>Biologiškai aktyvaus maisto papildo <strong>Cheviton</strong> sudėtyje yra amino rūgščių – metionino ir cisteino, kurie yra būtini stipriems nagams ir plaukams. Metioninas nėra sintezuojamas žmogaus organizme, todėl reikia papildyti nuolat jo atsargas iš išorės.</p>
+        <p>Biologiškai aktyvaus Vision maisto papildo <strong>Cheviton</strong> sudėtyje yra amino rūgščių – metionino ir cisteino, kurie yra būtini stipriems nagams ir plaukams. Metioninas nėra sintezuojamas žmogaus organizme, todėl reikia papildyti nuolat jo atsargas iš išorės.</p>
         <p>Veikliųjų sudedamųjų dalių kompleksas prasiskverbia tiesiai į plaukų folikulus, efektyviai sumažina plaukų slinkimą ir aktyvuoja jų augimą.</p>
         <p>Geriausiai parinkta visų medžiagų, reikalingų plaukų ir nagų grožiui, sveikatai ir augimui, formulė.</p>
-        <p>Biologiškai aktyvaus maisto papildo <strong>Cheviton</strong> sudėtis tobulai subalansuota ir yra tikra grožio vaistinėlė, padedanti turėti tobulą manikiūrą ir žavingą šukuoseną.</p>
+        <p>Biologiškai aktyvaus Vision maisto papildo <strong>Cheviton</strong> sudėtis tobulai subalansuota ir yra tikra grožio vaistinėlė, padedanti turėti tobulą manikiūrą ir žavingą šukuoseną.</p>
       </div>
       <div className='vertical-space'>
-        <strong>Kam reikėtų vartoti Cheviton?</strong> <p></p>
+        <strong>Kam reikėtų vartoti Vision Cheviton?</strong> <p></p>
         <ul className="list-featured">
           <li>Žmonėms, kurie rūpinasi savo išvaizda.</li>
           <li>Žmonėms, kuriems reikia pagerinti plaukų ir nagų struktūrą.</li>

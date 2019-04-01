@@ -9,7 +9,7 @@ const Venostrong = () => {
       <p>VenoStrong gali pa&scaron;alinti pavargusių kojų sindromą, tinimą, sunkumą jose ir pagerinti kraujo apytaką. Jis gali pagerinti venų tonusą ir sumažinti sąstingį jose.</p>
       <p>VenoStrong- produktas kovojantis su venų nepakankamumu. Unikali natūralaus venas tonizuojančio produkto formulė sukurta taip, kad i&scaron;karto veiktų&nbsp;visą venų sistemą.</p>
       <p>Apelsinų vaisių ekstraktas gali suteikti venoms tonizuojantį poveikį, stiprinti kraujagyslių sieneles, mažinti venų i&scaron;siplėtimą, pakelti jų tonusą ir mažinti venų sąstingį. Gali sumažinti kapiliarų pralaidumą, gerinti mikrocirkuliaciją ir limfos pratekėjimą. Citrusinių vaisių žievelių ekstraktas gali pagerinti savijautą esant venų nepakankamumui, pa&scaron;alinti kojų tinimą ir sunkumą jose, tirpimą, traukulius, pavargusių kojų sindromą ir efektyviai padidinti i&scaron;tvermę bei darbo na&scaron;umą. Vienodai veikia ir stambias venas, ir smulkias kraujagysles. Vynuogių i&scaron;spaudų ekstraktas taip pat stiprina kraujagyslių sieneles ir yra puikus antioksidantas, kuris gali atstatyti kapiliarų funkcijas. Gali padėti sumažinti skausmą, traukulius tirpimą ir dilgčiojimą kojose, ypač naktį. Gali pagerinti kraujo apytaką venose. Gotų kolos ekstraktas gali pagerinti kraujo apytaką, sumažinti spaudimą venose, gali padėti greičiau atsistatyti kraujagyslių sienelėms bei sumažinti tinimą. Gali pagerinti varikozinių venų būklę, sumažinti diskomfortą ir nuovargį kojose, esant lėtiniam venų nepakankamumui. Papajos ekstraktas, turintis papaino fermento, gali mažinti kraujo klampumą, gerinti mikrocirkuliaciją, skaldyti trombocitų susikaupimus ir ant kraujagyslių sienelių susidariusias nuosėdas, taip padėdamas i&scaron;vengti tromboflebito. Pasižymi prie&scaron;uždegiminiu ir kadiotoniniu poveikiu.</p>
-      <p>VenoStrong kompleksas sukurtas taip, kad įvairiapusi&scaron;kai veiktų visas venų nepakankamumo priežastis. &Scaron;is kompleksas ne tik padeda panaikinti negalavimo simptomus, bet ir gali apsaugoti nuo rimtų komplikacijų, kurios dažnai lydi venų nepakankamumą, atsiradimo.</p>
+      <p>Vision kompanijos VenoStrong kompleksas sukurtas taip, kad įvairiapusi&scaron;kai veiktų visas venų nepakankamumo priežastis. &Scaron;is kompleksas ne tik padeda panaikinti negalavimo simptomus, bet ir gali apsaugoti nuo rimtų komplikacijų, kurios dažnai lydi venų nepakankamumą, atsiradimo.</p>
       <div>
         <br />
         <strong>Savybės:</strong> <p></p>
@@ -23,7 +23,7 @@ const Venostrong = () => {
 
         </ul>
 
-        <strong>Kas turėtų vartoti VenoStrong?</strong> <p></p>
+        <strong>Kas turėtų vartoti Vision VenoStrong?</strong> <p></p>
         <ul className="list-featured">
           <li>Tie, kuriems tinsta kojos, kas jaučia sunkumą jose.</li>
           <li>Tie, kuriems išryškėja patinusios venos ir atsiranda kraujagyslių "žvaigždutės".</li>

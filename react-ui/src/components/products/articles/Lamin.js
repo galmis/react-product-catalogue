@@ -7,7 +7,7 @@ const Lamin = () => {
     <div>
       <p>Didelė psichologinė įtampa, emocijos, kurias vyrai yra priversti slėpti, priverčia stipriają lytį kentėti ne mažiau už silpnąją. Be to, su amžiumi vyrams mažėja testosterono lygis: kas 10 metų 10 proc. sumažėja ištvermė. Ir kalbama ne tik apie stiprius stresus, bet ir apie fizinį krūvį. Net sportuoti kiekvienais metais tampa vis sudėtingiau, o rezultatų pasiekti vis sunkiau.</p>
       <p>Speciali energetinė tonizuojanti priemonė stipriai lyčiai – Lamin gali padėti vyrui pripildyti senkantį vidinės energijos šaltinį.</p>
-      <p>Lamin augaliniai komponentai gali stiprinti organizmą didelio fizinio ir emocinio streso sąlygomis, gali padidinti testosterone kiekį ir apsaugoti organizmą nuo stresų ir priešlaikinio senėjimo.</p>
+      <p>Vision papildo Lamin augaliniai komponentai gali stiprinti organizmą didelio fizinio ir emocinio streso sąlygomis, gali padidinti testosterone kiekį ir apsaugoti organizmą nuo stresų ir priešlaikinio senėjimo.</p>
       <p>Norint greitai fiziškai ir psichologiškai adaptuotis prie aplinkos sąlygų, reikalinga tonizuojanti ir stimuliuojanti pagalba, tokia, kokią gali suteikti dygliuotasis eleuterokokas. Kaip galingiausia energetinė priemonė, eleuterokokas pašalina nuovargį ir dirglumą. Jis stimuliuojamai veikia centrinę nervų sistemą, apsaugo organizmą nuo nepalankių aplinkos veiksnių ir pagerina savijautą.</p>
       <p>Stimuliuojantis ir tonizuojantis Paragvajaus arbatos (matė) poveikis ne taip greitai kaip eleuterokoko, tačiau jis trunka – nuo 16 iki 20 valandų. Sulėtintas, bet ilgiau išliekantis Paragvajaus arbatos poveikis raumenims padeda išlikti budriam, susikaupusiam bei padeda giliau miegoti. Veikliosios medžiagos, kurių yra matės lapuose, kontroliuoja visas centrinės nervų sistemos dalis ir stimuliuoja kaulų ir raumenų aparato veiklą, paspartindamos jo reakciją į pradinį impulsą, vėliau nesukeldamos nuovargio ir depresijos.</p>
       <p>Klasikinis gėlių adaptogenas – gėlių žiedadulkės – stimuliuoja pažeistų ląstelių regeneraciją ir skatina raumenų masės didėjimą. O sušvelninti raumenų įtampą, palaikyti optimalią fiziologinę būklę ir normalias funkcijas padės L-karnitinas. Žiedadulkės, turėdamos savo sudėtyje didelį kiekį vitaminų B, C, E, subalansuotą mikroelementų, amino rūgščių ir karotinoidų rinkinį, taip pat padeda vyrams kompensuoti energijos sąnaudas fizinio krūvio metu, yra veiksminga kovos su prostatitu ir prostatos adenoma priemonė, veikia tonizuojamai impotencijos atveju, stimuliuoja protinį darbingumą ir suteikia optimizmo.</p>
@@ -26,7 +26,7 @@ const Lamin = () => {
           <li>Gali prailginti vyrų jaunystę ir seksualinę sveikatą.</li>
         </ul>
 
-        <strong>Kas turėtų naudoti Lamin?</strong> <p></p>
+        <strong>Kas turėtų naudoti Vision Lamin?</strong> <p></p>
         <ul className="list-featured">
           <li>Vyrai, kurie dirba intensyvų fizinį, protinį darbą, dažnai važiuoja į komandiruotes.</li>
           <li>Vyrai, kurių imunitetas yra nusilpęs.</li>

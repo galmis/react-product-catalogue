@@ -7,8 +7,8 @@ const StalonNeo = () => {
     <div>
       <p>Vidutiniškai 52 proc. vyrų patiria problemų lovoje. Ir 15 proc. iš jų yra jaunesni nei Iš jų yra jaunesni nei 38 metų. Bet yra gera žinia – 98 proc. seksualinės disfunkcijos atvejų gali būti pašalinti.</p>
       <p>Sumažėjusi potencija ir nusilpęs lytinis potraukis – tai ne visada kokių nors rimtų sveikatos problemų rodiklis. Kartais streso darbe arba didelio nuovargio pakanka, kad vyras neturėtų nei noro nei galimybių sureguliuoti savo lytinį gyvenimą. Todėl atkreipti dėmesį reikia ne tik tiems, kurie jau susidūrė su šia problema, bet ir tiems, kurie yra rizikos grupėje.O tai beveik kiekvienas šiuolaikinis vyras. Tačiau jei šią problemą pradėsite spręsti dar prieš jai atsirandant, sėkmė ir pasitikėjimas bus nuolatiniai jūsų palydovai. O savimi pasitikintis vyras yra labai populiarus tarp moterų.</p>
-      <p>Atkurti seksualinę harmoniją, padidnti potenciją, pagerinti erekciją ir išlaikyti visavertę reprodukcinę funkciją padės natūralus kompleksas Stalon Neo. Tai visas vyriškiausių augalų ir vitaminų, kurie nuo senovės yra žinomi kaip afrodiziakai, rinkinys.</p>
-      <p>Stalon Neo komponentai suteikia vyrui jėgų ir pasitikėjimo savimi bet kurioje situacijoje, įskaitant ir asmeninius santykius.</p>
+      <p>Atkurti seksualinę harmoniją, padidnti potenciją, pagerinti erekciją ir išlaikyti visavertę reprodukcinę funkciją padės natūralus Vision kompleksas Stalon Neo. Tai visas vyriškiausių augalų ir vitaminų, kurie nuo senovės yra žinomi kaip afrodiziakai, rinkinys.</p>
+      <p>Vision papildo Stalon Neo komponentai suteikia vyrui jėgų ir pasitikėjimo savimi bet kurioje situacijoje, įskaitant ir asmeninius santykius.</p>
       <p>Padėti vyrui įveikti nuovargį, kuris gali sukelti erekcijos disfunkciją arba potencijos sutrikimus, susidoroti su psichinio ir emocinio streso pasekmėmis, padidnti fizinį ir protinį darbingumą padės vienas iš galingiausių adaptogenų – ženšenis. Ženšenis yra gyvybiškai svarbus visoms mūsų organizmo sistemoms.</p>
       <p>Dėl savo tonizuojamojo ir stiprinamojo poveikio ženšenis yra puikus seksualinis stimuliatorius. Jis normalizuoja organizmo hormonų veiklą, sustiprina metabolizmo procesus, padidina kraujo tiekimą į mažojo dubens organus ir sustiprina gyvenimo, ypač seksualinio, džiaugsmą. Kai kurie ženšenio šaknų komponentai gali turėti poveikio lygiesiems raumenims, gerina erekciją, didina testosterono gamybą ir spermatozoidų judrumą.</p>
       <p>Dviskiautis ginkmedis taip pat didina fizinę ištvermę ir seksualinį aktyvumą, sustiprina skersaruožių raumenų susitraukimus, pagerina seksualinę funkciją.</p>
@@ -28,7 +28,7 @@ const StalonNeo = () => {
           <li>Skatina optimalią vyriškų hormonų gamybą.</li>
         </ul>
 
-        <strong>Kas turėtų naudoti Stalon Neo?</strong> <p></p>
+        <strong>Kas turėtų naudoti Vision Stalon Neo?</strong> <p></p>
         <ul className="list-featured">
           <li>Vyrai, kurie patiria potencijos problemas.</li>
           <li>Vyrai, kurie susiduria su sveikatos problemomis, ypač hormonų trūkumu dėl su amžiumi susijusių pokyčių.</li>

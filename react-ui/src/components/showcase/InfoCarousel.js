@@ -35,7 +35,7 @@ export default class InfoCarousel extends Component {
         <Carousel.Caption>
           <div className="slider-content">
             <h1 className="slide-title fadeInDown animated first">bukitesveiki.lt</h1>
-            <p className="slide-text flipInX animated second">Viskas, ko reikia sveikam žmogui - nuo sveikatos patarimų iki natūralių maisto papildų.</p>
+            <p className="slide-text flipInX animated second">Viskas, ko reikia sveikam žmogui - nuo sveikatos patarimų iki natūralių Vision maisto papildų.</p>
             <Link to='apiemus' href="#categories" className="page-scroll btn btn-lg btn-primary-filled btn-pill fadeInUp animated third"><i className="fa fa-info-circle" /> <span>Skaityti daugiau</span></Link>
           </div>
         </Carousel.Caption>

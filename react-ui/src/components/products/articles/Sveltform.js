@@ -5,7 +5,7 @@ import React from 'react';
 const Sveltform = () => {
   return (
     <div>
-        <p>Kaip nepakenkiant savo sveikatai, įgauti elegantiškas linijas ir išlaikyti liekną figūrą? Atsakymas slypi ląstelių lygmeniu veikiančio komplekso <strong>Sveltform+</strong> augalinėje sudėtyje.</p>
+        <p>Kaip nepakenkiant savo sveikatai, įgauti elegantiškas linijas ir išlaikyti liekną figūrą? Atsakymas slypi ląstelių lygmeniu veikiančio Vision komplekso <strong>Sveltform+</strong> augalinėje sudėtyje.</p>
         <p>Efektyvus <strong>Sveltform+</strong> veikimo mechanizmas leidžia žmogui suformuoti protingą požiūrį į maistą, suaktyvinti medžiagų apykaitą ir sureguliuoti mitybos įpročius. Jis padeda kontroliuoti apetitą taip, kaip asmeninis dietologas, sumažindamas potraukį saldumynams ir miltiniams gaminiams, tačiau tuo pačiu neleidžia imtis kraštutinių priemonių, kurias naudojant galima prieiti visiško išsekimo ribą.</p>
         <p>Maksimaliai subalansuota formulė leidžia kryptingai aktyvinti medžiagų apykaitą iki tokio lygio, kuris užtikrina intensyvų riebalų deginimą ir jų virtimą energija.</p>
         <p>Per didelis svoris nėra įgimtas reiškinys, tačiau būtent gamta numatė tokios problemos atsiradimo tikimybę ir todėl paruošė žmogui augalinius komponentus, kurie puikiai padeda sumažinti svorį. Vienas iš tokių augalų yra <strong>Kambodžos garsinija</strong>, kuri aktyviai padeda reguliuoti kūno svorį ir apetitą.</p>

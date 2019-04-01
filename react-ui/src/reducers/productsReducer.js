@@ -9,7 +9,7 @@ const initialState = {
   byId: {
     '0': {
       id: '0',
-      title: 'Antiox+',
+      title: 'Vision Antiox+ (Antioksas)',
       slug: 'antiox',
       thumbText: 'Apsaugo nuo laisvųjų radikalų, lėtina senėjimo procesus, teigiamai veikia širdies ir kraujagyslių sistemą, stiprina imunitetą',
       articleFile: 'Antiox.js',
@@ -18,7 +18,7 @@ const initialState = {
     },
     '1': {
       id: '1',
-      title: 'Detox+',
+      title: 'Vision Detox+ (Detoksas)',
       slug: 'detox',
       thumbText: 'Organizmo valymas ląstelių lygmenyje, imuniteto stiprinimas, gamtinis antibiotikas',
       articleFile: 'Detox.js',
@@ -27,7 +27,7 @@ const initialState = {
     },
     '2': {
       id: '2',
-      title: 'Pax+ forte',
+      title: 'Vision Pax+ forte (Paksas)',
       slug: 'pax-forte',
       thumbText: 'Kasdienė apsauga nuo streso, dirglumo, nervingumo mažinimas, širdies veiklos ir ritmo normalizavimas',
       articleFile: 'PaxForte.js',
@@ -36,7 +36,7 @@ const initialState = {
     },
     '3': {
       id: '3',
-      title: 'Sveltform+',
+      title: 'Vision Sveltform+ (Sveltformas)',
       slug: 'sveltform',
       thumbText: 'Normalizuoja medžiagų apykaitą, degina riebalus, mažina svorį, teigiamai veikia skydliaukės ir kasos darbą, mažina cholesterolio kiekį kraujyje',
       articleFile: 'Sveltform.js',
@@ -45,7 +45,7 @@ const initialState = {
     },
     '4': {
       id: '4',
-      title: 'Chromevital+',
+      title: 'Vision Chromevital+ (Chromevitalis)',
       slug: 'chromevital',
       thumbText: 'Suteikia energijos kiekvienai ląstelei, mažina nuovargį, didina protinį ir fizinį darbingumą, saugo nervų sistemą, normalizuoja ir palaiko cukraus kiekį kraujyje',
       articleFile: 'Chromevital.js',
@@ -54,7 +54,7 @@ const initialState = {
     },
     '5': {
       id: '5',
-      title: 'CardioDrive',
+      title: 'Vision CardioDrive',
       slug: 'cardio-drive',
       thumbText: 'Visapusė širdies sveikata',
       articleFile: 'CardioDrive.js',
@@ -63,7 +63,7 @@ const initialState = {
     },
     '6': {
       id: '6',
-      title: 'Mistik',
+      title: 'Vision Mistik (Mistikas)',
       slug: 'mistik',
       thumbText: 'Natūralūs ir nekenksmingi migdomieji, netolygaus miego ir naktinių košmarų šalinimas, miego kokybės gerinimas',
       articleFile: 'Mistik.js',
@@ -72,7 +72,7 @@ const initialState = {
     },
     '7': {
       id: '7',
-      title: 'Artemida+',
+      title: 'Vision Artemida+',
       slug: 'artemida',
       thumbText: 'Hormonų pusiausvyros ir menstruacinio ciklo normalizavimas, pagalba kritinėmis dienomis, libido didinimas',
       articleFile: 'Artemida.js',
@@ -81,7 +81,7 @@ const initialState = {
     },
     '8': {
       id: '8',
-      title: 'Medisoya+',
+      title: 'Vision Medisoya+',
       slug: 'medisoya',
       thumbText: 'Atitolina klimakso pradžią, palengvina jo simptomus, atkuria hormonų pusiausvyrą, padidina libido, apsaugo odą nuo senėjimo, neleidžia atsirasti osteoporozei',
       articleFile: 'Medisoya.js',
@@ -90,7 +90,7 @@ const initialState = {
     },
     '9': {
       id: '9',
-      title: 'Stalon Neo',
+      title: 'Vision Stalon Neo',
       slug: 'stalon-neo',
       thumbText: 'Pagalba esant potencijos sutrikimams',
       articleFile: 'StalonNeo.js',
@@ -99,7 +99,7 @@ const initialState = {
     },
     '10': {
       id: '10',
-      title: 'Lamin',
+      title: 'Vision Lamin',
       slug: 'lamin',
       thumbText: 'Vyrų energijos ir jėgų šaltinis',
       articleFile: 'Lamin.js',
@@ -108,7 +108,7 @@ const initialState = {
     },
     '11': {
       id: '11',
-      title: 'Artum',
+      title: 'Vision Artum',
       slug: 'artum',
       thumbText: 'Prostatos sveikata, vyriškos jaunystės šaltinis, mažina impotencijos riziką, normalizuoja hormonų lygį, užkerta kelią prostatos adenomai',
       articleFile: 'Artum.js',
@@ -117,7 +117,7 @@ const initialState = {
     },
     '12': {
       id: '12',
-      title: 'Ursul',
+      title: 'Vision Ursul (Ursulas)',
       slug: 'ursul',
       thumbText: 'Priešuždegiminė priemonė vyrams ir moterims, neleidžia augti ir daugintis patogeninėms bakterijoms, virusams, grybeliams, mažina lytiniu keliu plintančių ligų riziką',
       articleFile: 'Ursul.js',
@@ -126,7 +126,7 @@ const initialState = {
     },
     '13': {
       id: '13',
-      title: 'Cupers Neo',
+      title: 'Vision Cupers Neo',
       slug: 'cupers-neo',
       thumbText: 'Kepenų ląstelių apsauga, valymas ir atkūrimas, kepenų ir tulžies latakų ligų rizikos mažinimas, virškinimo sistemos normalizavimas',
       articleFile: 'CupersNeo.js',
@@ -135,7 +135,7 @@ const initialState = {
     },
     '14': {
       id: '14',
-      title: 'Junior Neo+',
+      title: 'Vision Junior Neo+',
       slug: 'junior-neo',
       thumbText: 'Geriausias vitaminų ir mineralų kompleksas vaikams, atitinka augančio, harmoningai besivystančio organizmo poreikius',
       articleFile: 'JuniorNeo.js',
@@ -144,7 +144,7 @@ const initialState = {
     },
     '15': {
       id: '15',
-      title: 'Junior Be Strong',
+      title: 'Vision Junior Be Strong',
       slug: 'junior-be-strong',
       thumbText: '',
       articleFile: 'JuniorBeStrong.js',
@@ -153,7 +153,7 @@ const initialState = {
     },
     '16': {
       id: '16',
-      title: 'Junior Be Smart',
+      title: 'Vision Junior Be Smart',
       slug: 'junior-be-smart',
       thumbText: 'Intelektinių gebėjimų padidinimas',
       articleFile: 'JuniorBeSmart.js',
@@ -162,7 +162,7 @@ const initialState = {
     },
     '17': {
       id: '17',
-      title: 'Junior Be Healthy',
+      title: 'Vision Junior Be Healthy',
       slug: 'junior-be-healthy',
       thumbText: '',
       articleFile: 'JuniorBeHealthy.js',
@@ -171,7 +171,7 @@ const initialState = {
     },
     '18': {
       id: '18',
-      title: 'Di Guard Nano',
+      title: 'Vision Di Guard Nano',
       slug: 'di-guard-nano',
       thumbText: 'Šalina sunkiuosius metalus ir toksinus, padeda apsaugoti nuo buitinės radiacijos, atkuria kepenų ląsteles, padeda apsinuodijus, suriša ir šalina alergenus, padeda įveikti pagirias',
       articleFile: 'DiGuardNano.js',
@@ -180,7 +180,7 @@ const initialState = {
     },
     '19': {
       id: '19',
-      title: 'VenoStrong',
+      title: 'Vision VenoStrong',
       slug: 'veno-strong',
       thumbText: 'Kova su lėtiniu venų nepakankamumu',
       articleFile: 'VenoStrong.js',
@@ -189,7 +189,7 @@ const initialState = {
     },
     '20': {
       id: '20',
-      title: 'EnjoyNT',
+      title: 'Vision EnjoyNT',
       slug: 'enjoy-nt',
       thumbText: 'Kompleksinė sąnarių apsauga – grąžina sąnariams judrumą ir lankstumą, padeda atstatyti pažeistą kremzlinį audinį sąnariuose ir stubure',
       articleFile: 'EnjoyNT.js',
@@ -198,7 +198,7 @@ const initialState = {
     },
     '21': {
       id: '21',
-      title: 'Lifepac Senior',
+      title: 'Vision Lifepac Senior',
       slug: 'lifepac-senior',
       thumbText: 'Vitaminų ir mineralų kompleksas su probiotikais',
       articleFile: 'LifepacSenior.js',
@@ -207,7 +207,7 @@ const initialState = {
     },
     '22': {
       id: '22',
-      title: 'OsteoSanum',
+      title: 'Vision OsteoSanum',
       slug: 'osteosanum',
       thumbText: 'Osteoporozės profilaktika, kaulų struktūros gerinimas, dantų, plaukų, nagų stiprinimas',
       articleFile: 'Osteosanum.js',
@@ -216,7 +216,7 @@ const initialState = {
     },
     '23': {
       id: '23',
-      title: 'Nutrimax+',
+      title: 'Vision Nutrimax+ (Nutrimaksas)',
       slug: 'nutrimax',
       thumbText: 'Slopina uždegimus, palaiko ir normalizuoja inkstų, šlapimo pūslės ir lytinės sistemos veiklą, padeda pašalinti smėlį iš inkstų ir šlapimtakių, taip pat neleidžia jiems susidaryti',
       articleFile: 'Nutrimax.js',
@@ -225,7 +225,7 @@ const initialState = {
     },
     '24': {
       id: '24',
-      title: 'Cheviton',
+      title: 'Vision Cheviton',
       slug: 'cheviton',
       thumbText: 'Išpuoselėti plaukai, stiprūs nagai, grožio vaistinėlė, vitaminų, amino rūgščių šaltinis',
       articleFile: 'Cheviton.js',
@@ -234,7 +234,7 @@ const initialState = {
     },
     '25': {
       id: '25',
-      title: 'Junior Be Big',
+      title: 'Vision Junior Be Big',
       slug: 'junior-be-big',
       thumbText: 'Kalcio šaltinis vaiko kaulams ir dantims stiprinti aktyvaus augimo laikotarpiu',
       articleFile: 'JuniorBeBig.js',
@@ -243,7 +243,7 @@ const initialState = {
     },
     '26': {
       id: '26',
-      title: 'Nortia',
+      title: 'Vision Nortia',
       slug: 'nortia',
       thumbText: 'Moters sveikatos harmonija, psichoemocinis stabilimas, skydliaukės funkcijos normalizavimas, širdies ritmo, vainikinių širdies arterijų kraujotakos gerinimas',
       articleFile: 'Nortia.js',

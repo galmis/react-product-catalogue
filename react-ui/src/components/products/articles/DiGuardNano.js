@@ -8,7 +8,7 @@ const DiGuardNano = () => {
       <p>Kiekvieną dieną į mūsų organizmą patenka daug įvairių toksinų, sunkiųjų metalų dalelių. Žinoma, mūsų organizmas gauna ir maistingųjų medžiagų, tačiau statistikos duomenys nedžiugina: iki 70 proc. žalingų, toksinių ir radioaktyviųjų dalelių kasdien ardo mūsų ląsteles, o tai sukelia sunkias ligas. Ir tas skaičius tik didės.</p>
       <p>Tokie civilizacijos laimėjimai, kaip mikrobangų krosnelės, elektromagnetinis, &scaron;viesos ir radijo dažnių spinduliavimas, biuro ir buitinė technika, kompiuteriai, radijo ir mobilieji telefonai, elektros linijos, transformatoriai, generatoriai...Mus supantys daiktai naikina ląstelių tarpusavio ry&scaron;ius organizme ir kelia mums pavojų.</p>
       <p>Unikalus produktas <strong>Di Guard nano &ndash; </strong>tikra revoliucija valant organizmą ląstelių lygmeniu.</p>
-      <p>Turėdamas savo sudėtyje galingą augalinių maistinių medžiagų derinį, kompleksas <strong>Di Guard nano </strong>sistemingai valo organizmą, užtikrindamas neįkainojamą pagalbą organizmo detoksikacijos ir atliekų &scaron;alinimo sistemoms. <strong>Di Guard nano </strong>sustabdo uždegimą, stimuliuodamas vir&scaron;kinimo trakto veiklą padeda i&scaron;valyti vir&scaron;kinimo sistemą, padeda i&scaron;saugoti sveiką mikroflorą žarnyne, &scaron;alina toksinus, pesticidus, alergenus ir sunkiuosius metalus bei stiprina imunitetą, mažina neigiamų aplinkos veiksnių, įskaitant padidėjusią radiaciją, poveikį.</p>
+      <p>Turėdamas savo sudėtyje galingą augalinių maistinių medžiagų derinį, Vision kompleksas <strong>Di Guard nano </strong>sistemingai valo organizmą, užtikrindamas neįkainojamą pagalbą organizmo detoksikacijos ir atliekų &scaron;alinimo sistemoms. <strong>Di Guard nano </strong>sustabdo uždegimą, stimuliuodamas vir&scaron;kinimo trakto veiklą padeda i&scaron;valyti vir&scaron;kinimo sistemą, padeda i&scaron;saugoti sveiką mikroflorą žarnyne, &scaron;alina toksinus, pesticidus, alergenus ir sunkiuosius metalus bei stiprina imunitetą, mažina neigiamų aplinkos veiksnių, įskaitant padidėjusią radiaciją, poveikį.</p>
       <p><strong>Di Guard nano </strong>sudėtyje yra pagrindinės sudedamosios dalys, apsaugančios organizmą nuo toksinų ir radiacijos pasekmių &ndash; mikrodumblis chlorelė ir figavaisė opuncija.</p>
       <p>Kiekviena chlorelės ląstelė tarnauja mūsų sveikatai. Tvirtos mikrodumblių sienelės padeda pa&scaron;alinti i&scaron; organizmo ne tik toksines medžiagas, bet ir sunkiuosius metalus bei pesticidus. Taip pat gerina žarnyno funkciją ir stimuliuoja naudingų bakterijų augimą.</p>
       <p>Kita chlorelės sudedamoji dalis &ndash; pigmentas chlorofilas, kuris teigiamai veikia vir&scaron;kinimo sistemą, normalizuoja reikalingų vir&scaron;kinimo sulčių i&scaron;siskyrimą, padidindamas peristaltikos aktyvumą ir slopindamas uždegimą.</p>
@@ -38,7 +38,7 @@ const DiGuardNano = () => {
           <li>Padeda įveikti pagirias.</li>
         </ul>
 
-        <strong>Kas turėtų vartoti Di guard nano?</strong> <p></p>
+        <strong>Kas turėtų vartoti Vision Di guard nano papildą?</strong> <p></p>
         <ul className="list-featured">
           <li>Visi žmonės, kurie nori profilaktškai išvalyti organizmą nuo kenksmingų toksinų ir sunkiųjų metalų ( ne mažiau kaip du kartus per metus arba nuolat).</li>
           <li>Žmonės, kurių imunitetas yra nusilpęs ir kurie serga alerginėmis ligomis.</li>
