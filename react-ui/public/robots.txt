@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bukitesveiki.lt/sitemap.xml
